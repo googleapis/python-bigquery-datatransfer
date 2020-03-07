@@ -1084,10 +1084,10 @@ TransferConfig = _reflection.GeneratedProtocolMessageType(
     dict(
         DESCRIPTOR=_TRANSFERCONFIG,
         __module__="google.cloud.bigquery.datatransfer_v1.proto.transfer_pb2",
-        __doc__="""Represents a data transfer configuration. A transfer
-  configuration contains all metadata needed to perform a data transfer.
-  For example, ``destination_dataset_id`` specifies where data should be
-  stored. When a new transfer configuration is created, the specified
+        __doc__="""Represents a data transfer configuration. A transfer configuration
+  contains all metadata needed to perform a data transfer. For example,
+  ``destination_dataset_id`` specifies where data should be stored. When a
+  new transfer configuration is created, the specified
   ``destination_dataset_id`` is created when needed and shared with the
   appropriate data source service account.
   
