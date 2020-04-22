@@ -21,10 +21,13 @@ import enum
 
 class NullValue(enum.IntEnum):
     """
-    ``NullValue`` is a singleton enumeration to represent the null value for
-    the ``Value`` type union.
+    An indicator of the behavior of a given field (for example, that a
+    field is required in requests, or given as output but ignored as input).
+    This **does not** change the behavior in protocol buffers itself; it
+    only denotes the behavior and may affect how API tooling handles the
+    field.
 
-    The JSON representation for ``NullValue`` is JSON ``null``.
+    Note: This enum **may** receive new values in the future.
 
     Attributes:
       NULL_VALUE (int): Null value.

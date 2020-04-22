@@ -325,9 +325,37 @@ class DataTransferServiceClient(object):
             >>> response = client.get_data_source(name)
 
         Args:
-            name (str): Required. The field will contain name of the resource requested, for
-                example: ``projects/{project_id}/dataSources/{data_source_id}`` or
-                ``projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}``
+            name (str): Protocol Buffers - Google's data interchange format Copyright 2008
+                Google Inc. All rights reserved.
+                https://developers.google.com/protocol-buffers/
+
+                Redistribution and use in source and binary forms, with or without
+                modification, are permitted provided that the following conditions are
+                met:
+
+                ::
+
+                    * Redistributions of source code must retain the above copyright
+
+                notice, this list of conditions and the following disclaimer. \*
+                Redistributions in binary form must reproduce the above copyright
+                notice, this list of conditions and the following disclaimer in the
+                documentation and/or other materials provided with the distribution. \*
+                Neither the name of Google Inc. nor the names of its contributors may be
+                used to endorse or promote products derived from this software without
+                specific prior written permission.
+
+                THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+                IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+                TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+                PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+                OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+                EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+                PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+                PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+                LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+                NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+                SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -410,9 +438,12 @@ class DataTransferServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. The BigQuery project id for which data sources should be
-                returned. Must be in the form: ``projects/{project_id}`` or
-                \`projects/{project\_id}/locations/{location\_id}
+            parent (str): Optional version info. If users want to find a very recent access
+                token, that is, immediately after approving access, users have to set
+                the version_info claim in the token request. To obtain the version_info,
+                users must use the "none+gsession" response type. which be return a
+                version_info back in the authorization response which be be put in a JWT
+                claim in the token request.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -509,38 +540,43 @@ class DataTransferServiceClient(object):
             >>> response = client.create_transfer_config(parent, transfer_config)
 
         Args:
-            parent (str): Required. The BigQuery project id where the transfer configuration
-                should be created. Must be in the format
-                projects/{project\_id}/locations/{location\_id} or
-                projects/{project\_id}. If specified location and location of the
-                destination bigquery dataset do not match - the request will fail.
+            parent (str): Wrapper message for ``uint64``.
+
+                The JSON representation for ``UInt64Value`` is JSON string.
             transfer_config (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.TransferConfig]): Required. Data transfer configuration to create.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.bigquery_datatransfer_v1.types.TransferConfig`
-            authorization_code (str): Optional OAuth2 authorization code to use with this transfer
-                configuration. This is required if new credentials are needed, as
-                indicated by ``CheckValidCreds``. In order to obtain
-                authorization\_code, please make a request to
-                https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client\_id=&scope=<data\_source\_scopes>&redirect\_uri=<redirect\_uri>
+            authorization_code (str): Should this field be parsed lazily? Lazy applies only to
+                message-type fields. It means that when the outer message is initially
+                parsed, the inner message's contents will not be parsed but instead
+                stored in encoded form. The inner message will actually be parsed when
+                it is first accessed.
 
-                -  client\_id should be OAuth client\_id of BigQuery DTS API for the
-                   given data source returned by ListDataSources method.
-                -  data\_source\_scopes are the scopes returned by ListDataSources
-                   method.
-                -  redirect\_uri is an optional parameter. If not specified, then
-                   authorization code is posted to the opener of authorization flow
-                   window. Otherwise it will be sent to the redirect uri. A special
-                   value of urn:ietf:wg:oauth:2.0:oob means that authorization code
-                   should be returned in the title bar of the browser, with the page
-                   text prompting the user to copy the code and paste it in the
-                   application.
-            version_info (str): Optional version info. If users want to find a very recent access token,
-                that is, immediately after approving access, users have to set the
-                version\_info claim in the token request. To obtain the version\_info,
-                users must use the "none+gsession" response type. which be return a
-                version\_info back in the authorization response which be be put in a
-                JWT claim in the token request.
+                This is only a hint. Implementations are free to choose whether to use
+                eager or lazy parsing regardless of the value of this option. However,
+                setting this option true suggests that the protocol author believes that
+                using lazy parsing on this field is worth the additional bookkeeping
+                overhead typically needed to implement it.
+
+                This option does not affect the public interface of any generated code;
+                all method signatures remain the same. Furthermore, thread-safety of the
+                interface is not affected by this option; const methods remain safe to
+                call from multiple threads concurrently, while non-const methods
+                continue to require exclusive access.
+
+                Note that implementations may choose not to check required fields within
+                a lazy sub-message. That is, calling IsInitialized() on the outer
+                message may return true even if the inner message has missing required
+                fields. This is necessary because otherwise the inner message would have
+                to be parsed in order to perform the check, defeating the purpose of
+                lazy parsing. An implementation which chooses not to check required
+                fields must be consistent about it. That is, for any particular
+                sub-message, the implementation must either *always* check its required
+                fields, or *never* check its required fields, regardless of whether or
+                not the message has been parsed.
+            version_info (str): Specific run_time for a transfer run to be started. The
+                requested_run_time must not be in the future.
             service_account_name (str): Optional service account name. If this field is set, transfer config will
                 be created with this service account credentials. It requires that
                 requesting user calling this API has permissions to act as this service
@@ -636,34 +672,12 @@ class DataTransferServiceClient(object):
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.bigquery_datatransfer_v1.types.FieldMask`
-            authorization_code (str): Optional OAuth2 authorization code to use with this transfer
-                configuration. If it is provided, the transfer configuration will be
-                associated with the authorizing user. In order to obtain
-                authorization\_code, please make a request to
-                https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client\_id=&scope=<data\_source\_scopes>&redirect\_uri=<redirect\_uri>
-
-                -  client\_id should be OAuth client\_id of BigQuery DTS API for the
-                   given data source returned by ListDataSources method.
-                -  data\_source\_scopes are the scopes returned by ListDataSources
-                   method.
-                -  redirect\_uri is an optional parameter. If not specified, then
-                   authorization code is posted to the opener of authorization flow
-                   window. Otherwise it will be sent to the redirect uri. A special
-                   value of urn:ietf:wg:oauth:2.0:oob means that authorization code
-                   should be returned in the title bar of the browser, with the page
-                   text prompting the user to copy the code and paste it in the
-                   application.
-            version_info (str): Optional version info. If users want to find a very recent access token,
-                that is, immediately after approving access, users have to set the
-                version\_info claim in the token request. To obtain the version\_info,
-                users must use the "none+gsession" response type. which be return a
-                version\_info back in the authorization response which be be put in a
-                JWT claim in the token request.
-            service_account_name (str): Optional service account name. If this field is set and
-                "service\_account\_name" is set in update\_mask, transfer config will be
-                updated to use this service account credentials. It requires that
-                requesting user calling this API has permissions to act as this service
-                account.
+            authorization_code (str): For extensions, this is the name of the type being extended. It is
+                resolved in the same manner as type_name.
+            version_info (str): An annotation that describes a resource definition, see
+                ``ResourceDescriptor``.
+            service_account_name (str): Required. End time of the range of transfer runs. For example,
+                ``"2017-05-30T00:00:00+00:00"``.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -739,9 +753,10 @@ class DataTransferServiceClient(object):
             >>> client.delete_transfer_config(name)
 
         Args:
-            name (str): Required. The field will contain name of the resource requested, for
-                example: ``projects/{project_id}/transferConfigs/{config_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``
+            name (str): Required. Name of transfer configuration for which transfer runs
+                should be retrieved. Format of transfer configuration resource name is:
+                ``projects/{project_id}/transferConfigs/{config_id}`` or
+                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -807,9 +822,17 @@ class DataTransferServiceClient(object):
             >>> response = client.get_transfer_config(name)
 
         Args:
-            name (str): Required. The field will contain name of the resource requested, for
-                example: ``projects/{project_id}/transferConfigs/{config_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``
+            name (str): A generic empty message that you can re-use to avoid defining
+                duplicated empty messages in your APIs. A typical example is to use it
+                as the request or the response type of an API method. For instance:
+
+                ::
+
+                    service Foo {
+                      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+                    }
+
+                The JSON representation for ``Empty`` is empty JSON object ``{}``.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -892,9 +915,99 @@ class DataTransferServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. The BigQuery project id for which data sources should be
-                returned: ``projects/{project_id}`` or
-                ``projects/{project_id}/locations/{location_id}``
+            parent (str): A Timestamp represents a point in time independent of any time zone
+                or local calendar, encoded as a count of seconds and fractions of
+                seconds at nanosecond resolution. The count is relative to an epoch at
+                UTC midnight on January 1, 1970, in the proleptic Gregorian calendar
+                which extends the Gregorian calendar backwards to year one.
+
+                All minutes are 60 seconds long. Leap seconds are "smeared" so that no
+                leap second table is needed for interpretation, using a `24-hour linear
+                smear <https://developers.google.com/time/smear>`__.
+
+                The range is from 0001-01-01T00:00:00Z to
+                9999-12-31T23:59:59.999999999Z. By restricting to that range, we ensure
+                that we can convert to and from `RFC
+                3339 <https://www.ietf.org/rfc/rfc3339.txt>`__ date strings.
+
+                # Examples
+
+                Example 1: Compute Timestamp from POSIX ``time()``.
+
+                ::
+
+                    Timestamp timestamp;
+                    timestamp.set_seconds(time(NULL));
+                    timestamp.set_nanos(0);
+
+                Example 2: Compute Timestamp from POSIX ``gettimeofday()``.
+
+                ::
+
+                    struct timeval tv;
+                    gettimeofday(&tv, NULL);
+
+                    Timestamp timestamp;
+                    timestamp.set_seconds(tv.tv_sec);
+                    timestamp.set_nanos(tv.tv_usec * 1000);
+
+                Example 3: Compute Timestamp from Win32 ``GetSystemTimeAsFileTime()``.
+
+                ::
+
+                    FILETIME ft;
+                    GetSystemTimeAsFileTime(&ft);
+                    UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+                    // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+                    // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+                    Timestamp timestamp;
+                    timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+                    timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+                Example 4: Compute Timestamp from Java ``System.currentTimeMillis()``.
+
+                ::
+
+                    long millis = System.currentTimeMillis();
+
+                    Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+                        .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+                Example 5: Compute Timestamp from current time in Python.
+
+                ::
+
+                    timestamp = Timestamp()
+                    timestamp.GetCurrentTime()
+
+                # JSON Mapping
+
+                In JSON format, the Timestamp type is encoded as a string in the `RFC
+                3339 <https://www.ietf.org/rfc/rfc3339.txt>`__ format. That is, the
+                format is "{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z" where
+                {year} is always expressed using four digits while {month}, {day},
+                {hour}, {min}, and {sec} are zero-padded to two digits each. The
+                fractional seconds, which can go up to 9 digits (i.e. up to 1 nanosecond
+                resolution), are optional. The "Z" suffix indicates the timezone
+                ("UTC"); the timezone is required. A proto3 JSON serializer should
+                always use UTC (as indicated by "Z") when printing the Timestamp type
+                and a proto3 JSON parser should be able to accept both UTC and other
+                timezones (as indicated by an offset).
+
+                For example, "2017-01-15T01:30:15.01Z" encodes 15.01 seconds past 01:30
+                UTC on January 15, 2017.
+
+                In JavaScript, one can convert a Date object to this format using the
+                standard
+                `toISOString() <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString>`__
+                method. In Python, a standard ``datetime.datetime`` object can be
+                converted to this format using
+                ```strftime`` <https://docs.python.org/2/library/time.html#time.strftime>`__
+                with the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java,
+                one can use the Joda Time's
+                ```ISODateTimeFormat.dateTime()`` <http://www.joda.org/joda-time/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime%2D%2D>`__
+                to obtain a formatter capable of generating timestamps in this format.
             data_source_ids (list[str]): When specified, only configurations of requested data sources are returned.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
@@ -975,10 +1088,8 @@ class DataTransferServiceClient(object):
         metadata=None,
     ):
         """
-        Creates transfer runs for a time range [start\_time, end\_time]. For
-        each date - or whatever granularity the data source supports - in the
-        range, one transfer run is created. Note that runs are created per UTC
-        time in the time range. DEPRECATED: use StartManualTransferRuns instead.
+        An annotation that describes a resource reference, see
+        ``ResourceReference``.
 
         Example:
             >>> from google.cloud import bigquery_datatransfer_v1
@@ -996,16 +1107,239 @@ class DataTransferServiceClient(object):
             >>> response = client.schedule_transfer_runs(parent, start_time, end_time)
 
         Args:
-            parent (str): Required. Transfer configuration name in the form:
-                ``projects/{project_id}/transferConfigs/{config_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``.
-            start_time (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.Timestamp]): Required. Start time of the range of transfer runs. For example,
-                ``"2017-05-25T00:00:00+00:00"``.
+            parent (str): Pagination token, which can be used to request a specific page of
+                ``ListTransferLogsRequest`` list results. For multiple-page results,
+                ``ListTransferLogsResponse`` outputs a ``next_page`` token, which can be
+                used as the ``page_token`` value to request the next page of list
+                results.
+            start_time (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.Timestamp]): ``FieldMask`` represents a set of symbolic field paths, for example:
+
+                ::
+
+                    paths: "f.a"
+                    paths: "f.b.d"
+
+                Here ``f`` represents a field in some root message, ``a`` and ``b``
+                fields in the message found in ``f``, and ``d`` a field found in the
+                message in ``f.b``.
+
+                Field masks are used to specify a subset of fields that should be
+                returned by a get operation or modified by an update operation. Field
+                masks also have a custom JSON encoding (see below).
+
+                # Field Masks in Projections
+
+                When used in the context of a projection, a response message or
+                sub-message is filtered by the API to only contain those fields as
+                specified in the mask. For example, if the mask in the previous example
+                is applied to a response message as follows:
+
+                ::
+
+                    f {
+                      a : 22
+                      b {
+                        d : 1
+                        x : 2
+                      }
+                      y : 13
+                    }
+                    z: 8
+
+                The result will not contain specific values for fields x,y and z (their
+                value will be set to the default, and omitted in proto text output):
+
+                ::
+
+                    f {
+                      a : 22
+                      b {
+                        d : 1
+                      }
+                    }
+
+                A repeated field is not allowed except at the last position of a paths
+                string.
+
+                If a FieldMask object is not present in a get operation, the operation
+                applies to all fields (as if a FieldMask of all fields had been
+                specified).
+
+                Note that a field mask does not necessarily apply to the top-level
+                response message. In case of a REST get operation, the field mask
+                applies directly to the response, but in case of a REST list operation,
+                the mask instead applies to each individual message in the returned
+                resource list. In case of a REST custom method, other definitions may be
+                used. Where the mask applies will be clearly documented together with
+                its declaration in the API. In any case, the effect on the returned
+                resource/resources is required behavior for APIs.
+
+                # Field Masks in Update Operations
+
+                A field mask in update operations specifies which fields of the targeted
+                resource are going to be updated. The API is required to only change the
+                values of the fields as specified in the mask and leave the others
+                untouched. If a resource is passed in to describe the updated values,
+                the API ignores the values of all fields not covered by the mask.
+
+                If a repeated field is specified for an update operation, new values
+                will be appended to the existing repeated field in the target resource.
+                Note that a repeated field is only allowed in the last position of a
+                ``paths`` string.
+
+                If a sub-message is specified in the last position of the field mask for
+                an update operation, then new value will be merged into the existing
+                sub-message in the target resource.
+
+                For example, given the target message:
+
+                ::
+
+                    f {
+                      b {
+                        d: 1
+                        x: 2
+                      }
+                      c: [1]
+                    }
+
+                And an update message:
+
+                ::
+
+                    f {
+                      b {
+                        d: 10
+                      }
+                      c: [2]
+                    }
+
+                then if the field mask is:
+
+                paths: ["f.b", "f.c"]
+
+                then the result will be:
+
+                ::
+
+                    f {
+                      b {
+                        d: 10
+                        x: 2
+                      }
+                      c: [1, 2]
+                    }
+
+                An implementation may provide options to override this default behavior
+                for repeated and message fields.
+
+                In order to reset a field's value to the default, the field must be in
+                the mask and set to the default value in the provided resource. Hence,
+                in order to reset all fields of a resource, provide a default instance
+                of the resource and set all fields in the mask, or do not provide a mask
+                as described below.
+
+                If a field mask is not present on update, the operation applies to all
+                fields (as if a field mask of all fields has been specified). Note that
+                in the presence of schema evolution, this may mean that fields the
+                client does not know and has therefore not filled into the request will
+                be reset to their default. If this is unwanted behavior, a specific
+                service may require a client to always specify a field mask, producing
+                an error if not.
+
+                As with get operations, the location of the resource which describes the
+                updated values in the request message depends on the operation kind. In
+                any case, the effect of the field mask is required to be honored by the
+                API.
+
+                ## Considerations for HTTP REST
+
+                The HTTP kind of an update operation which uses a field mask must be set
+                to PATCH instead of PUT in order to satisfy HTTP semantics (PUT must
+                only be used for full updates).
+
+                # JSON Encoding of Field Masks
+
+                In JSON, a field mask is encoded as a single string where paths are
+                separated by a comma. Fields name in each path are converted to/from
+                lower-camel naming conventions.
+
+                As an example, consider the following message declarations:
+
+                ::
+
+                    message Profile {
+                      User user = 1;
+                      Photo photo = 2;
+                    }
+                    message User {
+                      string display_name = 1;
+                      string address = 2;
+                    }
+
+                In proto a field mask for ``Profile`` may look as such:
+
+                ::
+
+                    mask {
+                      paths: "user.display_name"
+                      paths: "photo"
+                    }
+
+                In JSON, the same mask is represented as below:
+
+                ::
+
+                    {
+                      mask: "user.displayName,photo"
+                    }
+
+                # Field Masks and Oneof Fields
+
+                Field masks treat fields in oneofs just as regular fields. Consider the
+                following message:
+
+                ::
+
+                    message SampleMessage {
+                      oneof test_oneof {
+                        string name = 4;
+                        SubMessage sub_message = 9;
+                      }
+                    }
+
+                The field mask can be:
+
+                ::
+
+                    mask {
+                      paths: "name"
+                    }
+
+                Or:
+
+                ::
+
+                    mask {
+                      paths: "sub_message"
+                    }
+
+                Note that oneof type names ("test_oneof" in this case) cannot be used in
+                paths.
+
+                ## Field Mask Verification
+
+                The implementation of any API method which has a FieldMask type field in
+                the request should verify the included field paths, and return an
+                ``INVALID_ARGUMENT`` error if any path is unmappable.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.bigquery_datatransfer_v1.types.Timestamp`
-            end_time (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.Timestamp]): Required. End time of the range of transfer runs. For example,
-                ``"2017-05-30T00:00:00+00:00"``.
+            end_time (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.Timestamp]): Optional service account name. If this field is set and
+                "service_account_name" is set in update_mask, transfer config will be
+                updated to use this service account credentials. It requires that
+                requesting user calling this API has permissions to act as this service
+                account.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.bigquery_datatransfer_v1.types.Timestamp`
@@ -1069,10 +1403,9 @@ class DataTransferServiceClient(object):
         metadata=None,
     ):
         """
-        Start manual transfer runs to be executed now with schedule\_time equal
-        to current time. The transfer runs can be created for a time range where
-        the run\_time is between start\_time (inclusive) and end\_time
-        (exclusive), or for a specific run\_time.
+        If type_name is set, this need not be set. If both this and
+        type_name are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or
+        TYPE_GROUP.
 
         Example:
             >>> from google.cloud import bigquery_datatransfer_v1
@@ -1082,15 +1415,29 @@ class DataTransferServiceClient(object):
             >>> response = client.start_manual_transfer_runs()
 
         Args:
-            parent (str): Transfer configuration name in the form:
-                ``projects/{project_id}/transferConfigs/{config_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``.
+            parent (str): Optional OAuth2 authorization code to use with this transfer
+                configuration. If it is provided, the transfer configuration will be
+                associated with the authorizing user. In order to obtain
+                authorization_code, please make a request to
+                https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=<data_source_scopes>&redirect_uri=<redirect_uri>
+
+                -  client_id should be OAuth client_id of BigQuery DTS API for the given
+                   data source returned by ListDataSources method.
+                -  data_source_scopes are the scopes returned by ListDataSources method.
+                -  redirect_uri is an optional parameter. If not specified, then
+                   authorization code is posted to the opener of authorization flow
+                   window. Otherwise it will be sent to the redirect uri. A special
+                   value of urn:ietf:wg:oauth:2.0:oob means that authorization code
+                   should be returned in the title bar of the browser, with the page
+                   text prompting the user to copy the code and paste it in the
+                   application.
             requested_time_range (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.TimeRange]): Time range for the transfer runs that should be started.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.bigquery_datatransfer_v1.types.TimeRange`
-            requested_run_time (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.Timestamp]): Specific run\_time for a transfer run to be started. The
-                requested\_run\_time must not be in the future.
+            requested_run_time (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.Timestamp]): Denotes a field as required. This indicates that the field **must**
+                be provided as part of the request, and failure to do so will cause an
+                error (usually ``INVALID_ARGUMENT``).
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.bigquery_datatransfer_v1.types.Timestamp`
@@ -1173,10 +1520,127 @@ class DataTransferServiceClient(object):
             >>> response = client.get_transfer_run(name)
 
         Args:
-            name (str): Required. The field will contain name of the resource requested, for
-                example:
-                ``projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}``
+            name (str): A simple descriptor of a resource type.
+
+                ResourceDescriptor annotates a resource message (either by means of a
+                protobuf annotation or use in the service config), and associates the
+                resource's schema, the resource type, and the pattern of the resource
+                name.
+
+                Example:
+
+                ::
+
+                    message Topic {
+                      // Indicates this message defines a resource schema.
+                      // Declares the resource type in the format of {service}/{kind}.
+                      // For Kubernetes resources, the format is {api group}/{kind}.
+                      option (google.api.resource) = {
+                        type: "pubsub.googleapis.com/Topic"
+                        name_descriptor: {
+                          pattern: "projects/{project}/topics/{topic}"
+                          parent_type: "cloudresourcemanager.googleapis.com/Project"
+                          parent_name_extractor: "projects/{project}"
+                        }
+                      };
+                    }
+
+                The ResourceDescriptor Yaml config will look like:
+
+                ::
+
+                    resources:
+                    - type: "pubsub.googleapis.com/Topic"
+                      name_descriptor:
+                        - pattern: "projects/{project}/topics/{topic}"
+                          parent_type: "cloudresourcemanager.googleapis.com/Project"
+                          parent_name_extractor: "projects/{project}"
+
+                Sometimes, resources have multiple patterns, typically because they can
+                live under multiple parents.
+
+                Example:
+
+                ::
+
+                    message LogEntry {
+                      option (google.api.resource) = {
+                        type: "logging.googleapis.com/LogEntry"
+                        name_descriptor: {
+                          pattern: "projects/{project}/logs/{log}"
+                          parent_type: "cloudresourcemanager.googleapis.com/Project"
+                          parent_name_extractor: "projects/{project}"
+                        }
+                        name_descriptor: {
+                          pattern: "folders/{folder}/logs/{log}"
+                          parent_type: "cloudresourcemanager.googleapis.com/Folder"
+                          parent_name_extractor: "folders/{folder}"
+                        }
+                        name_descriptor: {
+                          pattern: "organizations/{organization}/logs/{log}"
+                          parent_type: "cloudresourcemanager.googleapis.com/Organization"
+                          parent_name_extractor: "organizations/{organization}"
+                        }
+                        name_descriptor: {
+                          pattern: "billingAccounts/{billing_account}/logs/{log}"
+                          parent_type: "billing.googleapis.com/BillingAccount"
+                          parent_name_extractor: "billingAccounts/{billing_account}"
+                        }
+                      };
+                    }
+
+                The ResourceDescriptor Yaml config will look like:
+
+                ::
+
+                    resources:
+                    - type: 'logging.googleapis.com/LogEntry'
+                      name_descriptor:
+                        - pattern: "projects/{project}/logs/{log}"
+                          parent_type: "cloudresourcemanager.googleapis.com/Project"
+                          parent_name_extractor: "projects/{project}"
+                        - pattern: "folders/{folder}/logs/{log}"
+                          parent_type: "cloudresourcemanager.googleapis.com/Folder"
+                          parent_name_extractor: "folders/{folder}"
+                        - pattern: "organizations/{organization}/logs/{log}"
+                          parent_type: "cloudresourcemanager.googleapis.com/Organization"
+                          parent_name_extractor: "organizations/{organization}"
+                        - pattern: "billingAccounts/{billing_account}/logs/{log}"
+                          parent_type: "billing.googleapis.com/BillingAccount"
+                          parent_name_extractor: "billingAccounts/{billing_account}"
+
+                For flexible resources, the resource name doesn't contain parent names,
+                but the resource itself has parents for policy evaluation.
+
+                Example:
+
+                ::
+
+                    message Shelf {
+                      option (google.api.resource) = {
+                        type: "library.googleapis.com/Shelf"
+                        name_descriptor: {
+                          pattern: "shelves/{shelf}"
+                          parent_type: "cloudresourcemanager.googleapis.com/Project"
+                        }
+                        name_descriptor: {
+                          pattern: "shelves/{shelf}"
+                          parent_type: "cloudresourcemanager.googleapis.com/Folder"
+                        }
+                      };
+                    }
+
+                The ResourceDescriptor Yaml config will look like:
+
+                ::
+
+                    resources:
+                    - type: 'library.googleapis.com/Shelf'
+                      name_descriptor:
+                        - pattern: "shelves/{shelf}"
+                          parent_type: "cloudresourcemanager.googleapis.com/Project"
+                        - pattern: "shelves/{shelf}"
+                          parent_type: "cloudresourcemanager.googleapis.com/Folder"
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -1245,10 +1709,37 @@ class DataTransferServiceClient(object):
             >>> client.delete_transfer_run(name)
 
         Args:
-            name (str): Required. The field will contain name of the resource requested, for
-                example:
-                ``projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}``
+            name (str): Protocol Buffers - Google's data interchange format Copyright 2008
+                Google Inc. All rights reserved.
+                https://developers.google.com/protocol-buffers/
+
+                Redistribution and use in source and binary forms, with or without
+                modification, are permitted provided that the following conditions are
+                met:
+
+                ::
+
+                    * Redistributions of source code must retain the above copyright
+
+                notice, this list of conditions and the following disclaimer. \*
+                Redistributions in binary form must reproduce the above copyright
+                notice, this list of conditions and the following disclaimer in the
+                documentation and/or other materials provided with the distribution. \*
+                Neither the name of Google Inc. nor the names of its contributors may be
+                used to endorse or promote products derived from this software without
+                specific prior written permission.
+
+                THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+                IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+                TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+                PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+                OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+                EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+                PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+                PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+                LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+                NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+                SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -1329,10 +1820,10 @@ class DataTransferServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. Name of transfer configuration for which transfer runs should
-                be retrieved. Format of transfer configuration resource name is:
-                ``projects/{project_id}/transferConfigs/{config_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``.
+            parent (str): JSON name of this field. The value is set by protocol compiler. If
+                the user has set a "json_name" option on this field, that option's value
+                will be used. Otherwise, it's deduced from the field's name by
+                converting it to camelCase.
             states (list[~google.cloud.bigquery_datatransfer_v1.types.TransferState]): When specified, only transfer runs with requested states are returned.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
@@ -1438,9 +1929,9 @@ class DataTransferServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. Transfer run name in the form:
-                ``projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}``
+            parent (str): The resource has one pattern, but the API owner expects to add more
+                later. (This is the inverse of ORIGINALLY_SINGLE_PATTERN, and prevents
+                that from being necessary once there are multiple patterns.)
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -1537,9 +2028,37 @@ class DataTransferServiceClient(object):
             >>> response = client.check_valid_creds(name)
 
         Args:
-            name (str): Required. The data source in the form:
-                ``projects/{project_id}/dataSources/{data_source_id}`` or
-                ``projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}``.
+            name (str): Protocol Buffers - Google's data interchange format Copyright 2008
+                Google Inc. All rights reserved.
+                https://developers.google.com/protocol-buffers/
+
+                Redistribution and use in source and binary forms, with or without
+                modification, are permitted provided that the following conditions are
+                met:
+
+                ::
+
+                    * Redistributions of source code must retain the above copyright
+
+                notice, this list of conditions and the following disclaimer. \*
+                Redistributions in binary form must reproduce the above copyright
+                notice, this list of conditions and the following disclaimer in the
+                documentation and/or other materials provided with the distribution. \*
+                Neither the name of Google Inc. nor the names of its contributors may be
+                used to endorse or promote products derived from this software without
+                specific prior written permission.
+
+                THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+                IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+                TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+                PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+                OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+                EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+                PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+                PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+                LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+                NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+                SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
