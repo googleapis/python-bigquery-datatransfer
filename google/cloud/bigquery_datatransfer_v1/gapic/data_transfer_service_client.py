@@ -412,7 +412,7 @@ class DataTransferServiceClient(object):
         Args:
             parent (str): Required. The BigQuery project id for which data sources should be
                 returned. Must be in the form: ``projects/{project_id}`` or
-                \`projects/{project\_id}/locations/{location\_id}
+                \`projects/{project_id}/locations/{location_id}
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -511,36 +511,35 @@ class DataTransferServiceClient(object):
         Args:
             parent (str): Required. The BigQuery project id where the transfer configuration
                 should be created. Must be in the format
-                projects/{project\_id}/locations/{location\_id} or
-                projects/{project\_id}. If specified location and location of the
-                destination bigquery dataset do not match - the request will fail.
+                projects/{project_id}/locations/{location_id} or projects/{project_id}.
+                If specified location and location of the destination bigquery dataset
+                do not match - the request will fail.
             transfer_config (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.TransferConfig]): Required. Data transfer configuration to create.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.bigquery_datatransfer_v1.types.TransferConfig`
             authorization_code (str): Optional OAuth2 authorization code to use with this transfer
                 configuration. This is required if new credentials are needed, as
-                indicated by ``CheckValidCreds``. In order to obtain
-                authorization\_code, please make a request to
-                https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client\_id=&scope=<data\_source\_scopes>&redirect\_uri=<redirect\_uri>
+                indicated by ``CheckValidCreds``. In order to obtain authorization_code,
+                please make a request to
+                https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=<data_source_scopes>&redirect_uri=<redirect_uri>
 
-                -  client\_id should be OAuth client\_id of BigQuery DTS API for the
-                   given data source returned by ListDataSources method.
-                -  data\_source\_scopes are the scopes returned by ListDataSources
-                   method.
-                -  redirect\_uri is an optional parameter. If not specified, then
+                -  client_id should be OAuth client_id of BigQuery DTS API for the given
+                   data source returned by ListDataSources method.
+                -  data_source_scopes are the scopes returned by ListDataSources method.
+                -  redirect_uri is an optional parameter. If not specified, then
                    authorization code is posted to the opener of authorization flow
                    window. Otherwise it will be sent to the redirect uri. A special
                    value of urn:ietf:wg:oauth:2.0:oob means that authorization code
                    should be returned in the title bar of the browser, with the page
                    text prompting the user to copy the code and paste it in the
                    application.
-            version_info (str): Optional version info. If users want to find a very recent access token,
-                that is, immediately after approving access, users have to set the
-                version\_info claim in the token request. To obtain the version\_info,
+            version_info (str): Optional version info. If users want to find a very recent access
+                token, that is, immediately after approving access, users have to set
+                the version_info claim in the token request. To obtain the version_info,
                 users must use the "none+gsession" response type. which be return a
-                version\_info back in the authorization response which be be put in a
-                JWT claim in the token request.
+                version_info back in the authorization response which be be put in a JWT
+                claim in the token request.
             service_account_name (str): Optional service account name. If this field is set, transfer config will
                 be created with this service account credentials. It requires that
                 requesting user calling this API has permissions to act as this service
@@ -639,28 +638,27 @@ class DataTransferServiceClient(object):
             authorization_code (str): Optional OAuth2 authorization code to use with this transfer
                 configuration. If it is provided, the transfer configuration will be
                 associated with the authorizing user. In order to obtain
-                authorization\_code, please make a request to
-                https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client\_id=&scope=<data\_source\_scopes>&redirect\_uri=<redirect\_uri>
+                authorization_code, please make a request to
+                https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=<data_source_scopes>&redirect_uri=<redirect_uri>
 
-                -  client\_id should be OAuth client\_id of BigQuery DTS API for the
-                   given data source returned by ListDataSources method.
-                -  data\_source\_scopes are the scopes returned by ListDataSources
-                   method.
-                -  redirect\_uri is an optional parameter. If not specified, then
+                -  client_id should be OAuth client_id of BigQuery DTS API for the given
+                   data source returned by ListDataSources method.
+                -  data_source_scopes are the scopes returned by ListDataSources method.
+                -  redirect_uri is an optional parameter. If not specified, then
                    authorization code is posted to the opener of authorization flow
                    window. Otherwise it will be sent to the redirect uri. A special
                    value of urn:ietf:wg:oauth:2.0:oob means that authorization code
                    should be returned in the title bar of the browser, with the page
                    text prompting the user to copy the code and paste it in the
                    application.
-            version_info (str): Optional version info. If users want to find a very recent access token,
-                that is, immediately after approving access, users have to set the
-                version\_info claim in the token request. To obtain the version\_info,
+            version_info (str): Optional version info. If users want to find a very recent access
+                token, that is, immediately after approving access, users have to set
+                the version_info claim in the token request. To obtain the version_info,
                 users must use the "none+gsession" response type. which be return a
-                version\_info back in the authorization response which be be put in a
-                JWT claim in the token request.
+                version_info back in the authorization response which be be put in a JWT
+                claim in the token request.
             service_account_name (str): Optional service account name. If this field is set and
-                "service\_account\_name" is set in update\_mask, transfer config will be
+                "service_account_name" is set in update_mask, transfer config will be
                 updated to use this service account credentials. It requires that
                 requesting user calling this API has permissions to act as this service
                 account.
@@ -975,7 +973,7 @@ class DataTransferServiceClient(object):
         metadata=None,
     ):
         """
-        Creates transfer runs for a time range [start\_time, end\_time]. For
+        Creates transfer runs for a time range [start_time, end_time]. For
         each date - or whatever granularity the data source supports - in the
         range, one transfer run is created. Note that runs are created per UTC
         time in the time range. DEPRECATED: use StartManualTransferRuns instead.
@@ -1069,10 +1067,10 @@ class DataTransferServiceClient(object):
         metadata=None,
     ):
         """
-        Start manual transfer runs to be executed now with schedule\_time equal
-        to current time. The transfer runs can be created for a time range where
-        the run\_time is between start\_time (inclusive) and end\_time
-        (exclusive), or for a specific run\_time.
+        Start manual transfer runs to be executed now with schedule_time
+        equal to current time. The transfer runs can be created for a time range
+        where the run_time is between start_time (inclusive) and end_time
+        (exclusive), or for a specific run_time.
 
         Example:
             >>> from google.cloud import bigquery_datatransfer_v1
@@ -1089,8 +1087,8 @@ class DataTransferServiceClient(object):
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.bigquery_datatransfer_v1.types.TimeRange`
-            requested_run_time (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.Timestamp]): Specific run\_time for a transfer run to be started. The
-                requested\_run\_time must not be in the future.
+            requested_run_time (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.Timestamp]): Specific run_time for a transfer run to be started. The
+                requested_run_time must not be in the future.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.bigquery_datatransfer_v1.types.Timestamp`
@@ -1329,8 +1327,8 @@ class DataTransferServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. Name of transfer configuration for which transfer runs should
-                be retrieved. Format of transfer configuration resource name is:
+            parent (str): Required. Name of transfer configuration for which transfer runs
+                should be retrieved. Format of transfer configuration resource name is:
                 ``projects/{project_id}/transferConfigs/{config_id}`` or
                 ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``.
             states (list[~google.cloud.bigquery_datatransfer_v1.types.TransferState]): When specified, only transfer runs with requested states are returned.

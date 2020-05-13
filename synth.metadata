@@ -1,32 +1,25 @@
 {
   "sources": [
     {
-      "generator": {
-        "name": "artman",
-        "version": "2.0.0",
-        "dockerImage": "googleapis/artman@sha256:b3b47805231a305d0f40c4bf069df20f6a2635574e6d4259fac651d3f9f6e098"
-      }
-    },
-    {
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-bigquery-datatransfer.git",
-        "sha": "d10fd6dc77c1987983ada5585a632e7de4d10c44"
+        "sha": "c215fd155ee109479c5697d7c31adcd06cdac86d"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "cdf13efacdea0649e940452f9c5d320b93735974",
-        "internalRef": "306783437"
+        "sha": "89e89786896d256c70f43e68a975470c4f4f220e",
+        "internalRef": "311239362"
       }
     },
     {
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "6980131905b652563280e4d2482384d4acc9eafc"
+        "sha": "84c4156c49be9dcabacc8fd7b0585b6fd789ae47"
       }
     }
   ],
@@ -37,8 +30,7 @@
         "apiName": "bigquery_datatransfer",
         "apiVersion": "v1",
         "language": "python",
-        "generator": "gapic",
-        "config": "google/cloud/bigquery/datatransfer/artman_bigquerydatatransfer.yaml"
+        "generator": "bazel"
       }
     }
   ]
