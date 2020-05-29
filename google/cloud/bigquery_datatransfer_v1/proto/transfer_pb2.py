@@ -1019,8 +1019,8 @@ EmailPreferences = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _EMAILPREFERENCES,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.transfer_pb2",
-        "__doc__": """Represents preferences for sending email notifications for transfer run
-  events.
+        "__doc__": """Represents preferences for sending email notifications for
+  transfer run events.
   
   
   Attributes:
@@ -1219,8 +1219,7 @@ TransferMessage = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _TRANSFERMESSAGE,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.transfer_pb2",
-        "__doc__": """Represents a user facing message for a particular data
-  transfer run.
+        "__doc__": """Represents a user facing message for a particular data transfer run.
   
   
   Attributes:
