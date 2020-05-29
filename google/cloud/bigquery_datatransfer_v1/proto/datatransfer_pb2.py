@@ -31,6 +31,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.cloud.bigquery.datatransfer.v1",
     syntax="proto3",
     serialized_options=b"\n)com.google.cloud.bigquery.datatransfer.v1B\021DataTransferProtoP\001ZQgoogle.golang.org/genproto/googleapis/cloud/bigquery/datatransfer/v1;datatransfer\252\002%Google.Cloud.BigQuery.DataTransfer.V1\312\002%Google\\Cloud\\BigQuery\\DataTransfer\\V1\352\002)Google::Cloud::Bigquery::DataTransfer::V1",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n>google/cloud/bigquery_datatransfer_v1/proto/datatransfer.proto\x12%google.cloud.bigquery.datatransfer.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a:google/cloud/bigquery_datatransfer_v1/proto/transfer.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto"\x85\x05\n\x13\x44\x61taSourceParameter\x12\x10\n\x08param_id\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12M\n\x04type\x18\x04 \x01(\x0e\x32?.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.Type\x12\x10\n\x08required\x18\x05 \x01(\x08\x12\x10\n\x08repeated\x18\x06 \x01(\x08\x12\x18\n\x10validation_regex\x18\x07 \x01(\t\x12\x16\n\x0e\x61llowed_values\x18\x08 \x03(\t\x12/\n\tmin_value\x18\t \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12/\n\tmax_value\x18\n \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12J\n\x06\x66ields\x18\x0b \x03(\x0b\x32:.google.cloud.bigquery.datatransfer.v1.DataSourceParameter\x12\x1e\n\x16validation_description\x18\x0c \x01(\t\x12\x1b\n\x13validation_help_url\x18\r \x01(\t\x12\x11\n\timmutable\x18\x0e \x01(\x08\x12\x0f\n\x07recurse\x18\x0f \x01(\x08\x12\x12\n\ndeprecated\x18\x14 \x01(\x08"i\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06STRING\x10\x01\x12\x0b\n\x07INTEGER\x10\x02\x12\n\n\x06\x44OUBLE\x10\x03\x12\x0b\n\x07\x42OOLEAN\x10\x04\x12\n\n\x06RECORD\x10\x05\x12\r\n\tPLUS_PAGE\x10\x06"\x9c\t\n\nDataSource\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x16\n\x0e\x64\x61ta_source_id\x18\x02 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x11\n\tclient_id\x18\x05 \x01(\t\x12\x0e\n\x06scopes\x18\x06 \x03(\t\x12N\n\rtransfer_type\x18\x07 \x01(\x0e\x32\x33.google.cloud.bigquery.datatransfer.v1.TransferTypeB\x02\x18\x01\x12\'\n\x1bsupports_multiple_transfers\x18\x08 \x01(\x08\x42\x02\x18\x01\x12\x1f\n\x17update_deadline_seconds\x18\t \x01(\x05\x12\x18\n\x10\x64\x65\x66\x61ult_schedule\x18\n \x01(\t\x12 \n\x18supports_custom_schedule\x18\x0b \x01(\x08\x12N\n\nparameters\x18\x0c \x03(\x0b\x32:.google.cloud.bigquery.datatransfer.v1.DataSourceParameter\x12\x10\n\x08help_url\x18\r \x01(\t\x12_\n\x12\x61uthorization_type\x18\x0e \x01(\x0e\x32\x43.google.cloud.bigquery.datatransfer.v1.DataSource.AuthorizationType\x12\\\n\x11\x64\x61ta_refresh_type\x18\x0f \x01(\x0e\x32\x41.google.cloud.bigquery.datatransfer.v1.DataSource.DataRefreshType\x12(\n default_data_refresh_window_days\x18\x10 \x01(\x05\x12\x1c\n\x14manual_runs_disabled\x18\x11 \x01(\x08\x12<\n\x19minimum_schedule_interval\x18\x12 \x01(\x0b\x32\x19.google.protobuf.Duration"\x8a\x01\n\x11\x41uthorizationType\x12"\n\x1e\x41UTHORIZATION_TYPE_UNSPECIFIED\x10\x00\x12\x16\n\x12\x41UTHORIZATION_CODE\x10\x01\x12"\n\x1eGOOGLE_PLUS_AUTHORIZATION_CODE\x10\x02\x12\x15\n\x11\x46IRST_PARTY_OAUTH\x10\x03"c\n\x0f\x44\x61taRefreshType\x12!\n\x1d\x44\x41TA_REFRESH_TYPE_UNSPECIFIED\x10\x00\x12\x12\n\x0eSLIDING_WINDOW\x10\x01\x12\x19\n\x15\x43USTOM_SLIDING_WINDOW\x10\x02:\xa5\x01\xea\x41\xa1\x01\n.bigquerydatatransfer.googleapis.com/DataSource\x12,projects/{project}/dataSources/{data_source}\x12\x41projects/{project}/locations/{location}/dataSources/{data_source}"\\\n\x14GetDataSourceRequest\x12\x44\n\x04name\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\n.bigquerydatatransfer.googleapis.com/DataSource"\x87\x01\n\x16ListDataSourcesRequest\x12\x46\n\x06parent\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\x12.bigquerydatatransfer.googleapis.com/DataSource\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x11\n\tpage_size\x18\x04 \x01(\x05"\x80\x01\n\x17ListDataSourcesResponse\x12G\n\x0c\x64\x61ta_sources\x18\x01 \x03(\x0b\x32\x31.google.cloud.bigquery.datatransfer.v1.DataSource\x12\x1c\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03"\x8e\x02\n\x1b\x43reateTransferConfigRequest\x12J\n\x06parent\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\x12\x32\x62igquerydatatransfer.googleapis.com/TransferConfig\x12S\n\x0ftransfer_config\x18\x02 \x01(\x0b\x32\x35.google.cloud.bigquery.datatransfer.v1.TransferConfigB\x03\xe0\x41\x02\x12\x1a\n\x12\x61uthorization_code\x18\x03 \x01(\t\x12\x14\n\x0cversion_info\x18\x05 \x01(\t\x12\x1c\n\x14service_account_name\x18\x06 \x01(\t"\xf8\x01\n\x1bUpdateTransferConfigRequest\x12S\n\x0ftransfer_config\x18\x01 \x01(\x0b\x32\x35.google.cloud.bigquery.datatransfer.v1.TransferConfigB\x03\xe0\x41\x02\x12\x1a\n\x12\x61uthorization_code\x18\x03 \x01(\t\x12\x34\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x14\n\x0cversion_info\x18\x05 \x01(\t\x12\x1c\n\x14service_account_name\x18\x06 \x01(\t"d\n\x18GetTransferConfigRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2bigquerydatatransfer.googleapis.com/TransferConfig"g\n\x1b\x44\x65leteTransferConfigRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2bigquerydatatransfer.googleapis.com/TransferConfig"V\n\x15GetTransferRunRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'bigquerydatatransfer.googleapis.com/Run"Y\n\x18\x44\x65leteTransferRunRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'bigquerydatatransfer.googleapis.com/Run"\xa8\x01\n\x1aListTransferConfigsRequest\x12J\n\x06parent\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\x12\x32\x62igquerydatatransfer.googleapis.com/TransferConfig\x12\x17\n\x0f\x64\x61ta_source_ids\x18\x02 \x03(\t\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x11\n\tpage_size\x18\x04 \x01(\x05"\x91\x01\n\x1bListTransferConfigsResponse\x12T\n\x10transfer_configs\x18\x01 \x03(\x0b\x32\x35.google.cloud.bigquery.datatransfer.v1.TransferConfigB\x03\xe0\x41\x03\x12\x1c\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03"\xde\x02\n\x17ListTransferRunsRequest\x12?\n\x06parent\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\x12\'bigquerydatatransfer.googleapis.com/Run\x12\x44\n\x06states\x18\x02 \x03(\x0e\x32\x34.google.cloud.bigquery.datatransfer.v1.TransferState\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x11\n\tpage_size\x18\x04 \x01(\x05\x12^\n\x0brun_attempt\x18\x05 \x01(\x0e\x32I.google.cloud.bigquery.datatransfer.v1.ListTransferRunsRequest.RunAttempt"5\n\nRunAttempt\x12\x1b\n\x17RUN_ATTEMPT_UNSPECIFIED\x10\x00\x12\n\n\x06LATEST\x10\x01"\x88\x01\n\x18ListTransferRunsResponse\x12N\n\rtransfer_runs\x18\x01 \x03(\x0b\x32\x32.google.cloud.bigquery.datatransfer.v1.TransferRunB\x03\xe0\x41\x03\x12\x1c\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03"\xe0\x01\n\x17ListTransferLogsRequest\x12?\n\x06parent\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'bigquerydatatransfer.googleapis.com/Run\x12\x12\n\npage_token\x18\x04 \x01(\t\x12\x11\n\tpage_size\x18\x05 \x01(\x05\x12]\n\rmessage_types\x18\x06 \x03(\x0e\x32\x46.google.cloud.bigquery.datatransfer.v1.TransferMessage.MessageSeverity"\x90\x01\n\x18ListTransferLogsResponse\x12V\n\x11transfer_messages\x18\x01 \x03(\x0b\x32\x36.google.cloud.bigquery.datatransfer.v1.TransferMessageB\x03\xe0\x41\x03\x12\x1c\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03"^\n\x16\x43heckValidCredsRequest\x12\x44\n\x04name\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\n.bigquerydatatransfer.googleapis.com/DataSource"2\n\x17\x43heckValidCredsResponse\x12\x17\n\x0fhas_valid_creds\x18\x01 \x01(\x08"\xd1\x01\n\x1bScheduleTransferRunsRequest\x12J\n\x06parent\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2bigquerydatatransfer.googleapis.com/TransferConfig\x12\x33\n\nstart_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02\x12\x31\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02"`\n\x1cScheduleTransferRunsResponse\x12@\n\x04runs\x18\x01 \x03(\x0b\x32\x32.google.cloud.bigquery.datatransfer.v1.TransferRun"\x87\x03\n\x1eStartManualTransferRunsRequest\x12G\n\x06parent\x18\x01 \x01(\tB7\xfa\x41\x34\n2bigquerydatatransfer.googleapis.com/TransferConfig\x12o\n\x14requested_time_range\x18\x03 \x01(\x0b\x32O.google.cloud.bigquery.datatransfer.v1.StartManualTransferRunsRequest.TimeRangeH\x00\x12\x38\n\x12requested_run_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x1ai\n\tTimeRange\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x06\n\x04time"c\n\x1fStartManualTransferRunsResponse\x12@\n\x04runs\x18\x01 \x03(\x0b\x32\x32.google.cloud.bigquery.datatransfer.v1.TransferRun2\xc3\x1f\n\x13\x44\x61taTransferService\x12\xe6\x01\n\rGetDataSource\x12;.google.cloud.bigquery.datatransfer.v1.GetDataSourceRequest\x1a\x31.google.cloud.bigquery.datatransfer.v1.DataSource"e\x82\xd3\xe4\x93\x02X\x12//v1/{name=projects/*/locations/*/dataSources/*}Z%\x12#/v1/{name=projects/*/dataSources/*}\xda\x41\x04name\x12\xf9\x01\n\x0fListDataSources\x12=.google.cloud.bigquery.datatransfer.v1.ListDataSourcesRequest\x1a>.google.cloud.bigquery.datatransfer.v1.ListDataSourcesResponse"g\x82\xd3\xe4\x93\x02X\x12//v1/{parent=projects/*/locations/*}/dataSourcesZ%\x12#/v1/{parent=projects/*}/dataSources\xda\x41\x06parent\x12\xb6\x02\n\x14\x43reateTransferConfig\x12\x42.google.cloud.bigquery.datatransfer.v1.CreateTransferConfigRequest\x1a\x35.google.cloud.bigquery.datatransfer.v1.TransferConfig"\xa2\x01\x82\xd3\xe4\x93\x02\x82\x01"3/v1/{parent=projects/*/locations/*}/transferConfigs:\x0ftransfer_configZ:"\'/v1/{parent=projects/*}/transferConfigs:\x0ftransfer_config\xda\x41\x16parent,transfer_config\x12\xdb\x02\n\x14UpdateTransferConfig\x12\x42.google.cloud.bigquery.datatransfer.v1.UpdateTransferConfigRequest\x1a\x35.google.cloud.bigquery.datatransfer.v1.TransferConfig"\xc7\x01\x82\xd3\xe4\x93\x02\xa2\x01\x32\x43/v1/{transfer_config.name=projects/*/locations/*/transferConfigs/*}:\x0ftransfer_configZJ27/v1/{transfer_config.name=projects/*/transferConfigs/*}:\x0ftransfer_config\xda\x41\x1btransfer_config,update_mask\x12\xe1\x01\n\x14\x44\x65leteTransferConfig\x12\x42.google.cloud.bigquery.datatransfer.v1.DeleteTransferConfigRequest\x1a\x16.google.protobuf.Empty"m\x82\xd3\xe4\x93\x02`*3/v1/{name=projects/*/locations/*/transferConfigs/*}Z)*\'/v1/{name=projects/*/transferConfigs/*}\xda\x41\x04name\x12\xfa\x01\n\x11GetTransferConfig\x12?.google.cloud.bigquery.datatransfer.v1.GetTransferConfigRequest\x1a\x35.google.cloud.bigquery.datatransfer.v1.TransferConfig"m\x82\xd3\xe4\x93\x02`\x12\x33/v1/{name=projects/*/locations/*/transferConfigs/*}Z)\x12\'/v1/{name=projects/*/transferConfigs/*}\xda\x41\x04name\x12\x8d\x02\n\x13ListTransferConfigs\x12\x41.google.cloud.bigquery.datatransfer.v1.ListTransferConfigsRequest\x1a\x42.google.cloud.bigquery.datatransfer.v1.ListTransferConfigsResponse"o\x82\xd3\xe4\x93\x02`\x12\x33/v1/{parent=projects/*/locations/*}/transferConfigsZ)\x12\'/v1/{parent=projects/*}/transferConfigs\xda\x41\x06parent\x12\xcd\x02\n\x14ScheduleTransferRuns\x12\x42.google.cloud.bigquery.datatransfer.v1.ScheduleTransferRunsRequest\x1a\x43.google.cloud.bigquery.datatransfer.v1.ScheduleTransferRunsResponse"\xab\x01\x88\x02\x01\x82\xd3\xe4\x93\x02\x84\x01"B/v1/{parent=projects/*/locations/*/transferConfigs/*}:scheduleRuns:\x01*Z;"6/v1/{parent=projects/*/transferConfigs/*}:scheduleRuns:\x01*\xda\x41\x1aparent,start_time,end_time\x12\xbc\x02\n\x17StartManualTransferRuns\x12\x45.google.cloud.bigquery.datatransfer.v1.StartManualTransferRunsRequest\x1a\x46.google.cloud.bigquery.datatransfer.v1.StartManualTransferRunsResponse"\x91\x01\x82\xd3\xe4\x93\x02\x8a\x01"E/v1/{parent=projects/*/locations/*/transferConfigs/*}:startManualRuns:\x01*Z>"9/v1/{parent=projects/*/transferConfigs/*}:startManualRuns:\x01*\x12\xff\x01\n\x0eGetTransferRun\x12<.google.cloud.bigquery.datatransfer.v1.GetTransferRunRequest\x1a\x32.google.cloud.bigquery.datatransfer.v1.TransferRun"{\x82\xd3\xe4\x93\x02n\x12:/v1/{name=projects/*/locations/*/transferConfigs/*/runs/*}Z0\x12./v1/{name=projects/*/transferConfigs/*/runs/*}\xda\x41\x04name\x12\xe9\x01\n\x11\x44\x65leteTransferRun\x12?.google.cloud.bigquery.datatransfer.v1.DeleteTransferRunRequest\x1a\x16.google.protobuf.Empty"{\x82\xd3\xe4\x93\x02n*:/v1/{name=projects/*/locations/*/transferConfigs/*/runs/*}Z0*./v1/{name=projects/*/transferConfigs/*/runs/*}\xda\x41\x04name\x12\x92\x02\n\x10ListTransferRuns\x12>.google.cloud.bigquery.datatransfer.v1.ListTransferRunsRequest\x1a?.google.cloud.bigquery.datatransfer.v1.ListTransferRunsResponse"}\x82\xd3\xe4\x93\x02n\x12:/v1/{parent=projects/*/locations/*/transferConfigs/*}/runsZ0\x12./v1/{parent=projects/*/transferConfigs/*}/runs\xda\x41\x06parent\x12\xb2\x02\n\x10ListTransferLogs\x12>.google.cloud.bigquery.datatransfer.v1.ListTransferLogsRequest\x1a?.google.cloud.bigquery.datatransfer.v1.ListTransferLogsResponse"\x9c\x01\x82\xd3\xe4\x93\x02\x8c\x01\x12I/v1/{parent=projects/*/locations/*/transferConfigs/*/runs/*}/transferLogsZ?\x12=/v1/{parent=projects/*/transferConfigs/*/runs/*}/transferLogs\xda\x41\x06parent\x12\x9e\x02\n\x0f\x43heckValidCreds\x12=.google.cloud.bigquery.datatransfer.v1.CheckValidCredsRequest\x1a>.google.cloud.bigquery.datatransfer.v1.CheckValidCredsResponse"\x8b\x01\x82\xd3\xe4\x93\x02~"?/v1/{name=projects/*/locations/*/dataSources/*}:checkValidCreds:\x01*Z8"3/v1/{name=projects/*/dataSources/*}:checkValidCreds:\x01*\xda\x41\x04name\x1aW\xca\x41#bigquerydatatransfer.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x8f\x02\n)com.google.cloud.bigquery.datatransfer.v1B\x11\x44\x61taTransferProtoP\x01ZQgoogle.golang.org/genproto/googleapis/cloud/bigquery/datatransfer/v1;datatransfer\xaa\x02%Google.Cloud.BigQuery.DataTransfer.V1\xca\x02%Google\\Cloud\\BigQuery\\DataTransfer\\V1\xea\x02)Google::Cloud::Bigquery::DataTransfer::V1b\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -52,6 +53,7 @@ _DATASOURCEPARAMETER_TYPE = _descriptor.EnumDescriptor(
     full_name="google.cloud.bigquery.datatransfer.v1.DataSourceParameter.Type",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="TYPE_UNSPECIFIED",
@@ -59,24 +61,55 @@ _DATASOURCEPARAMETER_TYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="STRING", index=1, number=1, serialized_options=None, type=None
+            name="STRING",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="INTEGER", index=2, number=2, serialized_options=None, type=None
+            name="INTEGER",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="DOUBLE", index=3, number=3, serialized_options=None, type=None
+            name="DOUBLE",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="BOOLEAN", index=4, number=4, serialized_options=None, type=None
+            name="BOOLEAN",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="RECORD", index=5, number=5, serialized_options=None, type=None
+            name="RECORD",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PLUS_PAGE", index=6, number=6, serialized_options=None, type=None
+            name="PLUS_PAGE",
+            index=6,
+            number=6,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -91,6 +124,7 @@ _DATASOURCE_AUTHORIZATIONTYPE = _descriptor.EnumDescriptor(
     full_name="google.cloud.bigquery.datatransfer.v1.DataSource.AuthorizationType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="AUTHORIZATION_TYPE_UNSPECIFIED",
@@ -98,6 +132,7 @@ _DATASOURCE_AUTHORIZATIONTYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="AUTHORIZATION_CODE",
@@ -105,6 +140,7 @@ _DATASOURCE_AUTHORIZATIONTYPE = _descriptor.EnumDescriptor(
             number=1,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="GOOGLE_PLUS_AUTHORIZATION_CODE",
@@ -112,6 +148,7 @@ _DATASOURCE_AUTHORIZATIONTYPE = _descriptor.EnumDescriptor(
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="FIRST_PARTY_OAUTH",
@@ -119,6 +156,7 @@ _DATASOURCE_AUTHORIZATIONTYPE = _descriptor.EnumDescriptor(
             number=3,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -133,6 +171,7 @@ _DATASOURCE_DATAREFRESHTYPE = _descriptor.EnumDescriptor(
     full_name="google.cloud.bigquery.datatransfer.v1.DataSource.DataRefreshType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="DATA_REFRESH_TYPE_UNSPECIFIED",
@@ -140,9 +179,15 @@ _DATASOURCE_DATAREFRESHTYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="SLIDING_WINDOW", index=1, number=1, serialized_options=None, type=None
+            name="SLIDING_WINDOW",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="CUSTOM_SLIDING_WINDOW",
@@ -150,6 +195,7 @@ _DATASOURCE_DATAREFRESHTYPE = _descriptor.EnumDescriptor(
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -164,6 +210,7 @@ _LISTTRANSFERRUNSREQUEST_RUNATTEMPT = _descriptor.EnumDescriptor(
     full_name="google.cloud.bigquery.datatransfer.v1.ListTransferRunsRequest.RunAttempt",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="RUN_ATTEMPT_UNSPECIFIED",
@@ -171,9 +218,15 @@ _LISTTRANSFERRUNSREQUEST_RUNATTEMPT = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="LATEST", index=1, number=1, serialized_options=None, type=None
+            name="LATEST",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -190,6 +243,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="param_id",
@@ -208,6 +262,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -226,6 +281,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="description",
@@ -244,6 +300,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="type",
@@ -262,6 +319,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="required",
@@ -280,6 +338,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="repeated",
@@ -298,6 +357,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="validation_regex",
@@ -316,6 +376,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="allowed_values",
@@ -334,6 +395,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="min_value",
@@ -352,6 +414,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="max_value",
@@ -370,6 +433,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="fields",
@@ -388,6 +452,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="validation_description",
@@ -406,6 +471,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="validation_help_url",
@@ -424,6 +490,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="immutable",
@@ -442,6 +509,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="recurse",
@@ -460,6 +528,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="deprecated",
@@ -478,6 +547,7 @@ _DATASOURCEPARAMETER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -499,6 +569,7 @@ _DATASOURCE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -517,6 +588,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="data_source_id",
@@ -535,6 +607,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -553,6 +626,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="description",
@@ -571,6 +645,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="client_id",
@@ -589,6 +664,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="scopes",
@@ -607,6 +683,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="transfer_type",
@@ -625,6 +702,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\030\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="supports_multiple_transfers",
@@ -643,6 +721,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\030\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_deadline_seconds",
@@ -661,6 +740,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="default_schedule",
@@ -679,6 +759,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="supports_custom_schedule",
@@ -697,6 +778,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="parameters",
@@ -715,6 +797,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="help_url",
@@ -733,6 +816,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="authorization_type",
@@ -751,6 +835,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="data_refresh_type",
@@ -769,6 +854,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="default_data_refresh_window_days",
@@ -787,6 +873,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="manual_runs_disabled",
@@ -805,6 +892,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="minimum_schedule_interval",
@@ -823,6 +911,7 @@ _DATASOURCE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -844,6 +933,7 @@ _GETDATASOURCEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -862,6 +952,7 @@ _GETDATASOURCEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A0\n.bigquerydatatransfer.googleapis.com/DataSource",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -883,6 +974,7 @@ _LISTDATASOURCESREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -901,6 +993,7 @@ _LISTDATASOURCESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A0\022.bigquerydatatransfer.googleapis.com/DataSource",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -919,6 +1012,7 @@ _LISTDATASOURCESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -937,6 +1031,7 @@ _LISTDATASOURCESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -958,6 +1053,7 @@ _LISTDATASOURCESRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="data_sources",
@@ -976,6 +1072,7 @@ _LISTDATASOURCESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -994,6 +1091,7 @@ _LISTDATASOURCESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1015,6 +1113,7 @@ _CREATETRANSFERCONFIGREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -1033,6 +1132,7 @@ _CREATETRANSFERCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A4\0222bigquerydatatransfer.googleapis.com/TransferConfig",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="transfer_config",
@@ -1051,6 +1151,7 @@ _CREATETRANSFERCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="authorization_code",
@@ -1069,6 +1170,7 @@ _CREATETRANSFERCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="version_info",
@@ -1087,6 +1189,7 @@ _CREATETRANSFERCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="service_account_name",
@@ -1105,6 +1208,7 @@ _CREATETRANSFERCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1126,6 +1230,7 @@ _UPDATETRANSFERCONFIGREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="transfer_config",
@@ -1144,6 +1249,7 @@ _UPDATETRANSFERCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="authorization_code",
@@ -1162,6 +1268,7 @@ _UPDATETRANSFERCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_mask",
@@ -1180,6 +1287,7 @@ _UPDATETRANSFERCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="version_info",
@@ -1198,6 +1306,7 @@ _UPDATETRANSFERCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="service_account_name",
@@ -1216,6 +1325,7 @@ _UPDATETRANSFERCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1237,6 +1347,7 @@ _GETTRANSFERCONFIGREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -1255,6 +1366,7 @@ _GETTRANSFERCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A4\n2bigquerydatatransfer.googleapis.com/TransferConfig",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -1276,6 +1388,7 @@ _DELETETRANSFERCONFIGREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -1294,6 +1407,7 @@ _DELETETRANSFERCONFIGREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A4\n2bigquerydatatransfer.googleapis.com/TransferConfig",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -1315,6 +1429,7 @@ _GETTRANSFERRUNREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -1333,6 +1448,7 @@ _GETTRANSFERRUNREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A)\n'bigquerydatatransfer.googleapis.com/Run",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -1354,6 +1470,7 @@ _DELETETRANSFERRUNREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -1372,6 +1489,7 @@ _DELETETRANSFERRUNREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A)\n'bigquerydatatransfer.googleapis.com/Run",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -1393,6 +1511,7 @@ _LISTTRANSFERCONFIGSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -1411,6 +1530,7 @@ _LISTTRANSFERCONFIGSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A4\0222bigquerydatatransfer.googleapis.com/TransferConfig",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="data_source_ids",
@@ -1429,6 +1549,7 @@ _LISTTRANSFERCONFIGSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -1447,6 +1568,7 @@ _LISTTRANSFERCONFIGSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -1465,6 +1587,7 @@ _LISTTRANSFERCONFIGSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1486,6 +1609,7 @@ _LISTTRANSFERCONFIGSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="transfer_configs",
@@ -1504,6 +1628,7 @@ _LISTTRANSFERCONFIGSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -1522,6 +1647,7 @@ _LISTTRANSFERCONFIGSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1543,6 +1669,7 @@ _LISTTRANSFERRUNSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -1561,6 +1688,7 @@ _LISTTRANSFERRUNSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A)\022'bigquerydatatransfer.googleapis.com/Run",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="states",
@@ -1579,6 +1707,7 @@ _LISTTRANSFERRUNSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -1597,6 +1726,7 @@ _LISTTRANSFERRUNSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -1615,6 +1745,7 @@ _LISTTRANSFERRUNSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="run_attempt",
@@ -1633,6 +1764,7 @@ _LISTTRANSFERRUNSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1654,6 +1786,7 @@ _LISTTRANSFERRUNSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="transfer_runs",
@@ -1672,6 +1805,7 @@ _LISTTRANSFERRUNSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -1690,6 +1824,7 @@ _LISTTRANSFERRUNSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1711,6 +1846,7 @@ _LISTTRANSFERLOGSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -1729,6 +1865,7 @@ _LISTTRANSFERLOGSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A)\n'bigquerydatatransfer.googleapis.com/Run",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -1747,6 +1884,7 @@ _LISTTRANSFERLOGSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -1765,6 +1903,7 @@ _LISTTRANSFERLOGSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="message_types",
@@ -1783,6 +1922,7 @@ _LISTTRANSFERLOGSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1804,6 +1944,7 @@ _LISTTRANSFERLOGSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="transfer_messages",
@@ -1822,6 +1963,7 @@ _LISTTRANSFERLOGSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -1840,6 +1982,7 @@ _LISTTRANSFERLOGSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1861,6 +2004,7 @@ _CHECKVALIDCREDSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -1879,6 +2023,7 @@ _CHECKVALIDCREDSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A0\n.bigquerydatatransfer.googleapis.com/DataSource",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -1900,6 +2045,7 @@ _CHECKVALIDCREDSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="has_valid_creds",
@@ -1918,6 +2064,7 @@ _CHECKVALIDCREDSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -1939,6 +2086,7 @@ _SCHEDULETRANSFERRUNSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -1957,6 +2105,7 @@ _SCHEDULETRANSFERRUNSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A4\n2bigquerydatatransfer.googleapis.com/TransferConfig",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="start_time",
@@ -1975,6 +2124,7 @@ _SCHEDULETRANSFERRUNSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="end_time",
@@ -1993,6 +2143,7 @@ _SCHEDULETRANSFERRUNSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2014,6 +2165,7 @@ _SCHEDULETRANSFERRUNSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="runs",
@@ -2032,6 +2184,7 @@ _SCHEDULETRANSFERRUNSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -2053,6 +2206,7 @@ _STARTMANUALTRANSFERRUNSREQUEST_TIMERANGE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="start_time",
@@ -2071,6 +2225,7 @@ _STARTMANUALTRANSFERRUNSREQUEST_TIMERANGE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="end_time",
@@ -2089,6 +2244,7 @@ _STARTMANUALTRANSFERRUNSREQUEST_TIMERANGE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2109,6 +2265,7 @@ _STARTMANUALTRANSFERRUNSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -2127,6 +2284,7 @@ _STARTMANUALTRANSFERRUNSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\372A4\n2bigquerydatatransfer.googleapis.com/TransferConfig",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="requested_time_range",
@@ -2145,6 +2303,7 @@ _STARTMANUALTRANSFERRUNSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="requested_run_time",
@@ -2163,6 +2322,7 @@ _STARTMANUALTRANSFERRUNSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2178,6 +2338,7 @@ _STARTMANUALTRANSFERRUNSREQUEST = _descriptor.Descriptor(
             full_name="google.cloud.bigquery.datatransfer.v1.StartManualTransferRunsRequest.time",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -2192,6 +2353,7 @@ _STARTMANUALTRANSFERRUNSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="runs",
@@ -2210,6 +2372,7 @@ _STARTMANUALTRANSFERRUNSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -3106,6 +3269,7 @@ _DATATRANSFERSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=b"\312A#bigquerydatatransfer.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform",
+    create_key=_descriptor._internal_create_key,
     serialized_start=5683,
     serialized_end=9718,
     methods=[
@@ -3117,6 +3281,7 @@ _DATATRANSFERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETDATASOURCEREQUEST,
             output_type=_DATASOURCE,
             serialized_options=b"\202\323\344\223\002X\022//v1/{name=projects/*/locations/*/dataSources/*}Z%\022#/v1/{name=projects/*/dataSources/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListDataSources",
@@ -3126,6 +3291,7 @@ _DATATRANSFERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTDATASOURCESREQUEST,
             output_type=_LISTDATASOURCESRESPONSE,
             serialized_options=b"\202\323\344\223\002X\022//v1/{parent=projects/*/locations/*}/dataSourcesZ%\022#/v1/{parent=projects/*}/dataSources\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CreateTransferConfig",
@@ -3135,6 +3301,7 @@ _DATATRANSFERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATETRANSFERCONFIGREQUEST,
             output_type=google_dot_cloud_dot_bigquery__datatransfer__v1_dot_proto_dot_transfer__pb2._TRANSFERCONFIG,
             serialized_options=b'\202\323\344\223\002\202\001"3/v1/{parent=projects/*/locations/*}/transferConfigs:\017transfer_configZ:"\'/v1/{parent=projects/*}/transferConfigs:\017transfer_config\332A\026parent,transfer_config',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="UpdateTransferConfig",
@@ -3144,6 +3311,7 @@ _DATATRANSFERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_UPDATETRANSFERCONFIGREQUEST,
             output_type=google_dot_cloud_dot_bigquery__datatransfer__v1_dot_proto_dot_transfer__pb2._TRANSFERCONFIG,
             serialized_options=b"\202\323\344\223\002\242\0012C/v1/{transfer_config.name=projects/*/locations/*/transferConfigs/*}:\017transfer_configZJ27/v1/{transfer_config.name=projects/*/transferConfigs/*}:\017transfer_config\332A\033transfer_config,update_mask",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteTransferConfig",
@@ -3153,6 +3321,7 @@ _DATATRANSFERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETETRANSFERCONFIGREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\002`*3/v1/{name=projects/*/locations/*/transferConfigs/*}Z)*'/v1/{name=projects/*/transferConfigs/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetTransferConfig",
@@ -3162,6 +3331,7 @@ _DATATRANSFERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETTRANSFERCONFIGREQUEST,
             output_type=google_dot_cloud_dot_bigquery__datatransfer__v1_dot_proto_dot_transfer__pb2._TRANSFERCONFIG,
             serialized_options=b"\202\323\344\223\002`\0223/v1/{name=projects/*/locations/*/transferConfigs/*}Z)\022'/v1/{name=projects/*/transferConfigs/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListTransferConfigs",
@@ -3171,6 +3341,7 @@ _DATATRANSFERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTTRANSFERCONFIGSREQUEST,
             output_type=_LISTTRANSFERCONFIGSRESPONSE,
             serialized_options=b"\202\323\344\223\002`\0223/v1/{parent=projects/*/locations/*}/transferConfigsZ)\022'/v1/{parent=projects/*}/transferConfigs\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ScheduleTransferRuns",
@@ -3180,6 +3351,7 @@ _DATATRANSFERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_SCHEDULETRANSFERRUNSREQUEST,
             output_type=_SCHEDULETRANSFERRUNSRESPONSE,
             serialized_options=b'\210\002\001\202\323\344\223\002\204\001"B/v1/{parent=projects/*/locations/*/transferConfigs/*}:scheduleRuns:\001*Z;"6/v1/{parent=projects/*/transferConfigs/*}:scheduleRuns:\001*\332A\032parent,start_time,end_time',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="StartManualTransferRuns",
@@ -3189,6 +3361,7 @@ _DATATRANSFERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_STARTMANUALTRANSFERRUNSREQUEST,
             output_type=_STARTMANUALTRANSFERRUNSRESPONSE,
             serialized_options=b'\202\323\344\223\002\212\001"E/v1/{parent=projects/*/locations/*/transferConfigs/*}:startManualRuns:\001*Z>"9/v1/{parent=projects/*/transferConfigs/*}:startManualRuns:\001*',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetTransferRun",
@@ -3198,6 +3371,7 @@ _DATATRANSFERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETTRANSFERRUNREQUEST,
             output_type=google_dot_cloud_dot_bigquery__datatransfer__v1_dot_proto_dot_transfer__pb2._TRANSFERRUN,
             serialized_options=b"\202\323\344\223\002n\022:/v1/{name=projects/*/locations/*/transferConfigs/*/runs/*}Z0\022./v1/{name=projects/*/transferConfigs/*/runs/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteTransferRun",
@@ -3207,6 +3381,7 @@ _DATATRANSFERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETETRANSFERRUNREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\002n*:/v1/{name=projects/*/locations/*/transferConfigs/*/runs/*}Z0*./v1/{name=projects/*/transferConfigs/*/runs/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListTransferRuns",
@@ -3216,6 +3391,7 @@ _DATATRANSFERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTTRANSFERRUNSREQUEST,
             output_type=_LISTTRANSFERRUNSRESPONSE,
             serialized_options=b"\202\323\344\223\002n\022:/v1/{parent=projects/*/locations/*/transferConfigs/*}/runsZ0\022./v1/{parent=projects/*/transferConfigs/*}/runs\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListTransferLogs",
@@ -3225,6 +3401,7 @@ _DATATRANSFERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTTRANSFERLOGSREQUEST,
             output_type=_LISTTRANSFERLOGSRESPONSE,
             serialized_options=b"\202\323\344\223\002\214\001\022I/v1/{parent=projects/*/locations/*/transferConfigs/*/runs/*}/transferLogsZ?\022=/v1/{parent=projects/*/transferConfigs/*/runs/*}/transferLogs\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CheckValidCreds",
@@ -3234,6 +3411,7 @@ _DATATRANSFERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CHECKVALIDCREDSREQUEST,
             output_type=_CHECKVALIDCREDSRESPONSE,
             serialized_options=b'\202\323\344\223\002~"?/v1/{name=projects/*/locations/*/dataSources/*}:checkValidCreds:\001*Z8"3/v1/{name=projects/*/dataSources/*}:checkValidCreds:\001*\332A\004name',
+            create_key=_descriptor._internal_create_key,
         ),
     ],
 )
