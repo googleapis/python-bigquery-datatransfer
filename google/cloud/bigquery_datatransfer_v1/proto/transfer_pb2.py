@@ -1123,6 +1123,7 @@ EmailPreferences = _reflection.GeneratedProtocolMessageType(
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.transfer_pb2",
         "__doc__": """Represents preferences for sending email notifications for transfer
   run events.
+  
   Attributes:
       enable_failure_email:
           If true, email notifications will be sent on transfer run
@@ -1140,6 +1141,7 @@ ScheduleOptions = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _SCHEDULEOPTIONS,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.transfer_pb2",
         "__doc__": """Options customizing the data transfer schedule.
+  
   Attributes:
       disable_auto_scheduling:
           If true, automatic scheduling of data transfer runs for this
@@ -1177,6 +1179,7 @@ TransferConfig = _reflection.GeneratedProtocolMessageType(
   a new transfer configuration is created, the specified
   ``destination_dataset_id`` is created when needed and shared with the
   appropriate data source service account.
+  
   Attributes:
       name:
           The resource name of the transfer config. Transfer config
@@ -1253,6 +1256,7 @@ TransferRun = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _TRANSFERRUN,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.transfer_pb2",
         "__doc__": """Represents a data transfer run.
+  
   Attributes:
       name:
           The resource name of the transfer run. Transfer run names have
@@ -1314,6 +1318,7 @@ TransferMessage = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _TRANSFERMESSAGE,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.transfer_pb2",
         "__doc__": """Represents a user facing message for a particular data transfer run.
+  
   Attributes:
       message_time:
           Time when message was logged.
