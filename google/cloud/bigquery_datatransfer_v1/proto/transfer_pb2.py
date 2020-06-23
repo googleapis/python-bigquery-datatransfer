@@ -225,7 +225,7 @@ _EMAILPREFERENCES = _descriptor.Descriptor(
             serialized_options=None,
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -647,7 +647,7 @@ _TRANSFERCONFIG = _descriptor.Descriptor(
             containing_type=None,
             create_key=_descriptor._internal_create_key,
             fields=[],
-        )
+        ),
     ],
     serialized_start=447,
     serialized_end=1302,
@@ -963,7 +963,7 @@ _TRANSFERRUN = _descriptor.Descriptor(
             containing_type=None,
             create_key=_descriptor._internal_create_key,
             fields=[],
-        )
+        ),
     ],
     serialized_start=1305,
     serialized_end=2195,
@@ -1038,7 +1038,7 @@ _TRANSFERMESSAGE = _descriptor.Descriptor(
     ],
     extensions=[],
     nested_types=[],
-    enum_types=[_TRANSFERMESSAGE_MESSAGESEVERITY],
+    enum_types=[_TRANSFERMESSAGE_MESSAGESEVERITY,],
     serialized_options=None,
     is_extendable=False,
     syntax="proto3",

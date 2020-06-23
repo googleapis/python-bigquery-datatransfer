@@ -38,4 +38,8 @@ class DataTransferServiceClient(data_transfer_service_client.DataTransferService
     enums = enums
 
 
-__all__ = ("enums", "types", "DataTransferServiceClient")
+__all__ = (
+    "enums",
+    "types",
+    "DataTransferServiceClient",
+)
