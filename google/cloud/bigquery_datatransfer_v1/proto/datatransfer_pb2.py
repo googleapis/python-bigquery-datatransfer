@@ -2551,6 +2551,7 @@ DataSourceParameter = _reflection.GeneratedProtocolMessageType(
   by supported data sources, and include all needed information for
   rendering and validation. Thus, whoever uses this api can decide to
   generate either generic ui, or custom data source specific forms.
+  
   Attributes:
       param_id:
           Parameter identifier.
@@ -2603,6 +2604,7 @@ DataSource = _reflection.GeneratedProtocolMessageType(
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """Represents data source metadata. Metadata is sufficient to render UI
   and request proper OAuth tokens.
+  
   Attributes:
       name:
           Output only. Data source resource name.
@@ -2668,6 +2670,7 @@ GetDataSourceRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _GETDATASOURCEREQUEST,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """A request to get data source info.
+  
   Attributes:
       name:
           Required. The field will contain name of the resource
@@ -2689,6 +2692,7 @@ ListDataSourcesRequest = _reflection.GeneratedProtocolMessageType(
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """Request to list supported data sources and their data transfer
   settings.
+  
   Attributes:
       parent:
           Required. The BigQuery project id for which data sources
@@ -2717,6 +2721,7 @@ ListDataSourcesResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTDATASOURCESRESPONSE,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """Returns list of supported data sources and their metadata.
+  
   Attributes:
       data_sources:
           List of supported data sources and their transfer settings.
@@ -2743,6 +2748,7 @@ CreateTransferConfigRequest = _reflection.GeneratedProtocolMessageType(
   configuration will be associated with the user id corresponding to the
   authorization code. Otherwise, the transfer configuration will be
   associated with the calling user.
+  
   Attributes:
       parent:
           Required. The BigQuery project id where the transfer
@@ -2798,6 +2804,7 @@ UpdateTransferConfigRequest = _reflection.GeneratedProtocolMessageType(
         "__doc__": """A request to update a transfer configuration. To update the user id of
   the transfer configuration, an authorization code needs to be
   provided.
+  
   Attributes:
       transfer_config:
           Required. Data transfer configuration to create.
@@ -2848,6 +2855,7 @@ GetTransferConfigRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _GETTRANSFERCONFIGREQUEST,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """A request to get data transfer information.
+  
   Attributes:
       name:
           Required. The field will contain name of the resource
@@ -2869,6 +2877,7 @@ DeleteTransferConfigRequest = _reflection.GeneratedProtocolMessageType(
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """A request to delete data transfer information. All associated transfer
   runs and log messages will be deleted as well.
+  
   Attributes:
       name:
           Required. The field will contain name of the resource
@@ -2889,6 +2898,7 @@ GetTransferRunRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _GETTRANSFERRUNREQUEST,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """A request to get data transfer run information.
+  
   Attributes:
       name:
           Required. The field will contain name of the resource
@@ -2908,6 +2918,7 @@ DeleteTransferRunRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _DELETETRANSFERRUNREQUEST,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """A request to delete data transfer run information.
+  
   Attributes:
       name:
           Required. The field will contain name of the resource
@@ -2927,6 +2938,7 @@ ListTransferConfigsRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTTRANSFERCONFIGSREQUEST,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """A request to list data transfers configured for a BigQuery project.
+  
   Attributes:
       parent:
           Required. The BigQuery project id for which data sources
@@ -2957,6 +2969,7 @@ ListTransferConfigsResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTTRANSFERCONFIGSRESPONSE,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """The returned list of pipelines in the project.
+  
   Attributes:
       transfer_configs:
           Output only. The stored pipeline transfer configurations.
@@ -2980,6 +2993,7 @@ ListTransferRunsRequest = _reflection.GeneratedProtocolMessageType(
         "__doc__": """A request to list data transfer runs. UI can use this method to
   show/filter specific data transfer runs. The data source can use this
   method to request all scheduled transfer runs.
+  
   Attributes:
       parent:
           Required. Name of transfer configuration for which transfer
@@ -3015,6 +3029,7 @@ ListTransferRunsResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTTRANSFERRUNSRESPONSE,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """The returned list of pipelines in the project.
+  
   Attributes:
       transfer_runs:
           Output only. The stored pipeline transfer runs.
@@ -3037,6 +3052,7 @@ ListTransferLogsRequest = _reflection.GeneratedProtocolMessageType(
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """A request to get user facing log messages associated with data
   transfer run.
+  
   Attributes:
       parent:
           Required. Transfer run name in the form: ``projects/{project_i
@@ -3068,6 +3084,7 @@ ListTransferLogsResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTTRANSFERLOGSRESPONSE,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """The returned list transfer run messages.
+  
   Attributes:
       transfer_messages:
           Output only. The stored pipeline transfer messages.
@@ -3094,6 +3111,7 @@ CheckValidCredsRequest = _reflection.GeneratedProtocolMessageType(
   data source has the Google+ authorization type, this method returns
   false, as it cannot be determined whether the credentials are already
   valid merely based on the user id.
+  
   Attributes:
       name:
           Required. The data source in the form:
@@ -3113,6 +3131,7 @@ CheckValidCredsResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CHECKVALIDCREDSRESPONSE,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """A response indicating whether the credentials exist and are valid.
+  
   Attributes:
       has_valid_creds:
           If set to ``true``, the credentials exist and are valid.
@@ -3129,6 +3148,7 @@ ScheduleTransferRunsRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _SCHEDULETRANSFERRUNSREQUEST,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """A request to schedule transfer runs for a time range.
+  
   Attributes:
       parent:
           Required. Transfer configuration name in the form:
@@ -3154,6 +3174,7 @@ ScheduleTransferRunsResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _SCHEDULETRANSFERRUNSRESPONSE,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """A response to schedule transfer runs for a time range.
+  
   Attributes:
       runs:
           The transfer runs that were scheduled.
@@ -3175,6 +3196,7 @@ StartManualTransferRunsRequest = _reflection.GeneratedProtocolMessageType(
                 "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
                 "__doc__": """A specification for a time range, this will request transfer runs with
     run_time between start_time (inclusive) and end_time (exclusive).
+    
     Attributes:
         start_time:
             Start time of the range of transfer runs. For example,
@@ -3194,6 +3216,7 @@ StartManualTransferRunsRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _STARTMANUALTRANSFERRUNSREQUEST,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """A request to start manual transfer runs.
+  
   Attributes:
       parent:
           Transfer configuration name in the form:
@@ -3222,6 +3245,7 @@ StartManualTransferRunsResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _STARTMANUALTRANSFERRUNSRESPONSE,
         "__module__": "google.cloud.bigquery_datatransfer_v1.proto.datatransfer_pb2",
         "__doc__": """A response to start manual transfer runs.
+  
   Attributes:
       runs:
           The transfer runs that were created.
