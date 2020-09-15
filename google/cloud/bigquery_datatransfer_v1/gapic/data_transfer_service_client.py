@@ -49,7 +49,7 @@ from google.protobuf import timestamp_pb2
 
 
 _GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution(
-    "google-cloud-bigquery-datatransfer"
+    "google-cloud-bigquery-datatransfer",
 ).version
 
 
@@ -141,7 +141,7 @@ class DataTransferServiceClient(object):
     def project_path(cls, project):
         """Return a fully-qualified project string."""
         return google.api_core.path_template.expand(
-            "projects/{project}", project=project
+            "projects/{project}", project=project,
         )
 
     @classmethod
@@ -278,12 +278,12 @@ class DataTransferServiceClient(object):
                 self.transport = transport
         else:
             self.transport = data_transfer_service_grpc_transport.DataTransferServiceGrpcTransport(
-                address=api_endpoint, channel=channel, credentials=credentials
+                address=api_endpoint, channel=channel, credentials=credentials,
             )
 
         if client_info is None:
             client_info = google.api_core.gapic_v1.client_info.ClientInfo(
-                gapic_version=_GAPIC_LIBRARY_VERSION
+                gapic_version=_GAPIC_LIBRARY_VERSION,
             )
         else:
             client_info.gapic_version = _GAPIC_LIBRARY_VERSION
@@ -294,7 +294,7 @@ class DataTransferServiceClient(object):
         # (Ordinarily, these are the defaults specified in the `*_config.py`
         # file next to this one.)
         self._method_configs = google.api_core.gapic_v1.config.parse_method_configs(
-            client_config["interfaces"][self._INTERFACE_NAME]
+            client_config["interfaces"][self._INTERFACE_NAME],
         )
 
         # Save a dictionary of cached API call functions.
@@ -304,220 +304,6 @@ class DataTransferServiceClient(object):
         self._inner_api_calls = {}
 
     # Service calls
-    def delete_transfer_config(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Deletes a data transfer configuration,
-        including any associated transfer runs and logs.
-
-        Example:
-            >>> from google.cloud import bigquery_datatransfer_v1
-            >>>
-            >>> client = bigquery_datatransfer_v1.DataTransferServiceClient()
-            >>>
-            >>> name = client.project_transfer_config_path('[PROJECT]', '[TRANSFER_CONFIG]')
-            >>>
-            >>> client.delete_transfer_config(name)
-
-        Args:
-            name (str): Required. The field will contain name of the resource requested, for
-                example: ``projects/{project_id}/transferConfigs/{config_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        # Wrap the transport method to add retry and timeout logic.
-        if "delete_transfer_config" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "delete_transfer_config"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.delete_transfer_config,
-                default_retry=self._method_configs["DeleteTransferConfig"].retry,
-                default_timeout=self._method_configs["DeleteTransferConfig"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = datatransfer_pb2.DeleteTransferConfigRequest(name=name)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        self._inner_api_calls["delete_transfer_config"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
-    def delete_transfer_run(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Deletes the specified transfer run.
-
-        Example:
-            >>> from google.cloud import bigquery_datatransfer_v1
-            >>>
-            >>> client = bigquery_datatransfer_v1.DataTransferServiceClient()
-            >>>
-            >>> name = client.project_run_path('[PROJECT]', '[TRANSFER_CONFIG]', '[RUN]')
-            >>>
-            >>> client.delete_transfer_run(name)
-
-        Args:
-            name (str): Required. The field will contain name of the resource requested, for
-                example:
-                ``projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}``
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        # Wrap the transport method to add retry and timeout logic.
-        if "delete_transfer_run" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "delete_transfer_run"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.delete_transfer_run,
-                default_retry=self._method_configs["DeleteTransferRun"].retry,
-                default_timeout=self._method_configs["DeleteTransferRun"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = datatransfer_pb2.DeleteTransferRunRequest(name=name)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        self._inner_api_calls["delete_transfer_run"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
-    def check_valid_creds(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Returns true if valid credentials exist for the given data source and
-        requesting user.
-        Some data sources doesn't support service account, so we need to talk to
-        them on behalf of the end user. This API just checks whether we have OAuth
-        token for the particular user, which is a pre-requisite before user can
-        create a transfer config.
-
-        Example:
-            >>> from google.cloud import bigquery_datatransfer_v1
-            >>>
-            >>> client = bigquery_datatransfer_v1.DataTransferServiceClient()
-            >>>
-            >>> name = client.project_data_source_path('[PROJECT]', '[DATA_SOURCE]')
-            >>>
-            >>> response = client.check_valid_creds(name)
-
-        Args:
-            name (str): Required. The data source in the form:
-                ``projects/{project_id}/dataSources/{data_source_id}`` or
-                ``projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}``.
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Returns:
-            A :class:`~google.cloud.bigquery_datatransfer_v1.types.CheckValidCredsResponse` instance.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        # Wrap the transport method to add retry and timeout logic.
-        if "check_valid_creds" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "check_valid_creds"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.check_valid_creds,
-                default_retry=self._method_configs["CheckValidCreds"].retry,
-                default_timeout=self._method_configs["CheckValidCreds"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = datatransfer_pb2.CheckValidCredsRequest(name=name)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        return self._inner_api_calls["check_valid_creds"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
     def get_data_source(
         self,
         name,
@@ -539,9 +325,8 @@ class DataTransferServiceClient(object):
             >>> response = client.get_data_source(name)
 
         Args:
-            name (str): Required. The field will contain name of the resource requested, for
-                example: ``projects/{project_id}/dataSources/{data_source_id}`` or
-                ``projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}``
+            name (str): Not ZigZag encoded. Negative numbers take 10 bytes. Use TYPE_SINT64
+                if negative values are likely.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -572,7 +357,7 @@ class DataTransferServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = datatransfer_pb2.GetDataSourceRequest(name=name)
+        request = datatransfer_pb2.GetDataSourceRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -624,9 +409,9 @@ class DataTransferServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. The BigQuery project id for which data sources should be
-                returned. Must be in the form: ``projects/{project_id}`` or
-                \`projects/{project_id}/locations/{location_id}
+            parent (str): If type_name is set, this need not be set. If both this and
+                type_name are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or
+                TYPE_GROUP.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -666,7 +451,7 @@ class DataTransferServiceClient(object):
             )
 
         request = datatransfer_pb2.ListDataSourcesRequest(
-            parent=parent, page_size=page_size
+            parent=parent, page_size=page_size,
         )
         if metadata is None:
             metadata = []
@@ -723,37 +508,18 @@ class DataTransferServiceClient(object):
             >>> response = client.create_transfer_config(parent, transfer_config)
 
         Args:
-            parent (str): Required. The BigQuery project id where the transfer configuration
-                should be created. Must be in the format
-                projects/{project_id}/locations/{location_id} or projects/{project_id}.
-                If specified location and location of the destination bigquery dataset
-                do not match - the request will fail.
+            parent (str): Input and output type names. These are resolved in the same way as
+                FieldDescriptorProto.type_name, but must refer to a message type.
             transfer_config (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.TransferConfig]): Required. Data transfer configuration to create.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.bigquery_datatransfer_v1.types.TransferConfig`
-            authorization_code (str): Optional OAuth2 authorization code to use with this transfer
-                configuration. This is required if new credentials are needed, as
-                indicated by ``CheckValidCreds``. In order to obtain authorization_code,
-                please make a request to
-                https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=<data_source_scopes>&redirect_uri=<redirect_uri>
-
-                -  client_id should be OAuth client_id of BigQuery DTS API for the given
-                   data source returned by ListDataSources method.
-                -  data_source_scopes are the scopes returned by ListDataSources method.
-                -  redirect_uri is an optional parameter. If not specified, then
-                   authorization code is posted to the opener of authorization flow
-                   window. Otherwise it will be sent to the redirect uri. A special
-                   value of urn:ietf:wg:oauth:2.0:oob means that authorization code
-                   should be returned in the title bar of the browser, with the page
-                   text prompting the user to copy the code and paste it in the
-                   application.
-            version_info (str): Optional version info. If users want to find a very recent access
-                token, that is, immediately after approving access, users have to set
-                the version_info claim in the token request. To obtain the version_info,
-                users must use the "none+gsession" response type. which be return a
-                version_info back in the authorization response which be be put in a JWT
-                claim in the token request.
+            authorization_code (str): An annotation that describes a resource reference, see
+                ``ResourceReference``. Defines the HTTP configuration for an API
+                service. It contains a list of ``HttpRule``, each specifying the mapping
+                of an RPC method to one or more HTTP REST API methods.
+            version_info (str): Required. Start time of the range of transfer runs. For example,
+                ``"2017-05-25T00:00:00+00:00"``.
             service_account_name (str): Optional service account name. If this field is set, transfer config will
                 be created with this service account credentials. It requires that
                 requesting user calling this API has permissions to act as this service
@@ -849,33 +615,45 @@ class DataTransferServiceClient(object):
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.bigquery_datatransfer_v1.types.FieldMask`
-            authorization_code (str): Optional OAuth2 authorization code to use with this transfer
-                configuration. If it is provided, the transfer configuration will be
-                associated with the authorizing user. In order to obtain
-                authorization_code, please make a request to
-                https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=<data_source_scopes>&redirect_uri=<redirect_uri>
+            authorization_code (str): Protocol Buffers - Google's data interchange format Copyright 2008
+                Google Inc. All rights reserved.
+                https://developers.google.com/protocol-buffers/
 
-                -  client_id should be OAuth client_id of BigQuery DTS API for the given
-                   data source returned by ListDataSources method.
-                -  data_source_scopes are the scopes returned by ListDataSources method.
-                -  redirect_uri is an optional parameter. If not specified, then
-                   authorization code is posted to the opener of authorization flow
-                   window. Otherwise it will be sent to the redirect uri. A special
-                   value of urn:ietf:wg:oauth:2.0:oob means that authorization code
-                   should be returned in the title bar of the browser, with the page
-                   text prompting the user to copy the code and paste it in the
-                   application.
+                Redistribution and use in source and binary forms, with or without
+                modification, are permitted provided that the following conditions are
+                met:
+
+                ::
+
+                    * Redistributions of source code must retain the above copyright
+
+                notice, this list of conditions and the following disclaimer. \*
+                Redistributions in binary form must reproduce the above copyright
+                notice, this list of conditions and the following disclaimer in the
+                documentation and/or other materials provided with the distribution. \*
+                Neither the name of Google Inc. nor the names of its contributors may be
+                used to endorse or promote products derived from this software without
+                specific prior written permission.
+
+                THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+                IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+                TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+                PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+                OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+                EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+                PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+                PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+                LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+                NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+                SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             version_info (str): Optional version info. If users want to find a very recent access
                 token, that is, immediately after approving access, users have to set
                 the version_info claim in the token request. To obtain the version_info,
                 users must use the "none+gsession" response type. which be return a
                 version_info back in the authorization response which be be put in a JWT
                 claim in the token request.
-            service_account_name (str): Optional service account name. If this field is set and
-                "service_account_name" is set in update_mask, transfer config will be
-                updated to use this service account credentials. It requires that
-                requesting user calling this API has permissions to act as this service
-                account.
+            service_account_name (str): For extensions, this is the name of the type being extended. It is
+                resolved in the same manner as type_name.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -930,6 +708,100 @@ class DataTransferServiceClient(object):
             request, retry=retry, timeout=timeout, metadata=metadata
         )
 
+    def delete_transfer_config(
+        self,
+        name,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Deletes a data transfer configuration,
+        including any associated transfer runs and logs.
+
+        Example:
+            >>> from google.cloud import bigquery_datatransfer_v1
+            >>>
+            >>> client = bigquery_datatransfer_v1.DataTransferServiceClient()
+            >>>
+            >>> name = client.project_transfer_config_path('[PROJECT]', '[TRANSFER_CONFIG]')
+            >>>
+            >>> client.delete_transfer_config(name)
+
+        Args:
+            name (str): Should this field be parsed lazily? Lazy applies only to
+                message-type fields. It means that when the outer message is initially
+                parsed, the inner message's contents will not be parsed but instead
+                stored in encoded form. The inner message will actually be parsed when
+                it is first accessed.
+
+                This is only a hint. Implementations are free to choose whether to use
+                eager or lazy parsing regardless of the value of this option. However,
+                setting this option true suggests that the protocol author believes that
+                using lazy parsing on this field is worth the additional bookkeeping
+                overhead typically needed to implement it.
+
+                This option does not affect the public interface of any generated code;
+                all method signatures remain the same. Furthermore, thread-safety of the
+                interface is not affected by this option; const methods remain safe to
+                call from multiple threads concurrently, while non-const methods
+                continue to require exclusive access.
+
+                Note that implementations may choose not to check required fields within
+                a lazy sub-message. That is, calling IsInitialized() on the outer
+                message may return true even if the inner message has missing required
+                fields. This is necessary because otherwise the inner message would have
+                to be parsed in order to perform the check, defeating the purpose of
+                lazy parsing. An implementation which chooses not to check required
+                fields must be consistent about it. That is, for any particular
+                sub-message, the implementation must either *always* check its required
+                fields, or *never* check its required fields, regardless of whether or
+                not the message has been parsed.
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        # Wrap the transport method to add retry and timeout logic.
+        if "delete_transfer_config" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "delete_transfer_config"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.delete_transfer_config,
+                default_retry=self._method_configs["DeleteTransferConfig"].retry,
+                default_timeout=self._method_configs["DeleteTransferConfig"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = datatransfer_pb2.DeleteTransferConfigRequest(name=name,)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        self._inner_api_calls["delete_transfer_config"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
     def get_transfer_config(
         self,
         name,
@@ -950,9 +822,8 @@ class DataTransferServiceClient(object):
             >>> response = client.get_transfer_config(name)
 
         Args:
-            name (str): Required. The field will contain name of the resource requested, for
-                example: ``projects/{project_id}/transferConfigs/{config_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``
+            name (str): An annotation that describes a resource definition without a
+                corresponding message; see ``ResourceDescriptor``.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -983,7 +854,7 @@ class DataTransferServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = datatransfer_pb2.GetTransferConfigRequest(name=name)
+        request = datatransfer_pb2.GetTransferConfigRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -1035,9 +906,16 @@ class DataTransferServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. The BigQuery project id for which data sources should be
-                returned: ``projects/{project_id}`` or
-                ``projects/{project_id}/locations/{location_id}``
+            parent (str): The resource type. It must be in the format of
+                {service_name}/{resource_type_kind}. The ``resource_type_kind`` must be
+                singular and must not include version numbers.
+
+                Example: ``storage.googleapis.com/Bucket``
+
+                The value of the resource_type_kind must follow the regular expression
+                /[A-Za-z][a-zA-Z0-9]+/. It should start with an upper case character and
+                should use PascalCase (UpperCamelCase). The maximum number of characters
+                allowed for the ``resource_type_kind`` is 100.
             data_source_ids (list[str]): When specified, only configurations of requested data sources are returned.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
@@ -1078,7 +956,7 @@ class DataTransferServiceClient(object):
             )
 
         request = datatransfer_pb2.ListTransferConfigsRequest(
-            parent=parent, data_source_ids=data_source_ids, page_size=page_size
+            parent=parent, data_source_ids=data_source_ids, page_size=page_size,
         )
         if metadata is None:
             metadata = []
@@ -1118,10 +996,37 @@ class DataTransferServiceClient(object):
         metadata=None,
     ):
         """
-        Creates transfer runs for a time range [start_time, end_time]. For
-        each date - or whatever granularity the data source supports - in the
-        range, one transfer run is created. Note that runs are created per UTC
-        time in the time range. DEPRECATED: use StartManualTransferRuns instead.
+        Protocol Buffers - Google's data interchange format Copyright 2008
+        Google Inc. All rights reserved.
+        https://developers.google.com/protocol-buffers/
+
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are
+        met:
+
+        ::
+
+            * Redistributions of source code must retain the above copyright
+
+        notice, this list of conditions and the following disclaimer. \*
+        Redistributions in binary form must reproduce the above copyright
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution. \*
+        Neither the name of Google Inc. nor the names of its contributors may be
+        used to endorse or promote products derived from this software without
+        specific prior written permission.
+
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+        IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+        TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+        PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+        OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+        EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+        PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+        PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+        LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+        NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
         Example:
             >>> from google.cloud import bigquery_datatransfer_v1
@@ -1139,16 +1044,46 @@ class DataTransferServiceClient(object):
             >>> response = client.schedule_transfer_runs(parent, start_time, end_time)
 
         Args:
-            parent (str): Required. Transfer configuration name in the form:
-                ``projects/{project_id}/transferConfigs/{config_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``.
-            start_time (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.Timestamp]): Required. Start time of the range of transfer runs. For example,
-                ``"2017-05-25T00:00:00+00:00"``.
+            parent (str): Required. The field will contain name of the resource requested, for
+                example: ``projects/{project_id}/dataSources/{data_source_id}`` or
+                ``projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}``
+            start_time (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.Timestamp]): Required. The field will contain name of the resource requested, for
+                example: ``projects/{project_id}/transferConfigs/{config_id}`` or
+                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.bigquery_datatransfer_v1.types.Timestamp`
-            end_time (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.Timestamp]): Required. End time of the range of transfer runs. For example,
-                ``"2017-05-30T00:00:00+00:00"``.
+            end_time (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.Timestamp]): Each of the definitions above may have "options" attached. These are
+                just annotations which may cause code to be generated slightly
+                differently or may contain hints for code that manipulates protocol
+                messages.
+
+                Clients may define custom options as extensions of the \*Options
+                messages. These extensions may not yet be known at parsing time, so the
+                parser cannot store the values in them. Instead it stores them in a
+                field in the \*Options message called uninterpreted_option. This field
+                must have the same name across all \*Options messages. We then use this
+                field to populate the extensions when we build a descriptor, at which
+                point all protos have been parsed and so all extensions are known.
+
+                Extension numbers for custom options may be chosen as follows:
+
+                -  For options which will only be used within a single application or
+                   organization, or for experimental options, use field numbers 50000
+                   through 99999. It is up to you to ensure that you do not use the same
+                   number for multiple options.
+                -  For options which will be published and used publicly by multiple
+                   independent entities, e-mail
+                   protobuf-global-extension-registry@google.com to reserve extension
+                   numbers. Simply provide your project name (e.g. Objective-C plugin)
+                   and your project website (if available) -- there's no need to explain
+                   how you intend to use them. Usually you only need one extension
+                   number. You can declare multiple options with only one extension
+                   number by putting them in a sub-message. See the Custom Options
+                   section of the docs for examples:
+                   https://developers.google.com/protocol-buffers/docs/proto#options If
+                   this turns out to be popular, a web service will be set up to
+                   automatically assign option numbers.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.bigquery_datatransfer_v1.types.Timestamp`
@@ -1183,7 +1118,7 @@ class DataTransferServiceClient(object):
             )
 
         request = datatransfer_pb2.ScheduleTransferRunsRequest(
-            parent=parent, start_time=start_time, end_time=end_time
+            parent=parent, start_time=start_time, end_time=end_time,
         )
         if metadata is None:
             metadata = []
@@ -1212,10 +1147,10 @@ class DataTransferServiceClient(object):
         metadata=None,
     ):
         """
-        Start manual transfer runs to be executed now with schedule_time
-        equal to current time. The transfer runs can be created for a time range
-        where the run_time is between start_time (inclusive) and end_time
-        (exclusive), or for a specific run_time.
+        ``NullValue`` is a singleton enumeration to represent the null value
+        for the ``Value`` type union.
+
+        The JSON representation for ``NullValue`` is JSON ``null``.
 
         Example:
             >>> from google.cloud import bigquery_datatransfer_v1
@@ -1225,15 +1160,18 @@ class DataTransferServiceClient(object):
             >>> response = client.start_manual_transfer_runs()
 
         Args:
-            parent (str): Transfer configuration name in the form:
-                ``projects/{project_id}/transferConfigs/{config_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``.
+            parent (str): Required. Transfer run name in the form:
+                ``projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`` or
+                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}``
             requested_time_range (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.TimeRange]): Time range for the transfer runs that should be started.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.bigquery_datatransfer_v1.types.TimeRange`
-            requested_run_time (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.Timestamp]): Specific run_time for a transfer run to be started. The
-                requested_run_time must not be in the future.
+            requested_run_time (Union[dict, ~google.cloud.bigquery_datatransfer_v1.types.Timestamp]): Optional service account name. If this field is set and
+                "service_account_name" is set in update_mask, transfer config will be
+                updated to use this service account credentials. It requires that
+                requesting user calling this API has permissions to act as this service
+                account.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.bigquery_datatransfer_v1.types.Timestamp`
@@ -1316,10 +1254,12 @@ class DataTransferServiceClient(object):
             >>> response = client.get_transfer_run(name)
 
         Args:
-            name (str): Required. The field will contain name of the resource requested, for
-                example:
-                ``projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}``
+            name (str): Optional version info. If users want to find a very recent access
+                token, that is, immediately after approving access, users have to set
+                the version_info claim in the token request. To obtain the version_info,
+                users must use the "none+gsession" response type. which be return a
+                version_info back in the authorization response which be be put in a JWT
+                claim in the token request.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -1350,7 +1290,7 @@ class DataTransferServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = datatransfer_pb2.GetTransferRunRequest(name=name)
+        request = datatransfer_pb2.GetTransferRunRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -1365,6 +1305,75 @@ class DataTransferServiceClient(object):
             metadata.append(routing_metadata)
 
         return self._inner_api_calls["get_transfer_run"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
+    def delete_transfer_run(
+        self,
+        name,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Deletes the specified transfer run.
+
+        Example:
+            >>> from google.cloud import bigquery_datatransfer_v1
+            >>>
+            >>> client = bigquery_datatransfer_v1.DataTransferServiceClient()
+            >>>
+            >>> name = client.project_run_path('[PROJECT]', '[TRANSFER_CONFIG]', '[RUN]')
+            >>>
+            >>> client.delete_transfer_run(name)
+
+        Args:
+            name (str): The same concept of the ``singular`` field in k8s CRD spec
+                https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/
+                Such as "project" for the ``resourcemanager.googleapis.com/Project``
+                type.
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        # Wrap the transport method to add retry and timeout logic.
+        if "delete_transfer_run" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "delete_transfer_run"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.delete_transfer_run,
+                default_retry=self._method_configs["DeleteTransferRun"].retry,
+                default_timeout=self._method_configs["DeleteTransferRun"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = datatransfer_pb2.DeleteTransferRunRequest(name=name,)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        self._inner_api_calls["delete_transfer_run"](
             request, retry=retry, timeout=timeout, metadata=metadata
         )
 
@@ -1403,10 +1412,8 @@ class DataTransferServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. Name of transfer configuration for which transfer runs
-                should be retrieved. Format of transfer configuration resource name is:
-                ``projects/{project_id}/transferConfigs/{config_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``.
+            parent (str): If set, gives the index of a oneof in the containing type's
+                oneof_decl list. This field is a member of that oneof.
             states (list[~google.cloud.bigquery_datatransfer_v1.types.TransferState]): When specified, only transfer runs with requested states are returned.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
@@ -1448,7 +1455,7 @@ class DataTransferServiceClient(object):
             )
 
         request = datatransfer_pb2.ListTransferRunsRequest(
-            parent=parent, states=states, page_size=page_size, run_attempt=run_attempt
+            parent=parent, states=states, page_size=page_size, run_attempt=run_attempt,
         )
         if metadata is None:
             metadata = []
@@ -1512,9 +1519,99 @@ class DataTransferServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. Transfer run name in the form:
-                ``projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`` or
-                ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}``
+            parent (str): A Timestamp represents a point in time independent of any time zone
+                or local calendar, encoded as a count of seconds and fractions of
+                seconds at nanosecond resolution. The count is relative to an epoch at
+                UTC midnight on January 1, 1970, in the proleptic Gregorian calendar
+                which extends the Gregorian calendar backwards to year one.
+
+                All minutes are 60 seconds long. Leap seconds are "smeared" so that no
+                leap second table is needed for interpretation, using a `24-hour linear
+                smear <https://developers.google.com/time/smear>`__.
+
+                The range is from 0001-01-01T00:00:00Z to
+                9999-12-31T23:59:59.999999999Z. By restricting to that range, we ensure
+                that we can convert to and from `RFC
+                3339 <https://www.ietf.org/rfc/rfc3339.txt>`__ date strings.
+
+                # Examples
+
+                Example 1: Compute Timestamp from POSIX ``time()``.
+
+                ::
+
+                    Timestamp timestamp;
+                    timestamp.set_seconds(time(NULL));
+                    timestamp.set_nanos(0);
+
+                Example 2: Compute Timestamp from POSIX ``gettimeofday()``.
+
+                ::
+
+                    struct timeval tv;
+                    gettimeofday(&tv, NULL);
+
+                    Timestamp timestamp;
+                    timestamp.set_seconds(tv.tv_sec);
+                    timestamp.set_nanos(tv.tv_usec * 1000);
+
+                Example 3: Compute Timestamp from Win32 ``GetSystemTimeAsFileTime()``.
+
+                ::
+
+                    FILETIME ft;
+                    GetSystemTimeAsFileTime(&ft);
+                    UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+                    // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+                    // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+                    Timestamp timestamp;
+                    timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+                    timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+                Example 4: Compute Timestamp from Java ``System.currentTimeMillis()``.
+
+                ::
+
+                    long millis = System.currentTimeMillis();
+
+                    Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+                        .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+                Example 5: Compute Timestamp from current time in Python.
+
+                ::
+
+                    timestamp = Timestamp()
+                    timestamp.GetCurrentTime()
+
+                # JSON Mapping
+
+                In JSON format, the Timestamp type is encoded as a string in the `RFC
+                3339 <https://www.ietf.org/rfc/rfc3339.txt>`__ format. That is, the
+                format is "{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z" where
+                {year} is always expressed using four digits while {month}, {day},
+                {hour}, {min}, and {sec} are zero-padded to two digits each. The
+                fractional seconds, which can go up to 9 digits (i.e. up to 1 nanosecond
+                resolution), are optional. The "Z" suffix indicates the timezone
+                ("UTC"); the timezone is required. A proto3 JSON serializer should
+                always use UTC (as indicated by "Z") when printing the Timestamp type
+                and a proto3 JSON parser should be able to accept both UTC and other
+                timezones (as indicated by an offset).
+
+                For example, "2017-01-15T01:30:15.01Z" encodes 15.01 seconds past 01:30
+                UTC on January 15, 2017.
+
+                In JavaScript, one can convert a Date object to this format using the
+                standard
+                `toISOString() <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString>`__
+                method. In Python, a standard ``datetime.datetime`` object can be
+                converted to this format using
+                ```strftime`` <https://docs.python.org/2/library/time.html#time.strftime>`__
+                with the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java,
+                one can use the Joda Time's
+                ```ISODateTimeFormat.dateTime()`` <http://www.joda.org/joda-time/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime%2D%2D>`__
+                to obtain a formatter capable of generating timestamps in this format.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -1556,7 +1653,7 @@ class DataTransferServiceClient(object):
             )
 
         request = datatransfer_pb2.ListTransferLogsRequest(
-            parent=parent, page_size=page_size, message_types=message_types
+            parent=parent, page_size=page_size, message_types=message_types,
         )
         if metadata is None:
             metadata = []
@@ -1585,3 +1682,81 @@ class DataTransferServiceClient(object):
             response_token_field="next_page_token",
         )
         return iterator
+
+    def check_valid_creds(
+        self,
+        name,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Returns true if valid credentials exist for the given data source and
+        requesting user.
+        Some data sources doesn't support service account, so we need to talk to
+        them on behalf of the end user. This API just checks whether we have OAuth
+        token for the particular user, which is a pre-requisite before user can
+        create a transfer config.
+
+        Example:
+            >>> from google.cloud import bigquery_datatransfer_v1
+            >>>
+            >>> client = bigquery_datatransfer_v1.DataTransferServiceClient()
+            >>>
+            >>> name = client.project_data_source_path('[PROJECT]', '[DATA_SOURCE]')
+            >>>
+            >>> response = client.check_valid_creds(name)
+
+        Args:
+            name (str): The name of the uninterpreted option. Each string represents a
+                segment in a dot-separated name. is_extension is true iff a segment
+                represents an extension (denoted with parentheses in options specs in
+                .proto files). E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false]
+                } represents "foo.(bar.baz).qux".
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Returns:
+            A :class:`~google.cloud.bigquery_datatransfer_v1.types.CheckValidCredsResponse` instance.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        # Wrap the transport method to add retry and timeout logic.
+        if "check_valid_creds" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "check_valid_creds"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.check_valid_creds,
+                default_retry=self._method_configs["CheckValidCreds"].retry,
+                default_timeout=self._method_configs["CheckValidCreds"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = datatransfer_pb2.CheckValidCredsRequest(name=name,)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        return self._inner_api_calls["check_valid_creds"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )

@@ -21,10 +21,7 @@ import enum
 
 class NullValue(enum.IntEnum):
     """
-    ``NullValue`` is a singleton enumeration to represent the null value
-    for the ``Value`` type union.
-
-    The JSON representation for ``NullValue`` is JSON ``null``.
+    If set to ``true``, the credentials exist and are valid.
 
     Attributes:
       NULL_VALUE (int): Null value.
