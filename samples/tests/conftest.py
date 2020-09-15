@@ -18,7 +18,6 @@ import datetime
 import os
 import uuid
 
-import google.api_core.exceptions
 import google.auth
 import google.cloud.bigquery
 import pytest
@@ -71,7 +70,5 @@ def to_delete(bqdts_client):
     for resource_name in doomed:
         try:
             bqdts_client.delete_transfer_config(resource_name)
-        except google.api_core.exceptions.NotFound:
-            pass
-        else:
+        except Exception:
             pass
