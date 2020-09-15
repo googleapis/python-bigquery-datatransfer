@@ -14,8 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import datetime
 import os
-import time
+import uuid
 
 import google.api_core.exceptions
 import google.auth
@@ -53,7 +54,10 @@ def bigquery_client(credentials):
 def dataset_id(bigquery_client):
     # Ensure the test account has owner permissions on the dataset by creating
     # one from scratch.
-    temp_ds_id = "bqdts_{}".format(int(time.process_time() * 1000000))
+    now = datetime.datetime.now()
+    temp_ds_id = "bqdts_{}_{}".format(
+        now.strftime("%Y%m%d%H%M%S"), uuid.uuid4().hex[:8]
+    )
     bigquery_client.create_dataset(temp_ds_id)
     yield temp_ds_id
     bigquery_client.delete_dataset(temp_ds_id)
@@ -68,4 +72,6 @@ def to_delete(bqdts_client):
         try:
             bqdts_client.delete_transfer_config(resource_name)
         except google.api_core.exceptions.NotFound:
+            pass
+        else:
             pass
