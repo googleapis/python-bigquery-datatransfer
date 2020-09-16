@@ -4,6 +4,18 @@
 
 [1]: https://pypi.org/project/google-cloud-bigquery-datatransfer/#history
 
+### [1.1.1](https://www.github.com/googleapis/python-bigquery-datatransfer/compare/v1.1.0...v1.1.1) (2020-09-16)
+
+
+### Bug Fixes
+
+* add dataset id in function call ([#44](https://www.github.com/googleapis/python-bigquery-datatransfer/issues/44)) ([9ce59a4](https://www.github.com/googleapis/python-bigquery-datatransfer/commit/9ce59a478238ac1601212e79a8c43ea78ef850a5))
+
+
+### Documentation
+
+* add sample for update transfer config ([#46](https://www.github.com/googleapis/python-bigquery-datatransfer/issues/46)) ([bd01020](https://www.github.com/googleapis/python-bigquery-datatransfer/commit/bd01020571fdf4e7be5e11866f5708cee56320eb))
+
 ## [1.1.0](https://www.github.com/googleapis/python-bigquery-datatransfer/compare/v1.0.0...v1.1.0) (2020-06-20)
 
 
