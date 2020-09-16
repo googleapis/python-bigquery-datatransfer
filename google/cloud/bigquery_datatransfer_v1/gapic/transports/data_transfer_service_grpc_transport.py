@@ -214,37 +214,9 @@ class DataTransferServiceGrpcTransport(object):
     def schedule_transfer_runs(self):
         """Return the gRPC stub for :meth:`DataTransferServiceClient.schedule_transfer_runs`.
 
-        Protocol Buffers - Google's data interchange format Copyright 2008
-        Google Inc. All rights reserved.
-        https://developers.google.com/protocol-buffers/
-
-        Redistribution and use in source and binary forms, with or without
-        modification, are permitted provided that the following conditions are
-        met:
-
-        ::
-
-            * Redistributions of source code must retain the above copyright
-
-        notice, this list of conditions and the following disclaimer. \*
-        Redistributions in binary form must reproduce the above copyright
-        notice, this list of conditions and the following disclaimer in the
-        documentation and/or other materials provided with the distribution. \*
-        Neither the name of Google Inc. nor the names of its contributors may be
-        used to endorse or promote products derived from this software without
-        specific prior written permission.
-
-        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
-        IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
-        TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
-        PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
-        OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-        EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-        PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-        PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-        LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-        NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        If type_name is set, this need not be set. If both this and
+        type_name are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or
+        TYPE_GROUP.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -257,10 +229,11 @@ class DataTransferServiceGrpcTransport(object):
     def start_manual_transfer_runs(self):
         """Return the gRPC stub for :meth:`DataTransferServiceClient.start_manual_transfer_runs`.
 
-        ``NullValue`` is a singleton enumeration to represent the null value
-        for the ``Value`` type union.
-
-        The JSON representation for ``NullValue`` is JSON ``null``.
+        Pagination token, which can be used to request a specific page of
+        ``ListTransferRunsRequest`` list results. For multiple-page results,
+        ``ListTransferRunsResponse`` outputs a ``next_page`` token, which can be
+        used as the ``page_token`` value to request the next page of list
+        results.
 
         Returns:
             Callable: A callable which accepts the appropriate
