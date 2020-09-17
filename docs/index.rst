@@ -8,8 +8,8 @@ API Reference
 .. toctree::
    :maxdepth: 2
 
-   gapic/v1/api
-   gapic/v1/types
+    Client <datatransfer_v1/services>
+    Types <datatransfer_v1/types>
 
 
 Changelog
