@@ -16,6 +16,7 @@
 #
 
 from .services.data_transfer_service import DataTransferServiceClient
+from .services.data_transfer_service import DataTransferServiceAsyncClient
 from .types.datatransfer import CheckValidCredsRequest
 from .types.datatransfer import CheckValidCredsResponse
 from .types.datatransfer import CreateTransferConfigRequest
@@ -80,4 +81,5 @@ __all__ = (
     "TransferType",
     "UpdateTransferConfigRequest",
     "DataTransferServiceClient",
+    "DataTransferServiceAsyncClient",
 )

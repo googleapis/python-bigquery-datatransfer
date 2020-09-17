@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "git@github.com:plamut/python-bigquery-datatransfer.git",
-        "sha": "93a1c94377ecd018015d519b20c2756951768a36"
+        "sha": "a570544a3de46edc2718adc9b4cf9eda69e6b0cc"
       }
     },
     {
