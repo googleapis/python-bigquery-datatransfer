@@ -43,7 +43,7 @@ for version in versions:
 # ----------------------------------------------------------------------------
 # Add templated files
 # ----------------------------------------------------------------------------
-templated_files = common.py_library(microgenerator=True, samples=True)
+templated_files = common.py_library(microgenerator=True, samples=True, cov_level=99)
 s.move(templated_files, excludes=[".coveragerc"])
 
 # ----------------------------------------------------------------------------
