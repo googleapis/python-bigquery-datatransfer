@@ -20,10 +20,10 @@
 
 def sample_create_transfer_config(project_id, dataset_id, authorization_code=""):
     # [START bigquerydatatransfer_create_scheduled_query]
-    from google.cloud import bigquery_datatransfer_v1
+    from google.cloud.bigquery import datatransfer_v1
     import google.protobuf.json_format
 
-    client = bigquery_datatransfer_v1.DataTransferServiceClient()
+    client = datatransfer_v1.DataTransferServiceClient()
 
     # TODO(developer): Set the project_id to the project that contains the
     #                  destination dataset.
@@ -53,7 +53,7 @@ def sample_create_transfer_config(project_id, dataset_id, authorization_code="")
       17 as some_integer
     """
 
-    parent = client.project_path(project_id)
+    parent = f"projects/{project_id}"
 
     transfer_config = google.protobuf.json_format.ParseDict(
         {
@@ -68,11 +68,15 @@ def sample_create_transfer_config(project_id, dataset_id, authorization_code="")
             },
             "schedule": "every 24 hours",
         },
-        bigquery_datatransfer_v1.types.TransferConfig(),
+        datatransfer_v1.types.TransferConfig.pb()(),
     )
 
     response = client.create_transfer_config(
-        parent, transfer_config, authorization_code=authorization_code
+        request={
+            "parent": parent,
+            "transfer_config": transfer_config,
+            "authorization_code": authorization_code,
+        }
     )
 
     print("Created scheduled query '{}'".format(response.name))
