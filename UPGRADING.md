@@ -178,7 +178,7 @@ This call is _invalid_ because it mixes `request` with a keyword argument `trans
 Executing this code will result in an error:
 
 ```py
-response = client.synthesize_speech(
+response = client.create_transfer_config(
     request={"parent": project_path},
     transfer_config= {"foo": "bar"},
 )
