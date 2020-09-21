@@ -13,7 +13,8 @@
 
 - Transition the library to microgenerator. ([#56](https://github.com/googleapis/python-bigquery-datatransfer/pull/56))
   This is a **breaking change** that introduces several **method signature changes** and **drops support
-  for Python 2.7 and 3.5**.
+  for Python 2.7 and 3.5**. See [migration guide](https://googleapis.dev/python/bigquerydatatransfer/latest/UPGRADING.html)
+  for more info.
 
 ## 1.1.1
 
