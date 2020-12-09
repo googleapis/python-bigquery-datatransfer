@@ -21,7 +21,7 @@ from google.cloud import bigquery
 from google.cloud import bigquery_datatransfer
 import pytest
 
-import copy_dataset
+from . import copy_dataset
 
 
 def temp_suffix():
