@@ -78,7 +78,7 @@ def create_scheduled_query_with_service_account(override_values={}):
 
     # This service account will be used to execute the scheduled queries.
     service_account_name = "abcdef-test-sa@abcdef-test.iam.gserviceaccount.com"
-    # [END bigquerydatatransfer_create_scheduled_query]
+    # [END bigquerydatatransfer_create_scheduled_query_with_service_account]
     # To facilitate testing, we replace values with alternatives
     # provided by the testing harness.
     project_id = override_values.get("project_id", project_id)
@@ -86,7 +86,7 @@ def create_scheduled_query_with_service_account(override_values={}):
     service_account_name = override_values.get(
         "service_account_name", service_account_name
     )
-    # [START bigquerydatatransfer_create_scheduled_query]
+    # [START bigquerydatatransfer_create_scheduled_query_with_service_account]
 
     # Use standard SQL syntax for the query.
     query_string = """
@@ -121,6 +121,6 @@ def create_scheduled_query_with_service_account(override_values={}):
     )
 
     print("Created scheduled query '{}'".format(transfer_config.name))
-    # [END bigquerydatatransfer_create_scheduled_query]
+    # [END bigquerydatatransfer_create_scheduled_query_with_service_account]
     # Return the config name for testing purposes, so that it can be deleted.
     return transfer_config
