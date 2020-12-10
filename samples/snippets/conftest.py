@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import datetime
+import uuid
+
 import google.api_core.exceptions
 import google.auth
 from google.cloud import bigquery
@@ -19,9 +22,23 @@ from google.cloud import bigquery_datatransfer
 import pytest
 
 
+def temp_suffix():
+    now = datetime.datetime.now()
+    return f"{now.strftime('%Y%m%d%H%M%S')}_{uuid.uuid4().hex[:8]}"
+
+
 @pytest.fixture(scope="session")
 def default_credentials():
     return google.auth.default(["https://www.googleapis.com/auth/cloud-platform"])
+
+
+@pytest.fixture(scope="session")
+def service_account_name(default_credentials):
+    credentials, _ = default_credentials
+    # Note: this property is not available when running with user account
+    # credentials, but only service account credentials are used in our test
+    # infrastructure.
+    return credentials.service_account_email
 
 
 @pytest.fixture(scope="session")
@@ -51,3 +68,11 @@ def to_delete_configs(transfer_client):
             transfer_client.delete_transfer_config(name=config_name)
         except google.api_core.exceptions.GoogleAPICallError:
             pass
+
+
+@pytest.fixture(scope="module")
+def dataset_id(bigquery_client, project_id):
+    dataset_id = f"bqdts_{temp_suffix()}"
+    bigquery_client.create_dataset(f"{project_id}.{dataset_id}")
+    yield dataset_id
+    bigquery_client.delete_dataset(dataset_id, delete_contents=True)
