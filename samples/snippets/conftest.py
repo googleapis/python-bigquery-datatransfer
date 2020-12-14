@@ -43,8 +43,7 @@ def service_account_name(default_credentials):
 
 @pytest.fixture(scope="session")
 def project_id(default_credentials):
-    _, project_id = default_credentials
-    return project_id
+    return os.environ["GOOGLE_CLOUD_PROJECT"]
 
 
 @pytest.fixture(scope="session")
