@@ -16,8 +16,8 @@ import datetime
 import os
 import uuid
 
-import google.api_core.exceptions
 from google.api_core import client_options
+import google.api_core.exceptions
 import google.auth
 from google.cloud import bigquery
 from google.cloud import bigquery_datatransfer
