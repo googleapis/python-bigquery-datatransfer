@@ -17,6 +17,7 @@ import os
 import uuid
 
 import google.api_core.exceptions
+from google.api_core import client_options
 import google.auth
 from google.cloud import bigquery
 from google.cloud import bigquery_datatransfer
@@ -54,9 +55,19 @@ def bigquery_client(default_credentials):
 
 
 @pytest.fixture(scope="session")
-def transfer_client(default_credentials):
+def transfer_client(default_credentials, project_id):
     credentials, _ = default_credentials
-    return bigquery_datatransfer.DataTransferServiceClient(credentials=credentials)
+    options = client_options.ClientOptions(quota_project_id=project_id)
+    return bigquery_datatransfer.DataTransferServiceClient(
+        credentials=credentials, client_options=options
+    )
+
+
+@pytest.fixture(autouse=True)
+def monkeypatch_transfer_client(monkeypatch, transfer_client):
+    monkeypatch.setattr(
+        bigquery_datatransfer, "DataTransferServiceClient", lambda: transfer_client
+    )
 
 
 @pytest.fixture
