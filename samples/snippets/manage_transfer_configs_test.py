@@ -12,41 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import google.api_core.exceptions
-import pytest
-
 from . import manage_transfer_configs
-
-
-@pytest.fixture(scope="module")
-def transfer_config_name(transfer_client, project_id, dataset_id):
-    from . import scheduled_query
-
-    transfer_config = scheduled_query.create_scheduled_query(
-        {
-            "project_id": project_id,
-            "dataset_id": dataset_id,
-        }
-    )
-    yield transfer_config.name
-    transfer_client.delete_transfer_config(name=transfer_config.name)
-
-
-@pytest.fixture
-def temp_transfer_config_name(transfer_client, project_id, dataset_id):
-    from . import scheduled_query
-
-    transfer_config = scheduled_query.create_scheduled_query(
-        {
-            "project_id": project_id,
-            "dataset_id": dataset_id,
-        }
-    )
-    yield transfer_config.name
-    try:
-        transfer_client.delete_transfer_config(name=transfer_config.name)
-    except google.api_core.exceptions.NotFound:
-        pass
 
 
 def test_list_configs(capsys, project_id, transfer_config_name):
@@ -85,12 +51,7 @@ def test_schedule_backfill(capsys, transfer_config_name):
     assert len(runs) == 4
 
 
-def test_delete_config(capsys, temp_transfer_config_name):
-    manage_transfer_configs.delete_config(
-        {
-            "transfer_config_name": temp_transfer_config_name,
-        }
-    )
-    out, _ = capsys.readouterr()
-    assert "Deleted" in out
-    assert temp_transfer_config_name in out
+def test_delete_config(capsys, transfer_config_name):
+    # transfer_config_name fixture in conftest.py calls the delete config
+    # sample. To conserve limited BQ-DTS quota we only make basic checks.
+    assert len(transfer_config_name) != 0

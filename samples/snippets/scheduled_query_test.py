@@ -12,31 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from . import scheduled_query
 
+def test_create_scheduled_query(transfer_config_name):
+    from . import scheduled_query
 
-def test_create_scheduled_query(capsys, project_id, dataset_id, to_delete_configs):
-    transfer_config = scheduled_query.create_scheduled_query(
-        {
-            "project_id": project_id,
-            "dataset_id": dataset_id,
-        }
-    )
-    to_delete_configs.append(transfer_config.name)
-    out, _ = capsys.readouterr()
-    assert transfer_config.name in out
-
-
-def test_create_scheduled_query_with_service_account(
-    capsys, project_id, dataset_id, service_account_name, to_delete_configs
-):
-    transfer_config = scheduled_query.create_scheduled_query_with_service_account(
-        {
-            "project_id": project_id,
-            "dataset_id": dataset_id,
-            "service_account_name": service_account_name,
-        }
-    )
-    to_delete_configs.append(transfer_config.name)
-    out, _ = capsys.readouterr()
-    assert transfer_config.name in out
+    # transfer_config_name fixture in conftest.py calls the scheduled query
+    # sample. To conserve limited BQ-DTS quota we only make basic checks.
+    assert hasattr(scheduled_query, "create_scheduled_query")
+    assert len(transfer_config_name) != 0

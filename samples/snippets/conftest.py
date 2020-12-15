@@ -30,8 +30,27 @@ def temp_suffix():
 
 
 @pytest.fixture(scope="session")
+def bigquery_client(default_credentials):
+    credentials, project_id = default_credentials
+    return bigquery.Client(credentials=credentials, project=project_id)
+
+
+@pytest.fixture(scope="session")
+def dataset_id(bigquery_client, project_id):
+    dataset_id = f"bqdts_{temp_suffix()}"
+    bigquery_client.create_dataset(f"{project_id}.{dataset_id}")
+    yield dataset_id
+    bigquery_client.delete_dataset(dataset_id, delete_contents=True)
+
+
+@pytest.fixture(scope="session")
 def default_credentials():
     return google.auth.default(["https://www.googleapis.com/auth/cloud-platform"])
+
+
+@pytest.fixture(scope="session")
+def project_id():
+    return os.environ["GOOGLE_CLOUD_PROJECT"]
 
 
 @pytest.fixture(scope="session")
@@ -44,29 +63,41 @@ def service_account_name(default_credentials):
 
 
 @pytest.fixture(scope="session")
-def project_id(default_credentials):
-    return os.environ["GOOGLE_CLOUD_PROJECT"]
-
-
-@pytest.fixture(scope="session")
-def bigquery_client(default_credentials):
-    credentials, project_id = default_credentials
-    return bigquery.Client(credentials=credentials, project=project_id)
-
-
-@pytest.fixture(scope="session")
 def transfer_client(default_credentials, project_id):
     credentials, _ = default_credentials
     options = client_options.ClientOptions(quota_project_id=project_id)
-    return bigquery_datatransfer.DataTransferServiceClient(
+
+    transfer_client = bigquery_datatransfer.DataTransferServiceClient(
         credentials=credentials, client_options=options
     )
 
+    # Ensure quota is always attributed to the correct project.
+    bigquery_datatransfer.DataTransferServiceClient = lambda: transfer_client
 
-@pytest.fixture(autouse=True)
-def monkeypatch_transfer_client(monkeypatch, transfer_client):
-    monkeypatch.setattr(
-        bigquery_datatransfer, "DataTransferServiceClient", lambda: transfer_client
+    return transfer_client
+
+
+@pytest.fixture(scope="session")
+def transfer_config_name(transfer_client, project_id, dataset_id, service_account_name):
+    from . import manage_transfer_configs, scheduled_query
+
+    # Use the transfer_client fixture so we know quota is attributed to the
+    # correct project.
+    assert transfer_client is not None
+
+    # To conserve limited BQ-DTS quota, this fixture creates only one transfer
+    # config for a whole session and is used to test the scheduled_query.py and
+    # the delete operation in manage_transfer_configs.py.
+    transfer_config = scheduled_query.create_scheduled_query(
+        {
+            "project_id": project_id,
+            "dataset_id": dataset_id,
+            "service_account_name": service_account_name,
+        }
+    )
+    yield transfer_config.name
+    manage_transfer_configs.delete_config(
+        {"transfer_config_name": transfer_config.name}
     )
 
 
@@ -79,11 +110,3 @@ def to_delete_configs(transfer_client):
             transfer_client.delete_transfer_config(name=config_name)
         except google.api_core.exceptions.GoogleAPICallError:
             pass
-
-
-@pytest.fixture(scope="module")
-def dataset_id(bigquery_client, project_id):
-    dataset_id = f"bqdts_{temp_suffix()}"
-    bigquery_client.create_dataset(f"{project_id}.{dataset_id}")
-    yield dataset_id
-    bigquery_client.delete_dataset(dataset_id, delete_contents=True)
