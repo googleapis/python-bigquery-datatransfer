@@ -68,7 +68,7 @@ def transfer_client(default_credentials, project_id):
     options = client_options.ClientOptions(quota_project_id=project_id)
 
     transfer_client = bigquery_datatransfer.DataTransferServiceClient(
-        credentials=credentials, client_options=options
+        credentials=credentials,  # client_options=options
     )
 
     # Ensure quota is always attributed to the correct project.
