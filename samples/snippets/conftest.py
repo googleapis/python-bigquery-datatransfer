@@ -68,7 +68,7 @@ def transfer_client(default_credentials, project_id):
     options = client_options.ClientOptions(quota_project_id=project_id)
 
     transfer_client = bigquery_datatransfer.DataTransferServiceClient(
-        credentials=credentials,  # client_options=options
+        credentials=credentials, client_options=options
     )
 
     # Ensure quota is always attributed to the correct project.
@@ -78,7 +78,7 @@ def transfer_client(default_credentials, project_id):
 
 
 @pytest.fixture(scope="session")
-def transfer_config_name(transfer_client, project_id, dataset_id, service_account_name):
+def transfer_config_name(transfer_client, project_id, dataset_id):
     from . import manage_transfer_configs, scheduled_query
 
     # Use the transfer_client fixture so we know quota is attributed to the
@@ -92,7 +92,7 @@ def transfer_config_name(transfer_client, project_id, dataset_id, service_accoun
         {
             "project_id": project_id,
             "dataset_id": dataset_id,
-            "service_account_name": service_account_name,
+            "service_account_name": None,
         }
     )
     yield transfer_config.name
