@@ -78,7 +78,7 @@ def transfer_client(default_credentials, project_id):
 
 
 @pytest.fixture(scope="session")
-def transfer_config_name(transfer_client, project_id, dataset_id):
+def transfer_config_name(transfer_client, project_id, dataset_id, service_account_name):
     from . import manage_transfer_configs, scheduled_query
 
     # Use the transfer_client fixture so we know quota is attributed to the
@@ -92,7 +92,7 @@ def transfer_config_name(transfer_client, project_id, dataset_id):
         {
             "project_id": project_id,
             "dataset_id": dataset_id,
-            "service_account_name": None,
+            "service_account_name": service_account_name,
         }
     )
     yield transfer_config.name
