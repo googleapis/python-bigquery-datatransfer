@@ -31,4 +31,4 @@ def test_list_data_sources(project_id):
     parent = client.common_project_path(project_id)
     data_sources = list(client.list_data_sources(parent=parent))
 
-    assert len(data_sources) > 0
+    assert len(data_sources) >= 0
