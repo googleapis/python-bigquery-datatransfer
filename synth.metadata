@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-bigquery-datatransfer.git",
-        "sha": "50d8d0b88f634bc3f9093e407f320299d8b7db55"
+        "sha": "96b6ec162351441078581d566a529ea1ba5d3eda"
       }
     },
     {
