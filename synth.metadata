@@ -11,8 +11,8 @@
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "28a591963253d52ce3a25a918cafbdd9928de8cf",
-        "internalRef": "361662015"
+        "sha": "c13fb8cb376bb666de80ed33e11550955b4357af",
+        "internalRef": "363304304"
       }
     },
     {
@@ -94,6 +94,7 @@
     "LICENSE",
     "MANIFEST.in",
     "README.rst",
+    "bigquery-datatransfer-v1-py.tar.gz",
     "docs/_static/custom.css",
     "docs/_templates/layout.html",
     "docs/bigquery_datatransfer_v1/data_transfer_service.rst",
