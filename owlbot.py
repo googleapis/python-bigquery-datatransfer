@@ -25,7 +25,7 @@ common = gcp.CommonTemplates()
 # ----------------------------------------------------------------------------
 # Generate bigquery_datatransfer GAPIC layer
 # ----------------------------------------------------------------------------
-for library in s.get_staging_dirs('v1'):
+for library in s.get_staging_dirs("v1"):
     # Fix missing async client in datatransfer_v1
     # https://github.com/googleapis/gapic-generator-python/issues/815
     s.replace(
