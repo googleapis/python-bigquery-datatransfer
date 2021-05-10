@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,6 +16,8 @@
 
 from .services.data_transfer_service import DataTransferServiceClient
 from .services.data_transfer_service import DataTransferServiceAsyncClient
+from .services.data_transfer_service import DataTransferServiceAsyncClient
+
 from .types.datatransfer import CheckValidCredsRequest
 from .types.datatransfer import CheckValidCredsResponse
 from .types.datatransfer import CreateTransferConfigRequest
@@ -48,14 +49,14 @@ from .types.transfer import TransferRun
 from .types.transfer import TransferState
 from .types.transfer import TransferType
 
-
 __all__ = (
     "CheckValidCredsRequest",
     "CheckValidCredsResponse",
     "CreateTransferConfigRequest",
     "DataSource",
     "DataSourceParameter",
-    "DeleteTransferConfigRequest",
+    "DataTransferServiceClient",
+    "DataTransferServiceAsyncClient" "DeleteTransferConfigRequest",
     "DeleteTransferRunRequest",
     "EmailPreferences",
     "GetDataSourceRequest",
@@ -80,6 +81,4 @@ __all__ = (
     "TransferState",
     "TransferType",
     "UpdateTransferConfigRequest",
-    "DataTransferServiceClient",
-    "DataTransferServiceAsyncClient",
 )
