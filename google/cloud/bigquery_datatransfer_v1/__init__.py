@@ -16,7 +16,6 @@
 
 from .services.data_transfer_service import DataTransferServiceClient
 from .services.data_transfer_service import DataTransferServiceAsyncClient
-from .services.data_transfer_service import DataTransferServiceAsyncClient
 
 from .types.datatransfer import CheckValidCredsRequest
 from .types.datatransfer import CheckValidCredsResponse
@@ -57,7 +56,7 @@ __all__ = (
     "DataSource",
     "DataSourceParameter",
     "DataTransferServiceClient",
-    "DataTransferServiceAsyncClient" "DeleteTransferConfigRequest",
+    "DeleteTransferConfigRequest",
     "DeleteTransferRunRequest",
     "EmailPreferences",
     "GetDataSourceRequest",
