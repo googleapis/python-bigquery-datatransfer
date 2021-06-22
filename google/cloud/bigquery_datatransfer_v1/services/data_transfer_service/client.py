@@ -1020,6 +1020,9 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
                 for a time range.
 
         """
+        warnings.warn(
+            "schedule_transfer_runs is deprecated", warnings.DeprecationWarning
+        )
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
