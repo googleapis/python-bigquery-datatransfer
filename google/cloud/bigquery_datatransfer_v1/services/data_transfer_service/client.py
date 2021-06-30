@@ -1023,7 +1023,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
         """
         warnings.warn(
             "DataTransferServiceClient.schedule_transfer_runs is deprecated",
-            warnings.DeprecationWarning,
+            DeprecationWarning,
         )
 
         # Create or coerce a protobuf request object.
