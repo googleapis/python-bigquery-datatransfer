@@ -34,7 +34,7 @@ def run_notification(transfer_config_name, pubsub_topic):
     update_mask = field_mask_pb2.FieldMask(paths=["notification_pubsub_topic"])
 
     transfer_config = transfer_client.update_transfer_config(
-        {"transfer_config": transfer_config, "update_mask": update_mask,}
+        {"transfer_config": transfer_config, "update_mask": update_mask}
     )
 
     print(f"Updated config: '{transfer_config.name}'")
