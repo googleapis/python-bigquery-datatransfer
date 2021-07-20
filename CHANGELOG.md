@@ -4,6 +4,13 @@
 
 [1]: https://pypi.org/project/google-cloud-bigquery-datatransfer/#history
 
+### [3.3.1](https://www.github.com/googleapis/python-bigquery-datatransfer/compare/v3.3.0...v3.3.1) (2021-07-20)
+
+
+### Bug Fixes
+
+* **deps:** pin 'google-{api,cloud}-core', 'google-auth' to allow 2.x versions ([#180](https://www.github.com/googleapis/python-bigquery-datatransfer/issues/180)) ([b0e9533](https://www.github.com/googleapis/python-bigquery-datatransfer/commit/b0e953347b43dd2252cf907bfaa8b6fbb16379b6))
+
 ## [3.3.0](https://www.github.com/googleapis/python-bigquery-datatransfer/compare/v3.2.0...v3.3.0) (2021-07-12)
 
 
