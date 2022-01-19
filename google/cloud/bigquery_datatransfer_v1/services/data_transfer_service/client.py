@@ -84,10 +84,8 @@ class DataTransferServiceClientMeta(type):
 
 
 class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
-    """The Google BigQuery Data Transfer Service API enables
-    BigQuery users to configure the transfer of their data from
-    other Google Products into BigQuery. This service contains
-    methods that are end user exposed. It backs up the frontend.
+    """This API allows users to manage their data transfers into
+    BigQuery.
     """
 
     @staticmethod
@@ -412,7 +410,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> datatransfer.DataSource:
         r"""Retrieves a supported data source and returns its
-        settings, which can be used for UI rendering.
+        settings.
 
         Args:
             request (Union[google.cloud.bigquery_datatransfer_v1.types.GetDataSourceRequest, dict]):
@@ -435,9 +433,8 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         Returns:
             google.cloud.bigquery_datatransfer_v1.types.DataSource:
-                Represents data source metadata.
-                Metadata is sufficient to render UI and
-                request proper OAuth tokens.
+                Defines the properties and custom
+                parameters for a data source.
 
         """
         # Create or coerce a protobuf request object.
@@ -487,7 +484,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListDataSourcesPager:
         r"""Lists supported data sources and returns their
-        settings, which can be used for UI rendering.
+        settings.
 
         Args:
             request (Union[google.cloud.bigquery_datatransfer_v1.types.ListDataSourcesRequest, dict]):
@@ -758,8 +755,8 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
-        r"""Deletes a data transfer configuration,
-        including any associated transfer runs and logs.
+        r"""Deletes a data transfer configuration, including any
+        associated transfer runs and logs.
 
         Args:
             request (Union[google.cloud.bigquery_datatransfer_v1.types.DeleteTransferConfigRequest, dict]):
@@ -1283,14 +1280,13 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListTransferRunsPager:
-        r"""Returns information about running and completed jobs.
+        r"""Returns information about running and completed
+        transfer runs.
 
         Args:
             request (Union[google.cloud.bigquery_datatransfer_v1.types.ListTransferRunsRequest, dict]):
                 The request object. A request to list data transfer
-                runs. UI can use this method to show/filter specific
-                data transfer runs. The data source can use this method
-                to request all scheduled transfer runs.
+                runs.
             parent (str):
                 Required. Name of transfer configuration for which
                 transfer runs should be retrieved. Format of transfer
@@ -1368,8 +1364,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListTransferLogsPager:
-        r"""Returns user facing log messages for the data
-        transfer run.
+        r"""Returns log messages for the transfer run.
 
         Args:
             request (Union[google.cloud.bigquery_datatransfer_v1.types.ListTransferLogsRequest, dict]):
@@ -1453,11 +1448,6 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
     ) -> datatransfer.CheckValidCredsResponse:
         r"""Returns true if valid credentials exist for the given
         data source and requesting user.
-        Some data sources doesn't support service account, so we
-        need to talk to them on behalf of the end user. This API
-        just checks whether we have OAuth token for the
-        particular user, which is a pre-requisite before user
-        can create a transfer config.
 
         Args:
             request (Union[google.cloud.bigquery_datatransfer_v1.types.CheckValidCredsRequest, dict]):
@@ -1526,6 +1516,58 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         # Done; return the response.
         return response
+
+    def enroll_data_sources(
+        self,
+        request: Union[datatransfer.EnrollDataSourcesRequest, dict] = None,
+        *,
+        retry: OptionalRetry = gapic_v1.method.DEFAULT,
+        timeout: float = None,
+        metadata: Sequence[Tuple[str, str]] = (),
+    ) -> None:
+        r"""Enroll data sources in a user project. This allows
+        users to create transfer configurations for these data
+        sources. They will also appear in the ListDataSources
+        RPC and as such, will appear in the BigQuery UI
+        'https://bigquery.cloud.google.com' (and the documents
+        can be found at
+        https://cloud.google.com/bigquery/bigquery-web-ui and
+        https://cloud.google.com/bigquery/docs/working-with-
+        transfers).
+
+        Args:
+            request (Union[google.cloud.bigquery_datatransfer_v1.types.EnrollDataSourcesRequest, dict]):
+                The request object. A request to enroll a set of data
+                sources so they are visible in the BigQuery UI's
+                `Transfer` tab.
+            retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                should be retried.
+            timeout (float): The timeout for this request.
+            metadata (Sequence[Tuple[str, str]]): Strings which should be
+                sent along with the request as metadata.
+        """
+        # Create or coerce a protobuf request object.
+        # Minor optimization to avoid making a copy if the user passes
+        # in a datatransfer.EnrollDataSourcesRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, datatransfer.EnrollDataSourcesRequest):
+            request = datatransfer.EnrollDataSourcesRequest(request)
+
+        # Wrap the RPC method; this adds retry and timeout information,
+        # and friendly error handling.
+        rpc = self._transport._wrapped_methods[self._transport.enroll_data_sources]
+
+        # Certain fields should be provided within the metadata header;
+        # add these here.
+        metadata = tuple(metadata) + (
+            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
+        )
+
+        # Send the request.
+        rpc(
+            request, retry=retry, timeout=timeout, metadata=metadata,
+        )
 
     def __enter__(self):
         return self

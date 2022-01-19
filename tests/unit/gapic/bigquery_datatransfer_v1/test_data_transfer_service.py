@@ -4472,6 +4472,141 @@ async def test_check_valid_creds_flattened_error_async():
         )
 
 
+@pytest.mark.parametrize("request_type", [datatransfer.EnrollDataSourcesRequest, dict,])
+def test_enroll_data_sources(request_type, transport: str = "grpc"):
+    client = DataTransferServiceClient(
+        credentials=ga_credentials.AnonymousCredentials(), transport=transport,
+    )
+
+    # Everything is optional in proto3 as far as the runtime is concerned,
+    # and we are mocking out the actual API, so just send an empty request.
+    request = request_type()
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.enroll_data_sources), "__call__"
+    ) as call:
+        # Designate an appropriate return value for the call.
+        call.return_value = None
+        response = client.enroll_data_sources(request)
+
+        # Establish that the underlying gRPC stub method was called.
+        assert len(call.mock_calls) == 1
+        _, args, _ = call.mock_calls[0]
+        assert args[0] == datatransfer.EnrollDataSourcesRequest()
+
+    # Establish that the response is the type that we expect.
+    assert response is None
+
+
+def test_enroll_data_sources_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = DataTransferServiceClient(
+        credentials=ga_credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.enroll_data_sources), "__call__"
+    ) as call:
+        client.enroll_data_sources()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+        assert args[0] == datatransfer.EnrollDataSourcesRequest()
+
+
+@pytest.mark.asyncio
+async def test_enroll_data_sources_async(
+    transport: str = "grpc_asyncio", request_type=datatransfer.EnrollDataSourcesRequest
+):
+    client = DataTransferServiceAsyncClient(
+        credentials=ga_credentials.AnonymousCredentials(), transport=transport,
+    )
+
+    # Everything is optional in proto3 as far as the runtime is concerned,
+    # and we are mocking out the actual API, so just send an empty request.
+    request = request_type()
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.enroll_data_sources), "__call__"
+    ) as call:
+        # Designate an appropriate return value for the call.
+        call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
+        response = await client.enroll_data_sources(request)
+
+        # Establish that the underlying gRPC stub method was called.
+        assert len(call.mock_calls)
+        _, args, _ = call.mock_calls[0]
+        assert args[0] == datatransfer.EnrollDataSourcesRequest()
+
+    # Establish that the response is the type that we expect.
+    assert response is None
+
+
+@pytest.mark.asyncio
+async def test_enroll_data_sources_async_from_dict():
+    await test_enroll_data_sources_async(request_type=dict)
+
+
+def test_enroll_data_sources_field_headers():
+    client = DataTransferServiceClient(
+        credentials=ga_credentials.AnonymousCredentials(),
+    )
+
+    # Any value that is part of the HTTP/1.1 URI should be sent as
+    # a field header. Set these to a non-empty value.
+    request = datatransfer.EnrollDataSourcesRequest()
+
+    request.name = "name/value"
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.enroll_data_sources), "__call__"
+    ) as call:
+        call.return_value = None
+        client.enroll_data_sources(request)
+
+        # Establish that the underlying gRPC stub method was called.
+        assert len(call.mock_calls) == 1
+        _, args, _ = call.mock_calls[0]
+        assert args[0] == request
+
+    # Establish that the field header was sent.
+    _, _, kw = call.mock_calls[0]
+    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+
+
+@pytest.mark.asyncio
+async def test_enroll_data_sources_field_headers_async():
+    client = DataTransferServiceAsyncClient(
+        credentials=ga_credentials.AnonymousCredentials(),
+    )
+
+    # Any value that is part of the HTTP/1.1 URI should be sent as
+    # a field header. Set these to a non-empty value.
+    request = datatransfer.EnrollDataSourcesRequest()
+
+    request.name = "name/value"
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.enroll_data_sources), "__call__"
+    ) as call:
+        call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
+        await client.enroll_data_sources(request)
+
+        # Establish that the underlying gRPC stub method was called.
+        assert len(call.mock_calls)
+        _, args, _ = call.mock_calls[0]
+        assert args[0] == request
+
+    # Establish that the field header was sent.
+    _, _, kw = call.mock_calls[0]
+    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+
+
 def test_credentials_transport_error():
     # It is an error to provide credentials and a transport instance.
     transport = transports.DataTransferServiceGrpcTransport(
@@ -4585,6 +4720,7 @@ def test_data_transfer_service_base_transport():
         "list_transfer_runs",
         "list_transfer_logs",
         "check_valid_creds",
+        "enroll_data_sources",
     )
     for method in methods:
         with pytest.raises(NotImplementedError):
