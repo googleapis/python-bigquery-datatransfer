@@ -140,7 +140,8 @@ class DataTransferServiceClient(object):
     def project_path(cls, project):
         """Return a fully-qualified project string."""
         return google.api_core.path_template.expand(
-            "projects/{project}", project=project,
+            "projects/{project}",
+            project=project,
         )
 
     @classmethod
@@ -277,8 +278,12 @@ class DataTransferServiceClient(object):
                     )
                 self.transport = transport
         else:
-            self.transport = data_transfer_service_grpc_transport.DataTransferServiceGrpcTransport(
-                address=api_endpoint, channel=channel, credentials=credentials,
+            self.transport = (
+                data_transfer_service_grpc_transport.DataTransferServiceGrpcTransport(
+                    address=api_endpoint,
+                    channel=channel,
+                    credentials=credentials,
+                )
             )
 
         if client_info is None:
@@ -359,7 +364,9 @@ class DataTransferServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = datatransfer_pb2.GetDataSourceRequest(name=name,)
+        request = datatransfer_pb2.GetDataSourceRequest(
+            name=name,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -453,7 +460,8 @@ class DataTransferServiceClient(object):
             )
 
         request = datatransfer_pb2.ListDataSourcesRequest(
-            parent=parent, page_size=page_size,
+            parent=parent,
+            page_size=page_size,
         )
         if metadata is None:
             metadata = []
@@ -779,7 +787,9 @@ class DataTransferServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = datatransfer_pb2.DeleteTransferConfigRequest(name=name,)
+        request = datatransfer_pb2.DeleteTransferConfigRequest(
+            name=name,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -878,7 +888,9 @@ class DataTransferServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = datatransfer_pb2.GetTransferConfigRequest(name=name,)
+        request = datatransfer_pb2.GetTransferConfigRequest(
+            name=name,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -971,7 +983,9 @@ class DataTransferServiceClient(object):
             )
 
         request = datatransfer_pb2.ListTransferConfigsRequest(
-            parent=parent, data_source_ids=data_source_ids, page_size=page_size,
+            parent=parent,
+            data_source_ids=data_source_ids,
+            page_size=page_size,
         )
         if metadata is None:
             metadata = []
@@ -1087,7 +1101,9 @@ class DataTransferServiceClient(object):
             )
 
         request = datatransfer_pb2.ScheduleTransferRunsRequest(
-            parent=parent, start_time=start_time, end_time=end_time,
+            parent=parent,
+            start_time=start_time,
+            end_time=end_time,
         )
         if metadata is None:
             metadata = []
@@ -1372,7 +1388,9 @@ class DataTransferServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = datatransfer_pb2.GetTransferRunRequest(name=name,)
+        request = datatransfer_pb2.GetTransferRunRequest(
+            name=name,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -1453,7 +1471,9 @@ class DataTransferServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = datatransfer_pb2.DeleteTransferRunRequest(name=name,)
+        request = datatransfer_pb2.DeleteTransferRunRequest(
+            name=name,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -1553,7 +1573,10 @@ class DataTransferServiceClient(object):
             )
 
         request = datatransfer_pb2.ListTransferRunsRequest(
-            parent=parent, states=states, page_size=page_size, run_attempt=run_attempt,
+            parent=parent,
+            states=states,
+            page_size=page_size,
+            run_attempt=run_attempt,
         )
         if metadata is None:
             metadata = []
@@ -1661,7 +1684,9 @@ class DataTransferServiceClient(object):
             )
 
         request = datatransfer_pb2.ListTransferLogsRequest(
-            parent=parent, page_size=page_size, message_types=message_types,
+            parent=parent,
+            page_size=page_size,
+            message_types=message_types,
         )
         if metadata is None:
             metadata = []
@@ -1750,7 +1775,9 @@ class DataTransferServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = datatransfer_pb2.CheckValidCredsRequest(name=name,)
+        request = datatransfer_pb2.CheckValidCredsRequest(
+            name=name,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
