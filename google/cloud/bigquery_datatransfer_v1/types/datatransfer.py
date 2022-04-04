@@ -122,7 +122,11 @@ class DataSourceParameter(proto.Message):
 
     description = proto.Field(proto.STRING, number=3)
 
-    type = proto.Field(proto.ENUM, number=4, enum=Type,)
+    type = proto.Field(
+        proto.ENUM,
+        number=4,
+        enum=Type,
+    )
 
     required = proto.Field(proto.BOOL, number=5)
 
@@ -132,12 +136,22 @@ class DataSourceParameter(proto.Message):
 
     allowed_values = proto.RepeatedField(proto.STRING, number=8)
 
-    min_value = proto.Field(proto.MESSAGE, number=9, message=wrappers.DoubleValue,)
+    min_value = proto.Field(
+        proto.MESSAGE,
+        number=9,
+        message=wrappers.DoubleValue,
+    )
 
-    max_value = proto.Field(proto.MESSAGE, number=10, message=wrappers.DoubleValue,)
+    max_value = proto.Field(
+        proto.MESSAGE,
+        number=10,
+        message=wrappers.DoubleValue,
+    )
 
     fields = proto.RepeatedField(
-        proto.MESSAGE, number=11, message="DataSourceParameter",
+        proto.MESSAGE,
+        number=11,
+        message="DataSourceParameter",
     )
 
     validation_description = proto.Field(proto.STRING, number=12)
@@ -240,7 +254,11 @@ class DataSource(proto.Message):
 
     scopes = proto.RepeatedField(proto.STRING, number=6)
 
-    transfer_type = proto.Field(proto.ENUM, number=7, enum=transfer.TransferType,)
+    transfer_type = proto.Field(
+        proto.ENUM,
+        number=7,
+        enum=transfer.TransferType,
+    )
 
     supports_multiple_transfers = proto.Field(proto.BOOL, number=8)
 
@@ -251,21 +269,33 @@ class DataSource(proto.Message):
     supports_custom_schedule = proto.Field(proto.BOOL, number=11)
 
     parameters = proto.RepeatedField(
-        proto.MESSAGE, number=12, message=DataSourceParameter,
+        proto.MESSAGE,
+        number=12,
+        message=DataSourceParameter,
     )
 
     help_url = proto.Field(proto.STRING, number=13)
 
-    authorization_type = proto.Field(proto.ENUM, number=14, enum=AuthorizationType,)
+    authorization_type = proto.Field(
+        proto.ENUM,
+        number=14,
+        enum=AuthorizationType,
+    )
 
-    data_refresh_type = proto.Field(proto.ENUM, number=15, enum=DataRefreshType,)
+    data_refresh_type = proto.Field(
+        proto.ENUM,
+        number=15,
+        enum=DataRefreshType,
+    )
 
     default_data_refresh_window_days = proto.Field(proto.INT32, number=16)
 
     manual_runs_disabled = proto.Field(proto.BOOL, number=17)
 
     minimum_schedule_interval = proto.Field(
-        proto.MESSAGE, number=18, message=duration.Duration,
+        proto.MESSAGE,
+        number=18,
+        message=duration.Duration,
     )
 
 
@@ -329,7 +359,11 @@ class ListDataSourcesResponse(proto.Message):
     def raw_page(self):
         return self
 
-    data_sources = proto.RepeatedField(proto.MESSAGE, number=1, message=DataSource,)
+    data_sources = proto.RepeatedField(
+        proto.MESSAGE,
+        number=1,
+        message=DataSource,
+    )
 
     next_page_token = proto.Field(proto.STRING, number=2)
 
@@ -392,7 +426,9 @@ class CreateTransferConfigRequest(proto.Message):
     parent = proto.Field(proto.STRING, number=1)
 
     transfer_config = proto.Field(
-        proto.MESSAGE, number=2, message=transfer.TransferConfig,
+        proto.MESSAGE,
+        number=2,
+        message=transfer.TransferConfig,
     )
 
     authorization_code = proto.Field(proto.STRING, number=3)
@@ -451,12 +487,18 @@ class UpdateTransferConfigRequest(proto.Message):
     """
 
     transfer_config = proto.Field(
-        proto.MESSAGE, number=1, message=transfer.TransferConfig,
+        proto.MESSAGE,
+        number=1,
+        message=transfer.TransferConfig,
     )
 
     authorization_code = proto.Field(proto.STRING, number=3)
 
-    update_mask = proto.Field(proto.MESSAGE, number=4, message=field_mask.FieldMask,)
+    update_mask = proto.Field(
+        proto.MESSAGE,
+        number=4,
+        message=field_mask.FieldMask,
+    )
 
     version_info = proto.Field(proto.STRING, number=5)
 
@@ -573,7 +615,9 @@ class ListTransferConfigsResponse(proto.Message):
         return self
 
     transfer_configs = proto.RepeatedField(
-        proto.MESSAGE, number=1, message=transfer.TransferConfig,
+        proto.MESSAGE,
+        number=1,
+        message=transfer.TransferConfig,
     )
 
     next_page_token = proto.Field(proto.STRING, number=2)
@@ -615,13 +659,21 @@ class ListTransferRunsRequest(proto.Message):
 
     parent = proto.Field(proto.STRING, number=1)
 
-    states = proto.RepeatedField(proto.ENUM, number=2, enum=transfer.TransferState,)
+    states = proto.RepeatedField(
+        proto.ENUM,
+        number=2,
+        enum=transfer.TransferState,
+    )
 
     page_token = proto.Field(proto.STRING, number=3)
 
     page_size = proto.Field(proto.INT32, number=4)
 
-    run_attempt = proto.Field(proto.ENUM, number=5, enum=RunAttempt,)
+    run_attempt = proto.Field(
+        proto.ENUM,
+        number=5,
+        enum=RunAttempt,
+    )
 
 
 class ListTransferRunsResponse(proto.Message):
@@ -643,7 +695,9 @@ class ListTransferRunsResponse(proto.Message):
         return self
 
     transfer_runs = proto.RepeatedField(
-        proto.MESSAGE, number=1, message=transfer.TransferRun,
+        proto.MESSAGE,
+        number=1,
+        message=transfer.TransferRun,
     )
 
     next_page_token = proto.Field(proto.STRING, number=2)
@@ -681,7 +735,9 @@ class ListTransferLogsRequest(proto.Message):
     page_size = proto.Field(proto.INT32, number=5)
 
     message_types = proto.RepeatedField(
-        proto.ENUM, number=6, enum=transfer.TransferMessage.MessageSeverity,
+        proto.ENUM,
+        number=6,
+        enum=transfer.TransferMessage.MessageSeverity,
     )
 
 
@@ -704,7 +760,9 @@ class ListTransferLogsResponse(proto.Message):
         return self
 
     transfer_messages = proto.RepeatedField(
-        proto.MESSAGE, number=1, message=transfer.TransferMessage,
+        proto.MESSAGE,
+        number=1,
+        message=transfer.TransferMessage,
     )
 
     next_page_token = proto.Field(proto.STRING, number=2)
@@ -759,9 +817,17 @@ class ScheduleTransferRunsRequest(proto.Message):
 
     parent = proto.Field(proto.STRING, number=1)
 
-    start_time = proto.Field(proto.MESSAGE, number=2, message=timestamp.Timestamp,)
+    start_time = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=timestamp.Timestamp,
+    )
 
-    end_time = proto.Field(proto.MESSAGE, number=3, message=timestamp.Timestamp,)
+    end_time = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=timestamp.Timestamp,
+    )
 
 
 class ScheduleTransferRunsResponse(proto.Message):
@@ -772,7 +838,11 @@ class ScheduleTransferRunsResponse(proto.Message):
             The transfer runs that were scheduled.
     """
 
-    runs = proto.RepeatedField(proto.MESSAGE, number=1, message=transfer.TransferRun,)
+    runs = proto.RepeatedField(
+        proto.MESSAGE,
+        number=1,
+        message=transfer.TransferRun,
+    )
 
 
 class StartManualTransferRunsRequest(proto.Message):
@@ -810,18 +880,32 @@ class StartManualTransferRunsRequest(proto.Message):
                 range betwen start_time (inclusive) and end_time (exlusive).
         """
 
-        start_time = proto.Field(proto.MESSAGE, number=1, message=timestamp.Timestamp,)
+        start_time = proto.Field(
+            proto.MESSAGE,
+            number=1,
+            message=timestamp.Timestamp,
+        )
 
-        end_time = proto.Field(proto.MESSAGE, number=2, message=timestamp.Timestamp,)
+        end_time = proto.Field(
+            proto.MESSAGE,
+            number=2,
+            message=timestamp.Timestamp,
+        )
 
     parent = proto.Field(proto.STRING, number=1)
 
     requested_time_range = proto.Field(
-        proto.MESSAGE, number=3, oneof="time", message=TimeRange,
+        proto.MESSAGE,
+        number=3,
+        oneof="time",
+        message=TimeRange,
     )
 
     requested_run_time = proto.Field(
-        proto.MESSAGE, number=4, oneof="time", message=timestamp.Timestamp,
+        proto.MESSAGE,
+        number=4,
+        oneof="time",
+        message=timestamp.Timestamp,
     )
 
 
@@ -833,7 +917,11 @@ class StartManualTransferRunsResponse(proto.Message):
             The transfer runs that were created.
     """
 
-    runs = proto.RepeatedField(proto.MESSAGE, number=1, message=transfer.TransferRun,)
+    runs = proto.RepeatedField(
+        proto.MESSAGE,
+        number=1,
+        message=transfer.TransferRun,
+    )
 
 
 __all__ = tuple(sorted(__protobuf__.manifest))

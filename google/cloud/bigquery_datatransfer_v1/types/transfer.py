@@ -97,9 +97,17 @@ class ScheduleOptions(proto.Message):
 
     disable_auto_scheduling = proto.Field(proto.BOOL, number=3)
 
-    start_time = proto.Field(proto.MESSAGE, number=1, message=timestamp.Timestamp,)
+    start_time = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=timestamp.Timestamp,
+    )
 
-    end_time = proto.Field(proto.MESSAGE, number=2, message=timestamp.Timestamp,)
+    end_time = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=timestamp.Timestamp,
+    )
 
 
 class TransferConfig(proto.Message):
@@ -188,21 +196,41 @@ class TransferConfig(proto.Message):
 
     data_source_id = proto.Field(proto.STRING, number=5)
 
-    params = proto.Field(proto.MESSAGE, number=9, message=struct.Struct,)
+    params = proto.Field(
+        proto.MESSAGE,
+        number=9,
+        message=struct.Struct,
+    )
 
     schedule = proto.Field(proto.STRING, number=7)
 
-    schedule_options = proto.Field(proto.MESSAGE, number=24, message=ScheduleOptions,)
+    schedule_options = proto.Field(
+        proto.MESSAGE,
+        number=24,
+        message=ScheduleOptions,
+    )
 
     data_refresh_window_days = proto.Field(proto.INT32, number=12)
 
     disabled = proto.Field(proto.BOOL, number=13)
 
-    update_time = proto.Field(proto.MESSAGE, number=4, message=timestamp.Timestamp,)
+    update_time = proto.Field(
+        proto.MESSAGE,
+        number=4,
+        message=timestamp.Timestamp,
+    )
 
-    next_run_time = proto.Field(proto.MESSAGE, number=8, message=timestamp.Timestamp,)
+    next_run_time = proto.Field(
+        proto.MESSAGE,
+        number=8,
+        message=timestamp.Timestamp,
+    )
 
-    state = proto.Field(proto.ENUM, number=10, enum="TransferState",)
+    state = proto.Field(
+        proto.ENUM,
+        number=10,
+        enum="TransferState",
+    )
 
     user_id = proto.Field(proto.INT64, number=11)
 
@@ -210,7 +238,11 @@ class TransferConfig(proto.Message):
 
     notification_pubsub_topic = proto.Field(proto.STRING, number=15)
 
-    email_preferences = proto.Field(proto.MESSAGE, number=18, message=EmailPreferences,)
+    email_preferences = proto.Field(
+        proto.MESSAGE,
+        number=18,
+        message=EmailPreferences,
+    )
 
 
 class TransferRun(proto.Message):
@@ -273,25 +305,57 @@ class TransferRun(proto.Message):
 
     name = proto.Field(proto.STRING, number=1)
 
-    schedule_time = proto.Field(proto.MESSAGE, number=3, message=timestamp.Timestamp,)
+    schedule_time = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=timestamp.Timestamp,
+    )
 
-    run_time = proto.Field(proto.MESSAGE, number=10, message=timestamp.Timestamp,)
+    run_time = proto.Field(
+        proto.MESSAGE,
+        number=10,
+        message=timestamp.Timestamp,
+    )
 
-    error_status = proto.Field(proto.MESSAGE, number=21, message=status.Status,)
+    error_status = proto.Field(
+        proto.MESSAGE,
+        number=21,
+        message=status.Status,
+    )
 
-    start_time = proto.Field(proto.MESSAGE, number=4, message=timestamp.Timestamp,)
+    start_time = proto.Field(
+        proto.MESSAGE,
+        number=4,
+        message=timestamp.Timestamp,
+    )
 
-    end_time = proto.Field(proto.MESSAGE, number=5, message=timestamp.Timestamp,)
+    end_time = proto.Field(
+        proto.MESSAGE,
+        number=5,
+        message=timestamp.Timestamp,
+    )
 
-    update_time = proto.Field(proto.MESSAGE, number=6, message=timestamp.Timestamp,)
+    update_time = proto.Field(
+        proto.MESSAGE,
+        number=6,
+        message=timestamp.Timestamp,
+    )
 
-    params = proto.Field(proto.MESSAGE, number=9, message=struct.Struct,)
+    params = proto.Field(
+        proto.MESSAGE,
+        number=9,
+        message=struct.Struct,
+    )
 
     destination_dataset_id = proto.Field(proto.STRING, number=2, oneof="destination")
 
     data_source_id = proto.Field(proto.STRING, number=7)
 
-    state = proto.Field(proto.ENUM, number=8, enum="TransferState",)
+    state = proto.Field(
+        proto.ENUM,
+        number=8,
+        enum="TransferState",
+    )
 
     user_id = proto.Field(proto.INT64, number=11)
 
@@ -299,7 +363,11 @@ class TransferRun(proto.Message):
 
     notification_pubsub_topic = proto.Field(proto.STRING, number=23)
 
-    email_preferences = proto.Field(proto.MESSAGE, number=25, message=EmailPreferences,)
+    email_preferences = proto.Field(
+        proto.MESSAGE,
+        number=25,
+        message=EmailPreferences,
+    )
 
 
 class TransferMessage(proto.Message):
@@ -322,9 +390,17 @@ class TransferMessage(proto.Message):
         WARNING = 2
         ERROR = 3
 
-    message_time = proto.Field(proto.MESSAGE, number=1, message=timestamp.Timestamp,)
+    message_time = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=timestamp.Timestamp,
+    )
 
-    severity = proto.Field(proto.ENUM, number=2, enum=MessageSeverity,)
+    severity = proto.Field(
+        proto.ENUM,
+        number=2,
+        enum=MessageSeverity,
+    )
 
     message_text = proto.Field(proto.STRING, number=3)
 
