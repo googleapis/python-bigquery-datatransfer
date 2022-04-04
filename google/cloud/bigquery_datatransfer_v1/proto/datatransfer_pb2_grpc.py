@@ -120,8 +120,7 @@ class DataTransferServiceServicer(object):
         raise NotImplementedError("Method not implemented!")
 
     def CreateTransferConfig(self, request, context):
-        """Creates a new data transfer configuration.
-        """
+        """Creates a new data transfer configuration."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
@@ -143,15 +142,13 @@ class DataTransferServiceServicer(object):
         raise NotImplementedError("Method not implemented!")
 
     def GetTransferConfig(self, request, context):
-        """Returns information about a data transfer config.
-        """
+        """Returns information about a data transfer config."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
     def ListTransferConfigs(self, request, context):
-        """Returns information about all data transfers in the project.
-        """
+        """Returns information about all data transfers in the project."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
@@ -178,29 +175,25 @@ class DataTransferServiceServicer(object):
         raise NotImplementedError("Method not implemented!")
 
     def GetTransferRun(self, request, context):
-        """Returns information about the particular transfer run.
-        """
+        """Returns information about the particular transfer run."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
     def DeleteTransferRun(self, request, context):
-        """Deletes the specified transfer run.
-        """
+        """Deletes the specified transfer run."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
     def ListTransferRuns(self, request, context):
-        """Returns information about running and completed jobs.
-        """
+        """Returns information about running and completed jobs."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
     def ListTransferLogs(self, request, context):
-        """Returns user facing log messages for the data transfer run.
-        """
+        """Returns user facing log messages for the data transfer run."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")

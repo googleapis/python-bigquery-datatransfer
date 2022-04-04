@@ -1038,7 +1038,9 @@ _TRANSFERMESSAGE = _descriptor.Descriptor(
     ],
     extensions=[],
     nested_types=[],
-    enum_types=[_TRANSFERMESSAGE_MESSAGESEVERITY,],
+    enum_types=[
+        _TRANSFERMESSAGE_MESSAGESEVERITY,
+    ],
     serialized_options=None,
     is_extendable=False,
     syntax="proto3",
