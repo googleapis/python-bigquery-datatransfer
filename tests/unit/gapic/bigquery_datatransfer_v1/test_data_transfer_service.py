@@ -404,7 +404,9 @@ def test_data_transfer_service_client_client_options_scopes(
     client_class, transport_class, transport_name
 ):
     # Check the case scopes are provided.
-    options = client_options.ClientOptions(scopes=["1", "2"],)
+    options = client_options.ClientOptions(
+        scopes=["1", "2"],
+    )
     with mock.patch.object(transport_class, "__init__") as patched:
         patched.return_value = None
         client = client_class(client_options=options)
@@ -476,7 +478,8 @@ def test_get_data_source(
     transport: str = "grpc", request_type=datatransfer.GetDataSourceRequest
 ):
     client = DataTransferServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -562,7 +565,8 @@ def test_get_data_source_from_dict():
 @pytest.mark.asyncio
 async def test_get_data_source_async(transport: str = "grpc_asyncio"):
     client = DataTransferServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -646,7 +650,9 @@ async def test_get_data_source_async(transport: str = "grpc_asyncio"):
 
 
 def test_get_data_source_field_headers():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -666,7 +672,10 @@ def test_get_data_source_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -697,11 +706,16 @@ async def test_get_data_source_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_get_data_source_flattened():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.get_data_source), "__call__") as call:
@@ -710,7 +724,9 @@ def test_get_data_source_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.get_data_source(name="name_value",)
+        client.get_data_source(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -721,13 +737,16 @@ def test_get_data_source_flattened():
 
 
 def test_get_data_source_flattened_error():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.get_data_source(
-            datatransfer.GetDataSourceRequest(), name="name_value",
+            datatransfer.GetDataSourceRequest(),
+            name="name_value",
         )
 
 
@@ -749,7 +768,9 @@ async def test_get_data_source_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.get_data_source(name="name_value",)
+        response = await client.get_data_source(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -769,7 +790,8 @@ async def test_get_data_source_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.get_data_source(
-            datatransfer.GetDataSourceRequest(), name="name_value",
+            datatransfer.GetDataSourceRequest(),
+            name="name_value",
         )
 
 
@@ -777,7 +799,8 @@ def test_list_data_sources(
     transport: str = "grpc", request_type=datatransfer.ListDataSourcesRequest
 ):
     client = DataTransferServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -814,7 +837,8 @@ def test_list_data_sources_from_dict():
 @pytest.mark.asyncio
 async def test_list_data_sources_async(transport: str = "grpc_asyncio"):
     client = DataTransferServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -847,7 +871,9 @@ async def test_list_data_sources_async(transport: str = "grpc_asyncio"):
 
 
 def test_list_data_sources_field_headers():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -869,7 +895,10 @@ def test_list_data_sources_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -900,11 +929,16 @@ async def test_list_data_sources_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_list_data_sources_flattened():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -915,7 +949,9 @@ def test_list_data_sources_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_data_sources(parent="parent_value",)
+        client.list_data_sources(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -926,13 +962,16 @@ def test_list_data_sources_flattened():
 
 
 def test_list_data_sources_flattened_error():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.list_data_sources(
-            datatransfer.ListDataSourcesRequest(), parent="parent_value",
+            datatransfer.ListDataSourcesRequest(),
+            parent="parent_value",
         )
 
 
@@ -954,7 +993,9 @@ async def test_list_data_sources_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_data_sources(parent="parent_value",)
+        response = await client.list_data_sources(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -974,12 +1015,15 @@ async def test_list_data_sources_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_data_sources(
-            datatransfer.ListDataSourcesRequest(), parent="parent_value",
+            datatransfer.ListDataSourcesRequest(),
+            parent="parent_value",
         )
 
 
 def test_list_data_sources_pager():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -996,13 +1040,20 @@ def test_list_data_sources_pager():
                 next_page_token="abc",
             ),
             datatransfer.ListDataSourcesResponse(
-                data_sources=[], next_page_token="def",
+                data_sources=[],
+                next_page_token="def",
             ),
             datatransfer.ListDataSourcesResponse(
-                data_sources=[datatransfer.DataSource(),], next_page_token="ghi",
+                data_sources=[
+                    datatransfer.DataSource(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListDataSourcesResponse(
-                data_sources=[datatransfer.DataSource(), datatransfer.DataSource(),],
+                data_sources=[
+                    datatransfer.DataSource(),
+                    datatransfer.DataSource(),
+                ],
             ),
             RuntimeError,
         )
@@ -1021,7 +1072,9 @@ def test_list_data_sources_pager():
 
 
 def test_list_data_sources_pages():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1038,13 +1091,20 @@ def test_list_data_sources_pages():
                 next_page_token="abc",
             ),
             datatransfer.ListDataSourcesResponse(
-                data_sources=[], next_page_token="def",
+                data_sources=[],
+                next_page_token="def",
             ),
             datatransfer.ListDataSourcesResponse(
-                data_sources=[datatransfer.DataSource(),], next_page_token="ghi",
+                data_sources=[
+                    datatransfer.DataSource(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListDataSourcesResponse(
-                data_sources=[datatransfer.DataSource(), datatransfer.DataSource(),],
+                data_sources=[
+                    datatransfer.DataSource(),
+                    datatransfer.DataSource(),
+                ],
             ),
             RuntimeError,
         )
@@ -1076,17 +1136,26 @@ async def test_list_data_sources_async_pager():
                 next_page_token="abc",
             ),
             datatransfer.ListDataSourcesResponse(
-                data_sources=[], next_page_token="def",
+                data_sources=[],
+                next_page_token="def",
             ),
             datatransfer.ListDataSourcesResponse(
-                data_sources=[datatransfer.DataSource(),], next_page_token="ghi",
+                data_sources=[
+                    datatransfer.DataSource(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListDataSourcesResponse(
-                data_sources=[datatransfer.DataSource(), datatransfer.DataSource(),],
+                data_sources=[
+                    datatransfer.DataSource(),
+                    datatransfer.DataSource(),
+                ],
             ),
             RuntimeError,
         )
-        async_pager = await client.list_data_sources(request={},)
+        async_pager = await client.list_data_sources(
+            request={},
+        )
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -1119,13 +1188,20 @@ async def test_list_data_sources_async_pages():
                 next_page_token="abc",
             ),
             datatransfer.ListDataSourcesResponse(
-                data_sources=[], next_page_token="def",
+                data_sources=[],
+                next_page_token="def",
             ),
             datatransfer.ListDataSourcesResponse(
-                data_sources=[datatransfer.DataSource(),], next_page_token="ghi",
+                data_sources=[
+                    datatransfer.DataSource(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListDataSourcesResponse(
-                data_sources=[datatransfer.DataSource(), datatransfer.DataSource(),],
+                data_sources=[
+                    datatransfer.DataSource(),
+                    datatransfer.DataSource(),
+                ],
             ),
             RuntimeError,
         )
@@ -1140,7 +1216,8 @@ def test_create_transfer_config(
     transport: str = "grpc", request_type=datatransfer.CreateTransferConfigRequest
 ):
     client = DataTransferServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1205,7 +1282,8 @@ def test_create_transfer_config_from_dict():
 @pytest.mark.asyncio
 async def test_create_transfer_config_async(transport: str = "grpc_asyncio"):
     client = DataTransferServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1265,7 +1343,9 @@ async def test_create_transfer_config_async(transport: str = "grpc_asyncio"):
 
 
 def test_create_transfer_config_field_headers():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1287,7 +1367,10 @@ def test_create_transfer_config_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -1318,11 +1401,16 @@ async def test_create_transfer_config_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_create_transfer_config_flattened():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1349,7 +1437,9 @@ def test_create_transfer_config_flattened():
 
 
 def test_create_transfer_config_flattened_error():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -1414,7 +1504,8 @@ def test_update_transfer_config(
     transport: str = "grpc", request_type=datatransfer.UpdateTransferConfigRequest
 ):
     client = DataTransferServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1479,7 +1570,8 @@ def test_update_transfer_config_from_dict():
 @pytest.mark.asyncio
 async def test_update_transfer_config_async(transport: str = "grpc_asyncio"):
     client = DataTransferServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1539,7 +1631,9 @@ async def test_update_transfer_config_async(transport: str = "grpc_asyncio"):
 
 
 def test_update_transfer_config_field_headers():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1602,7 +1696,9 @@ async def test_update_transfer_config_field_headers_async():
 
 
 def test_update_transfer_config_flattened():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1629,7 +1725,9 @@ def test_update_transfer_config_flattened():
 
 
 def test_update_transfer_config_flattened_error():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -1694,7 +1792,8 @@ def test_delete_transfer_config(
     transport: str = "grpc", request_type=datatransfer.DeleteTransferConfigRequest
 ):
     client = DataTransferServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1727,7 +1826,8 @@ def test_delete_transfer_config_from_dict():
 @pytest.mark.asyncio
 async def test_delete_transfer_config_async(transport: str = "grpc_asyncio"):
     client = DataTransferServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1754,7 +1854,9 @@ async def test_delete_transfer_config_async(transport: str = "grpc_asyncio"):
 
 
 def test_delete_transfer_config_field_headers():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1776,7 +1878,10 @@ def test_delete_transfer_config_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -1805,11 +1910,16 @@ async def test_delete_transfer_config_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_delete_transfer_config_flattened():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1820,7 +1930,9 @@ def test_delete_transfer_config_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.delete_transfer_config(name="name_value",)
+        client.delete_transfer_config(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1831,13 +1943,16 @@ def test_delete_transfer_config_flattened():
 
 
 def test_delete_transfer_config_flattened_error():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.delete_transfer_config(
-            datatransfer.DeleteTransferConfigRequest(), name="name_value",
+            datatransfer.DeleteTransferConfigRequest(),
+            name="name_value",
         )
 
 
@@ -1857,7 +1972,9 @@ async def test_delete_transfer_config_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.delete_transfer_config(name="name_value",)
+        response = await client.delete_transfer_config(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1877,7 +1994,8 @@ async def test_delete_transfer_config_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.delete_transfer_config(
-            datatransfer.DeleteTransferConfigRequest(), name="name_value",
+            datatransfer.DeleteTransferConfigRequest(),
+            name="name_value",
         )
 
 
@@ -1885,7 +2003,8 @@ def test_get_transfer_config(
     transport: str = "grpc", request_type=datatransfer.GetTransferConfigRequest
 ):
     client = DataTransferServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1950,7 +2069,8 @@ def test_get_transfer_config_from_dict():
 @pytest.mark.asyncio
 async def test_get_transfer_config_async(transport: str = "grpc_asyncio"):
     client = DataTransferServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2010,7 +2130,9 @@ async def test_get_transfer_config_async(transport: str = "grpc_asyncio"):
 
 
 def test_get_transfer_config_field_headers():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2032,7 +2154,10 @@ def test_get_transfer_config_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -2063,11 +2188,16 @@ async def test_get_transfer_config_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_get_transfer_config_flattened():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2078,7 +2208,9 @@ def test_get_transfer_config_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.get_transfer_config(name="name_value",)
+        client.get_transfer_config(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2089,13 +2221,16 @@ def test_get_transfer_config_flattened():
 
 
 def test_get_transfer_config_flattened_error():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.get_transfer_config(
-            datatransfer.GetTransferConfigRequest(), name="name_value",
+            datatransfer.GetTransferConfigRequest(),
+            name="name_value",
         )
 
 
@@ -2117,7 +2252,9 @@ async def test_get_transfer_config_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.get_transfer_config(name="name_value",)
+        response = await client.get_transfer_config(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2137,7 +2274,8 @@ async def test_get_transfer_config_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.get_transfer_config(
-            datatransfer.GetTransferConfigRequest(), name="name_value",
+            datatransfer.GetTransferConfigRequest(),
+            name="name_value",
         )
 
 
@@ -2145,7 +2283,8 @@ def test_list_transfer_configs(
     transport: str = "grpc", request_type=datatransfer.ListTransferConfigsRequest
 ):
     client = DataTransferServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2182,7 +2321,8 @@ def test_list_transfer_configs_from_dict():
 @pytest.mark.asyncio
 async def test_list_transfer_configs_async(transport: str = "grpc_asyncio"):
     client = DataTransferServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2215,7 +2355,9 @@ async def test_list_transfer_configs_async(transport: str = "grpc_asyncio"):
 
 
 def test_list_transfer_configs_field_headers():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2237,7 +2379,10 @@ def test_list_transfer_configs_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -2268,11 +2413,16 @@ async def test_list_transfer_configs_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_list_transfer_configs_flattened():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2283,7 +2433,9 @@ def test_list_transfer_configs_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_transfer_configs(parent="parent_value",)
+        client.list_transfer_configs(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2294,13 +2446,16 @@ def test_list_transfer_configs_flattened():
 
 
 def test_list_transfer_configs_flattened_error():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.list_transfer_configs(
-            datatransfer.ListTransferConfigsRequest(), parent="parent_value",
+            datatransfer.ListTransferConfigsRequest(),
+            parent="parent_value",
         )
 
 
@@ -2322,7 +2477,9 @@ async def test_list_transfer_configs_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_transfer_configs(parent="parent_value",)
+        response = await client.list_transfer_configs(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2342,12 +2499,15 @@ async def test_list_transfer_configs_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_transfer_configs(
-            datatransfer.ListTransferConfigsRequest(), parent="parent_value",
+            datatransfer.ListTransferConfigsRequest(),
+            parent="parent_value",
         )
 
 
 def test_list_transfer_configs_pager():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2364,10 +2524,14 @@ def test_list_transfer_configs_pager():
                 next_page_token="abc",
             ),
             datatransfer.ListTransferConfigsResponse(
-                transfer_configs=[], next_page_token="def",
+                transfer_configs=[],
+                next_page_token="def",
             ),
             datatransfer.ListTransferConfigsResponse(
-                transfer_configs=[transfer.TransferConfig(),], next_page_token="ghi",
+                transfer_configs=[
+                    transfer.TransferConfig(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListTransferConfigsResponse(
                 transfer_configs=[
@@ -2392,7 +2556,9 @@ def test_list_transfer_configs_pager():
 
 
 def test_list_transfer_configs_pages():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2409,10 +2575,14 @@ def test_list_transfer_configs_pages():
                 next_page_token="abc",
             ),
             datatransfer.ListTransferConfigsResponse(
-                transfer_configs=[], next_page_token="def",
+                transfer_configs=[],
+                next_page_token="def",
             ),
             datatransfer.ListTransferConfigsResponse(
-                transfer_configs=[transfer.TransferConfig(),], next_page_token="ghi",
+                transfer_configs=[
+                    transfer.TransferConfig(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListTransferConfigsResponse(
                 transfer_configs=[
@@ -2450,10 +2620,14 @@ async def test_list_transfer_configs_async_pager():
                 next_page_token="abc",
             ),
             datatransfer.ListTransferConfigsResponse(
-                transfer_configs=[], next_page_token="def",
+                transfer_configs=[],
+                next_page_token="def",
             ),
             datatransfer.ListTransferConfigsResponse(
-                transfer_configs=[transfer.TransferConfig(),], next_page_token="ghi",
+                transfer_configs=[
+                    transfer.TransferConfig(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListTransferConfigsResponse(
                 transfer_configs=[
@@ -2463,7 +2637,9 @@ async def test_list_transfer_configs_async_pager():
             ),
             RuntimeError,
         )
-        async_pager = await client.list_transfer_configs(request={},)
+        async_pager = await client.list_transfer_configs(
+            request={},
+        )
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -2496,10 +2672,14 @@ async def test_list_transfer_configs_async_pages():
                 next_page_token="abc",
             ),
             datatransfer.ListTransferConfigsResponse(
-                transfer_configs=[], next_page_token="def",
+                transfer_configs=[],
+                next_page_token="def",
             ),
             datatransfer.ListTransferConfigsResponse(
-                transfer_configs=[transfer.TransferConfig(),], next_page_token="ghi",
+                transfer_configs=[
+                    transfer.TransferConfig(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListTransferConfigsResponse(
                 transfer_configs=[
@@ -2520,7 +2700,8 @@ def test_schedule_transfer_runs(
     transport: str = "grpc", request_type=datatransfer.ScheduleTransferRunsRequest
 ):
     client = DataTransferServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2553,7 +2734,8 @@ def test_schedule_transfer_runs_from_dict():
 @pytest.mark.asyncio
 async def test_schedule_transfer_runs_async(transport: str = "grpc_asyncio"):
     client = DataTransferServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2582,7 +2764,9 @@ async def test_schedule_transfer_runs_async(transport: str = "grpc_asyncio"):
 
 
 def test_schedule_transfer_runs_field_headers():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2604,7 +2788,10 @@ def test_schedule_transfer_runs_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -2635,11 +2822,16 @@ async def test_schedule_transfer_runs_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_schedule_transfer_runs_flattened():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2673,7 +2865,9 @@ def test_schedule_transfer_runs_flattened():
 
 
 def test_schedule_transfer_runs_flattened_error():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -2747,7 +2941,8 @@ def test_start_manual_transfer_runs(
     transport: str = "grpc", request_type=datatransfer.StartManualTransferRunsRequest
 ):
     client = DataTransferServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2780,7 +2975,8 @@ def test_start_manual_transfer_runs_from_dict():
 @pytest.mark.asyncio
 async def test_start_manual_transfer_runs_async(transport: str = "grpc_asyncio"):
     client = DataTransferServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2809,7 +3005,9 @@ async def test_start_manual_transfer_runs_async(transport: str = "grpc_asyncio")
 
 
 def test_start_manual_transfer_runs_field_headers():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2831,7 +3029,10 @@ def test_start_manual_transfer_runs_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -2862,14 +3063,18 @@ async def test_start_manual_transfer_runs_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_get_transfer_run(
     transport: str = "grpc", request_type=datatransfer.GetTransferRunRequest
 ):
     client = DataTransferServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2922,7 +3127,8 @@ def test_get_transfer_run_from_dict():
 @pytest.mark.asyncio
 async def test_get_transfer_run_async(transport: str = "grpc_asyncio"):
     client = DataTransferServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2970,7 +3176,9 @@ async def test_get_transfer_run_async(transport: str = "grpc_asyncio"):
 
 
 def test_get_transfer_run_field_headers():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2992,7 +3200,10 @@ def test_get_transfer_run_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -3023,11 +3234,16 @@ async def test_get_transfer_run_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_get_transfer_run_flattened():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3038,7 +3254,9 @@ def test_get_transfer_run_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.get_transfer_run(name="name_value",)
+        client.get_transfer_run(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -3049,13 +3267,16 @@ def test_get_transfer_run_flattened():
 
 
 def test_get_transfer_run_flattened_error():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.get_transfer_run(
-            datatransfer.GetTransferRunRequest(), name="name_value",
+            datatransfer.GetTransferRunRequest(),
+            name="name_value",
         )
 
 
@@ -3077,7 +3298,9 @@ async def test_get_transfer_run_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.get_transfer_run(name="name_value",)
+        response = await client.get_transfer_run(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -3097,7 +3320,8 @@ async def test_get_transfer_run_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.get_transfer_run(
-            datatransfer.GetTransferRunRequest(), name="name_value",
+            datatransfer.GetTransferRunRequest(),
+            name="name_value",
         )
 
 
@@ -3105,7 +3329,8 @@ def test_delete_transfer_run(
     transport: str = "grpc", request_type=datatransfer.DeleteTransferRunRequest
 ):
     client = DataTransferServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3138,7 +3363,8 @@ def test_delete_transfer_run_from_dict():
 @pytest.mark.asyncio
 async def test_delete_transfer_run_async(transport: str = "grpc_asyncio"):
     client = DataTransferServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3165,7 +3391,9 @@ async def test_delete_transfer_run_async(transport: str = "grpc_asyncio"):
 
 
 def test_delete_transfer_run_field_headers():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -3187,7 +3415,10 @@ def test_delete_transfer_run_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -3216,11 +3447,16 @@ async def test_delete_transfer_run_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_delete_transfer_run_flattened():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3231,7 +3467,9 @@ def test_delete_transfer_run_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.delete_transfer_run(name="name_value",)
+        client.delete_transfer_run(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -3242,13 +3480,16 @@ def test_delete_transfer_run_flattened():
 
 
 def test_delete_transfer_run_flattened_error():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.delete_transfer_run(
-            datatransfer.DeleteTransferRunRequest(), name="name_value",
+            datatransfer.DeleteTransferRunRequest(),
+            name="name_value",
         )
 
 
@@ -3268,7 +3509,9 @@ async def test_delete_transfer_run_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.delete_transfer_run(name="name_value",)
+        response = await client.delete_transfer_run(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -3288,7 +3531,8 @@ async def test_delete_transfer_run_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.delete_transfer_run(
-            datatransfer.DeleteTransferRunRequest(), name="name_value",
+            datatransfer.DeleteTransferRunRequest(),
+            name="name_value",
         )
 
 
@@ -3296,7 +3540,8 @@ def test_list_transfer_runs(
     transport: str = "grpc", request_type=datatransfer.ListTransferRunsRequest
 ):
     client = DataTransferServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3333,7 +3578,8 @@ def test_list_transfer_runs_from_dict():
 @pytest.mark.asyncio
 async def test_list_transfer_runs_async(transport: str = "grpc_asyncio"):
     client = DataTransferServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3366,7 +3612,9 @@ async def test_list_transfer_runs_async(transport: str = "grpc_asyncio"):
 
 
 def test_list_transfer_runs_field_headers():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -3388,7 +3636,10 @@ def test_list_transfer_runs_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -3419,11 +3670,16 @@ async def test_list_transfer_runs_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_list_transfer_runs_flattened():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3434,7 +3690,9 @@ def test_list_transfer_runs_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_transfer_runs(parent="parent_value",)
+        client.list_transfer_runs(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -3445,13 +3703,16 @@ def test_list_transfer_runs_flattened():
 
 
 def test_list_transfer_runs_flattened_error():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.list_transfer_runs(
-            datatransfer.ListTransferRunsRequest(), parent="parent_value",
+            datatransfer.ListTransferRunsRequest(),
+            parent="parent_value",
         )
 
 
@@ -3473,7 +3734,9 @@ async def test_list_transfer_runs_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_transfer_runs(parent="parent_value",)
+        response = await client.list_transfer_runs(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -3493,12 +3756,15 @@ async def test_list_transfer_runs_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_transfer_runs(
-            datatransfer.ListTransferRunsRequest(), parent="parent_value",
+            datatransfer.ListTransferRunsRequest(),
+            parent="parent_value",
         )
 
 
 def test_list_transfer_runs_pager():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3515,13 +3781,20 @@ def test_list_transfer_runs_pager():
                 next_page_token="abc",
             ),
             datatransfer.ListTransferRunsResponse(
-                transfer_runs=[], next_page_token="def",
+                transfer_runs=[],
+                next_page_token="def",
             ),
             datatransfer.ListTransferRunsResponse(
-                transfer_runs=[transfer.TransferRun(),], next_page_token="ghi",
+                transfer_runs=[
+                    transfer.TransferRun(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListTransferRunsResponse(
-                transfer_runs=[transfer.TransferRun(), transfer.TransferRun(),],
+                transfer_runs=[
+                    transfer.TransferRun(),
+                    transfer.TransferRun(),
+                ],
             ),
             RuntimeError,
         )
@@ -3540,7 +3813,9 @@ def test_list_transfer_runs_pager():
 
 
 def test_list_transfer_runs_pages():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3557,13 +3832,20 @@ def test_list_transfer_runs_pages():
                 next_page_token="abc",
             ),
             datatransfer.ListTransferRunsResponse(
-                transfer_runs=[], next_page_token="def",
+                transfer_runs=[],
+                next_page_token="def",
             ),
             datatransfer.ListTransferRunsResponse(
-                transfer_runs=[transfer.TransferRun(),], next_page_token="ghi",
+                transfer_runs=[
+                    transfer.TransferRun(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListTransferRunsResponse(
-                transfer_runs=[transfer.TransferRun(), transfer.TransferRun(),],
+                transfer_runs=[
+                    transfer.TransferRun(),
+                    transfer.TransferRun(),
+                ],
             ),
             RuntimeError,
         )
@@ -3595,17 +3877,26 @@ async def test_list_transfer_runs_async_pager():
                 next_page_token="abc",
             ),
             datatransfer.ListTransferRunsResponse(
-                transfer_runs=[], next_page_token="def",
+                transfer_runs=[],
+                next_page_token="def",
             ),
             datatransfer.ListTransferRunsResponse(
-                transfer_runs=[transfer.TransferRun(),], next_page_token="ghi",
+                transfer_runs=[
+                    transfer.TransferRun(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListTransferRunsResponse(
-                transfer_runs=[transfer.TransferRun(), transfer.TransferRun(),],
+                transfer_runs=[
+                    transfer.TransferRun(),
+                    transfer.TransferRun(),
+                ],
             ),
             RuntimeError,
         )
-        async_pager = await client.list_transfer_runs(request={},)
+        async_pager = await client.list_transfer_runs(
+            request={},
+        )
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -3638,13 +3929,20 @@ async def test_list_transfer_runs_async_pages():
                 next_page_token="abc",
             ),
             datatransfer.ListTransferRunsResponse(
-                transfer_runs=[], next_page_token="def",
+                transfer_runs=[],
+                next_page_token="def",
             ),
             datatransfer.ListTransferRunsResponse(
-                transfer_runs=[transfer.TransferRun(),], next_page_token="ghi",
+                transfer_runs=[
+                    transfer.TransferRun(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListTransferRunsResponse(
-                transfer_runs=[transfer.TransferRun(), transfer.TransferRun(),],
+                transfer_runs=[
+                    transfer.TransferRun(),
+                    transfer.TransferRun(),
+                ],
             ),
             RuntimeError,
         )
@@ -3659,7 +3957,8 @@ def test_list_transfer_logs(
     transport: str = "grpc", request_type=datatransfer.ListTransferLogsRequest
 ):
     client = DataTransferServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3696,7 +3995,8 @@ def test_list_transfer_logs_from_dict():
 @pytest.mark.asyncio
 async def test_list_transfer_logs_async(transport: str = "grpc_asyncio"):
     client = DataTransferServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3729,7 +4029,9 @@ async def test_list_transfer_logs_async(transport: str = "grpc_asyncio"):
 
 
 def test_list_transfer_logs_field_headers():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -3751,7 +4053,10 @@ def test_list_transfer_logs_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -3782,11 +4087,16 @@ async def test_list_transfer_logs_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_list_transfer_logs_flattened():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3797,7 +4107,9 @@ def test_list_transfer_logs_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_transfer_logs(parent="parent_value",)
+        client.list_transfer_logs(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -3808,13 +4120,16 @@ def test_list_transfer_logs_flattened():
 
 
 def test_list_transfer_logs_flattened_error():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.list_transfer_logs(
-            datatransfer.ListTransferLogsRequest(), parent="parent_value",
+            datatransfer.ListTransferLogsRequest(),
+            parent="parent_value",
         )
 
 
@@ -3836,7 +4151,9 @@ async def test_list_transfer_logs_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_transfer_logs(parent="parent_value",)
+        response = await client.list_transfer_logs(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -3856,12 +4173,15 @@ async def test_list_transfer_logs_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_transfer_logs(
-            datatransfer.ListTransferLogsRequest(), parent="parent_value",
+            datatransfer.ListTransferLogsRequest(),
+            parent="parent_value",
         )
 
 
 def test_list_transfer_logs_pager():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3878,10 +4198,14 @@ def test_list_transfer_logs_pager():
                 next_page_token="abc",
             ),
             datatransfer.ListTransferLogsResponse(
-                transfer_messages=[], next_page_token="def",
+                transfer_messages=[],
+                next_page_token="def",
             ),
             datatransfer.ListTransferLogsResponse(
-                transfer_messages=[transfer.TransferMessage(),], next_page_token="ghi",
+                transfer_messages=[
+                    transfer.TransferMessage(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListTransferLogsResponse(
                 transfer_messages=[
@@ -3906,7 +4230,9 @@ def test_list_transfer_logs_pager():
 
 
 def test_list_transfer_logs_pages():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3923,10 +4249,14 @@ def test_list_transfer_logs_pages():
                 next_page_token="abc",
             ),
             datatransfer.ListTransferLogsResponse(
-                transfer_messages=[], next_page_token="def",
+                transfer_messages=[],
+                next_page_token="def",
             ),
             datatransfer.ListTransferLogsResponse(
-                transfer_messages=[transfer.TransferMessage(),], next_page_token="ghi",
+                transfer_messages=[
+                    transfer.TransferMessage(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListTransferLogsResponse(
                 transfer_messages=[
@@ -3964,10 +4294,14 @@ async def test_list_transfer_logs_async_pager():
                 next_page_token="abc",
             ),
             datatransfer.ListTransferLogsResponse(
-                transfer_messages=[], next_page_token="def",
+                transfer_messages=[],
+                next_page_token="def",
             ),
             datatransfer.ListTransferLogsResponse(
-                transfer_messages=[transfer.TransferMessage(),], next_page_token="ghi",
+                transfer_messages=[
+                    transfer.TransferMessage(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListTransferLogsResponse(
                 transfer_messages=[
@@ -3977,7 +4311,9 @@ async def test_list_transfer_logs_async_pager():
             ),
             RuntimeError,
         )
-        async_pager = await client.list_transfer_logs(request={},)
+        async_pager = await client.list_transfer_logs(
+            request={},
+        )
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -4010,10 +4346,14 @@ async def test_list_transfer_logs_async_pages():
                 next_page_token="abc",
             ),
             datatransfer.ListTransferLogsResponse(
-                transfer_messages=[], next_page_token="def",
+                transfer_messages=[],
+                next_page_token="def",
             ),
             datatransfer.ListTransferLogsResponse(
-                transfer_messages=[transfer.TransferMessage(),], next_page_token="ghi",
+                transfer_messages=[
+                    transfer.TransferMessage(),
+                ],
+                next_page_token="ghi",
             ),
             datatransfer.ListTransferLogsResponse(
                 transfer_messages=[
@@ -4034,7 +4374,8 @@ def test_check_valid_creds(
     transport: str = "grpc", request_type=datatransfer.CheckValidCredsRequest
 ):
     client = DataTransferServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4046,7 +4387,9 @@ def test_check_valid_creds(
         type(client._transport.check_valid_creds), "__call__"
     ) as call:
         # Designate an appropriate return value for the call.
-        call.return_value = datatransfer.CheckValidCredsResponse(has_valid_creds=True,)
+        call.return_value = datatransfer.CheckValidCredsResponse(
+            has_valid_creds=True,
+        )
 
         response = client.check_valid_creds(request)
 
@@ -4069,7 +4412,8 @@ def test_check_valid_creds_from_dict():
 @pytest.mark.asyncio
 async def test_check_valid_creds_async(transport: str = "grpc_asyncio"):
     client = DataTransferServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4082,7 +4426,9 @@ async def test_check_valid_creds_async(transport: str = "grpc_asyncio"):
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
-            datatransfer.CheckValidCredsResponse(has_valid_creds=True,)
+            datatransfer.CheckValidCredsResponse(
+                has_valid_creds=True,
+            )
         )
 
         response = await client.check_valid_creds(request)
@@ -4100,7 +4446,9 @@ async def test_check_valid_creds_async(transport: str = "grpc_asyncio"):
 
 
 def test_check_valid_creds_field_headers():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -4122,7 +4470,10 @@ def test_check_valid_creds_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -4153,11 +4504,16 @@ async def test_check_valid_creds_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_check_valid_creds_flattened():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -4168,7 +4524,9 @@ def test_check_valid_creds_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.check_valid_creds(name="name_value",)
+        client.check_valid_creds(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -4179,13 +4537,16 @@ def test_check_valid_creds_flattened():
 
 
 def test_check_valid_creds_flattened_error():
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.check_valid_creds(
-            datatransfer.CheckValidCredsRequest(), name="name_value",
+            datatransfer.CheckValidCredsRequest(),
+            name="name_value",
         )
 
 
@@ -4207,7 +4568,9 @@ async def test_check_valid_creds_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.check_valid_creds(name="name_value",)
+        response = await client.check_valid_creds(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -4227,7 +4590,8 @@ async def test_check_valid_creds_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.check_valid_creds(
-            datatransfer.CheckValidCredsRequest(), name="name_value",
+            datatransfer.CheckValidCredsRequest(),
+            name="name_value",
         )
 
 
@@ -4238,7 +4602,8 @@ def test_credentials_transport_error():
     )
     with pytest.raises(ValueError):
         client = DataTransferServiceClient(
-            credentials=credentials.AnonymousCredentials(), transport=transport,
+            credentials=credentials.AnonymousCredentials(),
+            transport=transport,
         )
 
     # It is an error to provide a credentials file and a transport instance.
@@ -4257,7 +4622,8 @@ def test_credentials_transport_error():
     )
     with pytest.raises(ValueError):
         client = DataTransferServiceClient(
-            client_options={"scopes": ["1", "2"]}, transport=transport,
+            client_options={"scopes": ["1", "2"]},
+            transport=transport,
         )
 
 
@@ -4302,8 +4668,13 @@ def test_transport_adc(transport_class):
 
 def test_transport_grpc_default():
     # A client should use the gRPC transport by default.
-    client = DataTransferServiceClient(credentials=credentials.AnonymousCredentials(),)
-    assert isinstance(client._transport, transports.DataTransferServiceGrpcTransport,)
+    client = DataTransferServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
+    assert isinstance(
+        client._transport,
+        transports.DataTransferServiceGrpcTransport,
+    )
 
 
 def test_data_transfer_service_base_transport_error():
@@ -4358,7 +4729,8 @@ def test_data_transfer_service_base_transport_with_credentials_file():
         Transport.return_value = None
         load_creds.return_value = (credentials.AnonymousCredentials(), None)
         transport = transports.DataTransferServiceTransport(
-            credentials_file="credentials.json", quota_project_id="octopus",
+            credentials_file="credentials.json",
+            quota_project_id="octopus",
         )
         load_creds.assert_called_once_with(
             "credentials.json",
@@ -4428,7 +4800,8 @@ def test_data_transfer_service_grpc_transport_channel():
 
     # Check that channel is used if provided.
     transport = transports.DataTransferServiceGrpcTransport(
-        host="squid.clam.whelk", channel=channel,
+        host="squid.clam.whelk",
+        channel=channel,
     )
     assert transport.grpc_channel == channel
     assert transport._host == "squid.clam.whelk:443"
@@ -4439,7 +4812,8 @@ def test_data_transfer_service_grpc_asyncio_transport_channel():
 
     # Check that channel is used if provided.
     transport = transports.DataTransferServiceGrpcAsyncIOTransport(
-        host="squid.clam.whelk", channel=channel,
+        host="squid.clam.whelk",
+        channel=channel,
     )
     assert transport.grpc_channel == channel
     assert transport._host == "squid.clam.whelk:443"
@@ -4537,7 +4911,8 @@ def test_transfer_config_path():
     transfer_config = "clam"
 
     expected = "projects/{project}/transferConfigs/{transfer_config}".format(
-        project=project, transfer_config=transfer_config,
+        project=project,
+        transfer_config=transfer_config,
     )
     actual = DataTransferServiceClient.transfer_config_path(project, transfer_config)
     assert expected == actual
@@ -4562,7 +4937,8 @@ def test_client_withDEFAULT_CLIENT_INFO():
         transports.DataTransferServiceTransport, "_prep_wrapped_messages"
     ) as prep:
         client = DataTransferServiceClient(
-            credentials=credentials.AnonymousCredentials(), client_info=client_info,
+            credentials=credentials.AnonymousCredentials(),
+            client_info=client_info,
         )
         prep.assert_called_once_with(client_info)
 
@@ -4571,6 +4947,7 @@ def test_client_withDEFAULT_CLIENT_INFO():
     ) as prep:
         transport_class = DataTransferServiceClient.get_transport_class()
         transport = transport_class(
-            credentials=credentials.AnonymousCredentials(), client_info=client_info,
+            credentials=credentials.AnonymousCredentials(),
+            client_info=client_info,
         )
         prep.assert_called_once_with(client_info)
