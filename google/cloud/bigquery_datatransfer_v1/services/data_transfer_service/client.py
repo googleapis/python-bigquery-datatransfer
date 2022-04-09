@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 import warnings
 
@@ -489,7 +489,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_datatransfer_v1
+                    from google.cloud import bigquery_datatransfer_v1
 
             def sample_get_data_source():
                 # Create a client
@@ -588,7 +588,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_datatransfer_v1
+                    from google.cloud import bigquery_datatransfer_v1
 
             def sample_list_data_sources():
                 # Create a client
@@ -699,7 +699,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_datatransfer_v1
+                    from google.cloud import bigquery_datatransfer_v1
 
             def sample_create_transfer_config():
                 # Create a client
@@ -826,7 +826,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_datatransfer_v1
+                    from google.cloud import bigquery_datatransfer_v1
 
             def sample_update_transfer_config():
                 # Create a client
@@ -945,7 +945,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_datatransfer_v1
+                    from google.cloud import bigquery_datatransfer_v1
 
             def sample_delete_transfer_config():
                 # Create a client
@@ -1031,7 +1031,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_datatransfer_v1
+                    from google.cloud import bigquery_datatransfer_v1
 
             def sample_get_transfer_config():
                 # Create a client
@@ -1136,7 +1136,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_datatransfer_v1
+                    from google.cloud import bigquery_datatransfer_v1
 
             def sample_list_transfer_configs():
                 # Create a client
@@ -1252,7 +1252,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_datatransfer_v1
+                    from google.cloud import bigquery_datatransfer_v1
 
             def sample_schedule_transfer_runs():
                 # Create a client
@@ -1374,7 +1374,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_datatransfer_v1
+                    from google.cloud import bigquery_datatransfer_v1
 
             def sample_start_manual_transfer_runs():
                 # Create a client
@@ -1452,7 +1452,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_datatransfer_v1
+                    from google.cloud import bigquery_datatransfer_v1
 
             def sample_get_transfer_run():
                 # Create a client
@@ -1548,7 +1548,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_datatransfer_v1
+                    from google.cloud import bigquery_datatransfer_v1
 
             def sample_delete_transfer_run():
                 # Create a client
@@ -1636,7 +1636,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_datatransfer_v1
+                    from google.cloud import bigquery_datatransfer_v1
 
             def sample_list_transfer_runs():
                 # Create a client
@@ -1747,7 +1747,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_datatransfer_v1
+                    from google.cloud import bigquery_datatransfer_v1
 
             def sample_list_transfer_logs():
                 # Create a client
@@ -1859,7 +1859,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_datatransfer_v1
+                    from google.cloud import bigquery_datatransfer_v1
 
             def sample_check_valid_creds():
                 # Create a client
@@ -1969,7 +1969,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_datatransfer_v1
+                    from google.cloud import bigquery_datatransfer_v1
 
             def sample_enroll_data_sources():
                 # Create a client
