@@ -5423,7 +5423,6 @@ def test_data_transfer_service_transport_auth_adc(transport_class):
     [
         transports.DataTransferServiceGrpcTransport,
         transports.DataTransferServiceGrpcAsyncIOTransport,
-        transports.DataTransferServiceRestTransport,
     ],
 )
 def test_data_transfer_service_transport_auth_gdch_credentials(transport_class):
