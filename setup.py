@@ -21,7 +21,7 @@ import setuptools
 
 name = "google-cloud-bigquery-datatransfer"
 description = "BigQuery Data Transfer API client library"
-version = "3.7.1"
+version = "3.7.2"
 # Should be one of:
 # 'Development Status :: 3 - Alpha'
 # 'Development Status :: 4 - Beta'
@@ -30,7 +30,7 @@ release_status = "Development Status :: 5 - Production/Stable"
 dependencies = (
     "google-api-core[grpc] >= 1.32.0, <3.0.0dev,!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,!=2.4.*,!=2.5.*,!=2.6.*,!=2.7.*",
     "proto-plus >= 1.22.0, <2.0.0dev",
-    "protobuf >= 3.19.0, <5.0.0dev",
+    "protobuf >= 3.20.2, <5.0.0dev",
 )
 
 extras = {"libcst": "libcst >= 0.2.5"}
