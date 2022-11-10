@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 import warnings
 
 from google.api_core import client_options as client_options_lib
@@ -65,7 +76,7 @@ class DataTransferServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[DataTransferServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -381,7 +392,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, DataTransferServiceTransport, None] = None,
+        transport: Optional[Union[str, DataTransferServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -479,11 +490,11 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
     def get_data_source(
         self,
-        request: Union[datatransfer.GetDataSourceRequest, dict] = None,
+        request: Optional[Union[datatransfer.GetDataSourceRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> datatransfer.DataSource:
         r"""Retrieves a supported data source and returns its
@@ -584,11 +595,11 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
     def list_data_sources(
         self,
-        request: Union[datatransfer.ListDataSourcesRequest, dict] = None,
+        request: Optional[Union[datatransfer.ListDataSourcesRequest, dict]] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListDataSourcesPager:
         r"""Lists supported data sources and returns their
@@ -702,12 +713,12 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
     def create_transfer_config(
         self,
-        request: Union[datatransfer.CreateTransferConfigRequest, dict] = None,
+        request: Optional[Union[datatransfer.CreateTransferConfigRequest, dict]] = None,
         *,
-        parent: str = None,
-        transfer_config: transfer.TransferConfig = None,
+        parent: Optional[str] = None,
+        transfer_config: Optional[transfer.TransferConfig] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> transfer.TransferConfig:
         r"""Creates a new data transfer configuration.
@@ -834,12 +845,12 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
     def update_transfer_config(
         self,
-        request: Union[datatransfer.UpdateTransferConfigRequest, dict] = None,
+        request: Optional[Union[datatransfer.UpdateTransferConfigRequest, dict]] = None,
         *,
-        transfer_config: transfer.TransferConfig = None,
-        update_mask: field_mask_pb2.FieldMask = None,
+        transfer_config: Optional[transfer.TransferConfig] = None,
+        update_mask: Optional[field_mask_pb2.FieldMask] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> transfer.TransferConfig:
         r"""Updates a data transfer configuration.
@@ -960,11 +971,11 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
     def delete_transfer_config(
         self,
-        request: Union[datatransfer.DeleteTransferConfigRequest, dict] = None,
+        request: Optional[Union[datatransfer.DeleteTransferConfigRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Deletes a data transfer configuration, including any
@@ -1054,11 +1065,11 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
     def get_transfer_config(
         self,
-        request: Union[datatransfer.GetTransferConfigRequest, dict] = None,
+        request: Optional[Union[datatransfer.GetTransferConfigRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> transfer.TransferConfig:
         r"""Returns information about a data transfer config.
@@ -1164,11 +1175,11 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
     def list_transfer_configs(
         self,
-        request: Union[datatransfer.ListTransferConfigsRequest, dict] = None,
+        request: Optional[Union[datatransfer.ListTransferConfigsRequest, dict]] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListTransferConfigsPager:
         r"""Returns information about all transfer configs owned
@@ -1281,13 +1292,13 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
     def schedule_transfer_runs(
         self,
-        request: Union[datatransfer.ScheduleTransferRunsRequest, dict] = None,
+        request: Optional[Union[datatransfer.ScheduleTransferRunsRequest, dict]] = None,
         *,
-        parent: str = None,
-        start_time: timestamp_pb2.Timestamp = None,
-        end_time: timestamp_pb2.Timestamp = None,
+        parent: Optional[str] = None,
+        start_time: Optional[timestamp_pb2.Timestamp] = None,
+        end_time: Optional[timestamp_pb2.Timestamp] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> datatransfer.ScheduleTransferRunsResponse:
         r"""Creates transfer runs for a time range [start_time, end_time].
@@ -1413,10 +1424,12 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
     def start_manual_transfer_runs(
         self,
-        request: Union[datatransfer.StartManualTransferRunsRequest, dict] = None,
+        request: Optional[
+            Union[datatransfer.StartManualTransferRunsRequest, dict]
+        ] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> datatransfer.StartManualTransferRunsResponse:
         r"""Start manual transfer runs to be executed now with schedule_time
@@ -1498,11 +1511,11 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
     def get_transfer_run(
         self,
-        request: Union[datatransfer.GetTransferRunRequest, dict] = None,
+        request: Optional[Union[datatransfer.GetTransferRunRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> transfer.TransferRun:
         r"""Returns information about the particular transfer
@@ -1602,11 +1615,11 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
     def delete_transfer_run(
         self,
-        request: Union[datatransfer.DeleteTransferRunRequest, dict] = None,
+        request: Optional[Union[datatransfer.DeleteTransferRunRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Deletes the specified transfer run.
@@ -1695,11 +1708,11 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
     def list_transfer_runs(
         self,
-        request: Union[datatransfer.ListTransferRunsRequest, dict] = None,
+        request: Optional[Union[datatransfer.ListTransferRunsRequest, dict]] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListTransferRunsPager:
         r"""Returns information about running and completed
@@ -1814,11 +1827,11 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
     def list_transfer_logs(
         self,
-        request: Union[datatransfer.ListTransferLogsRequest, dict] = None,
+        request: Optional[Union[datatransfer.ListTransferLogsRequest, dict]] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListTransferLogsPager:
         r"""Returns log messages for the transfer run.
@@ -1931,11 +1944,11 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
     def check_valid_creds(
         self,
-        request: Union[datatransfer.CheckValidCredsRequest, dict] = None,
+        request: Optional[Union[datatransfer.CheckValidCredsRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> datatransfer.CheckValidCredsResponse:
         r"""Returns true if valid credentials exist for the given
@@ -2042,10 +2055,10 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
 
     def enroll_data_sources(
         self,
-        request: Union[datatransfer.EnrollDataSourcesRequest, dict] = None,
+        request: Optional[Union[datatransfer.EnrollDataSourcesRequest, dict]] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Enroll data sources in a user project. This allows

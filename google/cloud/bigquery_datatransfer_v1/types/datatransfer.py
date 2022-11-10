@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+from typing import MutableMapping, MutableSequence
+
 from google.protobuf import duration_pb2  # type: ignore
 from google.protobuf import field_mask_pb2  # type: ignore
 from google.protobuf import timestamp_pb2  # type: ignore
@@ -72,7 +74,7 @@ class DataSourceParameter(proto.Message):
         validation_regex (str):
             Regular expression which can be used for
             parameter validation.
-        allowed_values (Sequence[str]):
+        allowed_values (MutableSequence[str]):
             All possible values for the parameter.
         min_value (google.protobuf.wrappers_pb2.DoubleValue):
             For integer and double values specifies
@@ -80,7 +82,7 @@ class DataSourceParameter(proto.Message):
         max_value (google.protobuf.wrappers_pb2.DoubleValue):
             For integer and double values specifies
             maxminum allowed value.
-        fields (Sequence[google.cloud.bigquery_datatransfer_v1.types.DataSourceParameter]):
+        fields (MutableSequence[google.cloud.bigquery_datatransfer_v1.types.DataSourceParameter]):
             Deprecated. This field has no effect.
         validation_description (str):
             Description of the requirements for this
@@ -109,71 +111,71 @@ class DataSourceParameter(proto.Message):
         RECORD = 5
         PLUS_PAGE = 6
 
-    param_id = proto.Field(
+    param_id: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    display_name = proto.Field(
+    display_name: str = proto.Field(
         proto.STRING,
         number=2,
     )
-    description = proto.Field(
+    description: str = proto.Field(
         proto.STRING,
         number=3,
     )
-    type_ = proto.Field(
+    type_: Type = proto.Field(
         proto.ENUM,
         number=4,
         enum=Type,
     )
-    required = proto.Field(
+    required: bool = proto.Field(
         proto.BOOL,
         number=5,
     )
-    repeated = proto.Field(
+    repeated: bool = proto.Field(
         proto.BOOL,
         number=6,
     )
-    validation_regex = proto.Field(
+    validation_regex: str = proto.Field(
         proto.STRING,
         number=7,
     )
-    allowed_values = proto.RepeatedField(
+    allowed_values: MutableSequence[str] = proto.RepeatedField(
         proto.STRING,
         number=8,
     )
-    min_value = proto.Field(
+    min_value: wrappers_pb2.DoubleValue = proto.Field(
         proto.MESSAGE,
         number=9,
         message=wrappers_pb2.DoubleValue,
     )
-    max_value = proto.Field(
+    max_value: wrappers_pb2.DoubleValue = proto.Field(
         proto.MESSAGE,
         number=10,
         message=wrappers_pb2.DoubleValue,
     )
-    fields = proto.RepeatedField(
+    fields: MutableSequence["DataSourceParameter"] = proto.RepeatedField(
         proto.MESSAGE,
         number=11,
         message="DataSourceParameter",
     )
-    validation_description = proto.Field(
+    validation_description: str = proto.Field(
         proto.STRING,
         number=12,
     )
-    validation_help_url = proto.Field(
+    validation_help_url: str = proto.Field(
         proto.STRING,
         number=13,
     )
-    immutable = proto.Field(
+    immutable: bool = proto.Field(
         proto.BOOL,
         number=14,
     )
-    recurse = proto.Field(
+    recurse: bool = proto.Field(
         proto.BOOL,
         number=15,
     )
-    deprecated = proto.Field(
+    deprecated: bool = proto.Field(
         proto.BOOL,
         number=20,
     )
@@ -195,7 +197,7 @@ class DataSource(proto.Message):
         client_id (str):
             Data source client id which should be used to
             receive refresh token.
-        scopes (Sequence[str]):
+        scopes (MutableSequence[str]):
             Api auth scopes for which refresh token needs
             to be obtained. These are scopes needed by a
             data source to prepare data and ingest them into
@@ -218,7 +220,7 @@ class DataSource(proto.Message):
             Specifies whether the data source supports a user defined
             schedule, or operates on the default schedule. When set to
             ``true``, user can override default schedule.
-        parameters (Sequence[google.cloud.bigquery_datatransfer_v1.types.DataSourceParameter]):
+        parameters (MutableSequence[google.cloud.bigquery_datatransfer_v1.types.DataSourceParameter]):
             Data source parameters.
         help_url (str):
             Url for the help document for this data
@@ -256,79 +258,79 @@ class DataSource(proto.Message):
         SLIDING_WINDOW = 1
         CUSTOM_SLIDING_WINDOW = 2
 
-    name = proto.Field(
+    name: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    data_source_id = proto.Field(
+    data_source_id: str = proto.Field(
         proto.STRING,
         number=2,
     )
-    display_name = proto.Field(
+    display_name: str = proto.Field(
         proto.STRING,
         number=3,
     )
-    description = proto.Field(
+    description: str = proto.Field(
         proto.STRING,
         number=4,
     )
-    client_id = proto.Field(
+    client_id: str = proto.Field(
         proto.STRING,
         number=5,
     )
-    scopes = proto.RepeatedField(
+    scopes: MutableSequence[str] = proto.RepeatedField(
         proto.STRING,
         number=6,
     )
-    transfer_type = proto.Field(
+    transfer_type: transfer.TransferType = proto.Field(
         proto.ENUM,
         number=7,
         enum=transfer.TransferType,
     )
-    supports_multiple_transfers = proto.Field(
+    supports_multiple_transfers: bool = proto.Field(
         proto.BOOL,
         number=8,
     )
-    update_deadline_seconds = proto.Field(
+    update_deadline_seconds: int = proto.Field(
         proto.INT32,
         number=9,
     )
-    default_schedule = proto.Field(
+    default_schedule: str = proto.Field(
         proto.STRING,
         number=10,
     )
-    supports_custom_schedule = proto.Field(
+    supports_custom_schedule: bool = proto.Field(
         proto.BOOL,
         number=11,
     )
-    parameters = proto.RepeatedField(
+    parameters: MutableSequence["DataSourceParameter"] = proto.RepeatedField(
         proto.MESSAGE,
         number=12,
         message="DataSourceParameter",
     )
-    help_url = proto.Field(
+    help_url: str = proto.Field(
         proto.STRING,
         number=13,
     )
-    authorization_type = proto.Field(
+    authorization_type: AuthorizationType = proto.Field(
         proto.ENUM,
         number=14,
         enum=AuthorizationType,
     )
-    data_refresh_type = proto.Field(
+    data_refresh_type: DataRefreshType = proto.Field(
         proto.ENUM,
         number=15,
         enum=DataRefreshType,
     )
-    default_data_refresh_window_days = proto.Field(
+    default_data_refresh_window_days: int = proto.Field(
         proto.INT32,
         number=16,
     )
-    manual_runs_disabled = proto.Field(
+    manual_runs_disabled: bool = proto.Field(
         proto.BOOL,
         number=17,
     )
-    minimum_schedule_interval = proto.Field(
+    minimum_schedule_interval: duration_pb2.Duration = proto.Field(
         proto.MESSAGE,
         number=18,
         message=duration_pb2.Duration,
@@ -346,7 +348,7 @@ class GetDataSourceRequest(proto.Message):
             ``projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}``
     """
 
-    name = proto.Field(
+    name: str = proto.Field(
         proto.STRING,
         number=1,
     )
@@ -373,15 +375,15 @@ class ListDataSourcesRequest(proto.Message):
             maximum value of 1000 results.
     """
 
-    parent = proto.Field(
+    parent: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    page_token = proto.Field(
+    page_token: str = proto.Field(
         proto.STRING,
         number=3,
     )
-    page_size = proto.Field(
+    page_size: int = proto.Field(
         proto.INT32,
         number=4,
     )
@@ -391,7 +393,7 @@ class ListDataSourcesResponse(proto.Message):
     r"""Returns list of supported data sources and their metadata.
 
     Attributes:
-        data_sources (Sequence[google.cloud.bigquery_datatransfer_v1.types.DataSource]):
+        data_sources (MutableSequence[google.cloud.bigquery_datatransfer_v1.types.DataSource]):
             List of supported data sources and their
             transfer settings.
         next_page_token (str):
@@ -405,12 +407,12 @@ class ListDataSourcesResponse(proto.Message):
     def raw_page(self):
         return self
 
-    data_sources = proto.RepeatedField(
+    data_sources: MutableSequence["DataSource"] = proto.RepeatedField(
         proto.MESSAGE,
         number=1,
         message="DataSource",
     )
-    next_page_token = proto.Field(
+    next_page_token: str = proto.Field(
         proto.STRING,
         number=2,
     )
@@ -471,24 +473,24 @@ class CreateTransferConfigRequest(proto.Message):
             permissions to act as this service account.
     """
 
-    parent = proto.Field(
+    parent: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    transfer_config = proto.Field(
+    transfer_config: transfer.TransferConfig = proto.Field(
         proto.MESSAGE,
         number=2,
         message=transfer.TransferConfig,
     )
-    authorization_code = proto.Field(
+    authorization_code: str = proto.Field(
         proto.STRING,
         number=3,
     )
-    version_info = proto.Field(
+    version_info: str = proto.Field(
         proto.STRING,
         number=5,
     )
-    service_account_name = proto.Field(
+    service_account_name: str = proto.Field(
         proto.STRING,
         number=6,
     )
@@ -542,25 +544,25 @@ class UpdateTransferConfigRequest(proto.Message):
             API has permissions to act as this service account.
     """
 
-    transfer_config = proto.Field(
+    transfer_config: transfer.TransferConfig = proto.Field(
         proto.MESSAGE,
         number=1,
         message=transfer.TransferConfig,
     )
-    authorization_code = proto.Field(
+    authorization_code: str = proto.Field(
         proto.STRING,
         number=3,
     )
-    update_mask = proto.Field(
+    update_mask: field_mask_pb2.FieldMask = proto.Field(
         proto.MESSAGE,
         number=4,
         message=field_mask_pb2.FieldMask,
     )
-    version_info = proto.Field(
+    version_info: str = proto.Field(
         proto.STRING,
         number=5,
     )
-    service_account_name = proto.Field(
+    service_account_name: str = proto.Field(
         proto.STRING,
         number=6,
     )
@@ -577,7 +579,7 @@ class GetTransferConfigRequest(proto.Message):
             ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``
     """
 
-    name = proto.Field(
+    name: str = proto.Field(
         proto.STRING,
         number=1,
     )
@@ -595,7 +597,7 @@ class DeleteTransferConfigRequest(proto.Message):
             ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``
     """
 
-    name = proto.Field(
+    name: str = proto.Field(
         proto.STRING,
         number=1,
     )
@@ -613,7 +615,7 @@ class GetTransferRunRequest(proto.Message):
             ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}``
     """
 
-    name = proto.Field(
+    name: str = proto.Field(
         proto.STRING,
         number=1,
     )
@@ -631,7 +633,7 @@ class DeleteTransferRunRequest(proto.Message):
             ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}``
     """
 
-    name = proto.Field(
+    name: str = proto.Field(
         proto.STRING,
         number=1,
     )
@@ -646,7 +648,7 @@ class ListTransferConfigsRequest(proto.Message):
             Required. The BigQuery project id for which data sources
             should be returned: ``projects/{project_id}`` or
             ``projects/{project_id}/locations/{location_id}``
-        data_source_ids (Sequence[str]):
+        data_source_ids (MutableSequence[str]):
             When specified, only configurations of
             requested data sources are returned.
         page_token (str):
@@ -660,19 +662,19 @@ class ListTransferConfigsRequest(proto.Message):
             maximum value of 1000 results.
     """
 
-    parent = proto.Field(
+    parent: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    data_source_ids = proto.RepeatedField(
+    data_source_ids: MutableSequence[str] = proto.RepeatedField(
         proto.STRING,
         number=2,
     )
-    page_token = proto.Field(
+    page_token: str = proto.Field(
         proto.STRING,
         number=3,
     )
-    page_size = proto.Field(
+    page_size: int = proto.Field(
         proto.INT32,
         number=4,
     )
@@ -682,7 +684,7 @@ class ListTransferConfigsResponse(proto.Message):
     r"""The returned list of pipelines in the project.
 
     Attributes:
-        transfer_configs (Sequence[google.cloud.bigquery_datatransfer_v1.types.TransferConfig]):
+        transfer_configs (MutableSequence[google.cloud.bigquery_datatransfer_v1.types.TransferConfig]):
             Output only. The stored pipeline transfer
             configurations.
         next_page_token (str):
@@ -696,12 +698,12 @@ class ListTransferConfigsResponse(proto.Message):
     def raw_page(self):
         return self
 
-    transfer_configs = proto.RepeatedField(
+    transfer_configs: MutableSequence[transfer.TransferConfig] = proto.RepeatedField(
         proto.MESSAGE,
         number=1,
         message=transfer.TransferConfig,
     )
-    next_page_token = proto.Field(
+    next_page_token: str = proto.Field(
         proto.STRING,
         number=2,
     )
@@ -717,7 +719,7 @@ class ListTransferRunsRequest(proto.Message):
             resource name is:
             ``projects/{project_id}/transferConfigs/{config_id}`` or
             ``projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}``.
-        states (Sequence[google.cloud.bigquery_datatransfer_v1.types.TransferState]):
+        states (MutableSequence[google.cloud.bigquery_datatransfer_v1.types.TransferState]):
             When specified, only transfer runs with
             requested states are returned.
         page_token (str):
@@ -739,24 +741,24 @@ class ListTransferRunsRequest(proto.Message):
         RUN_ATTEMPT_UNSPECIFIED = 0
         LATEST = 1
 
-    parent = proto.Field(
+    parent: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    states = proto.RepeatedField(
+    states: MutableSequence[transfer.TransferState] = proto.RepeatedField(
         proto.ENUM,
         number=2,
         enum=transfer.TransferState,
     )
-    page_token = proto.Field(
+    page_token: str = proto.Field(
         proto.STRING,
         number=3,
     )
-    page_size = proto.Field(
+    page_size: int = proto.Field(
         proto.INT32,
         number=4,
     )
-    run_attempt = proto.Field(
+    run_attempt: RunAttempt = proto.Field(
         proto.ENUM,
         number=5,
         enum=RunAttempt,
@@ -767,7 +769,7 @@ class ListTransferRunsResponse(proto.Message):
     r"""The returned list of pipelines in the project.
 
     Attributes:
-        transfer_runs (Sequence[google.cloud.bigquery_datatransfer_v1.types.TransferRun]):
+        transfer_runs (MutableSequence[google.cloud.bigquery_datatransfer_v1.types.TransferRun]):
             Output only. The stored pipeline transfer
             runs.
         next_page_token (str):
@@ -781,12 +783,12 @@ class ListTransferRunsResponse(proto.Message):
     def raw_page(self):
         return self
 
-    transfer_runs = proto.RepeatedField(
+    transfer_runs: MutableSequence[transfer.TransferRun] = proto.RepeatedField(
         proto.MESSAGE,
         number=1,
         message=transfer.TransferRun,
     )
-    next_page_token = proto.Field(
+    next_page_token: str = proto.Field(
         proto.STRING,
         number=2,
     )
@@ -812,24 +814,26 @@ class ListTransferLogsRequest(proto.Message):
         page_size (int):
             Page size. The default page size is the
             maximum value of 1000 results.
-        message_types (Sequence[google.cloud.bigquery_datatransfer_v1.types.TransferMessage.MessageSeverity]):
+        message_types (MutableSequence[google.cloud.bigquery_datatransfer_v1.types.TransferMessage.MessageSeverity]):
             Message types to return. If not populated -
             INFO, WARNING and ERROR messages are returned.
     """
 
-    parent = proto.Field(
+    parent: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    page_token = proto.Field(
+    page_token: str = proto.Field(
         proto.STRING,
         number=4,
     )
-    page_size = proto.Field(
+    page_size: int = proto.Field(
         proto.INT32,
         number=5,
     )
-    message_types = proto.RepeatedField(
+    message_types: MutableSequence[
+        transfer.TransferMessage.MessageSeverity
+    ] = proto.RepeatedField(
         proto.ENUM,
         number=6,
         enum=transfer.TransferMessage.MessageSeverity,
@@ -840,7 +844,7 @@ class ListTransferLogsResponse(proto.Message):
     r"""The returned list transfer run messages.
 
     Attributes:
-        transfer_messages (Sequence[google.cloud.bigquery_datatransfer_v1.types.TransferMessage]):
+        transfer_messages (MutableSequence[google.cloud.bigquery_datatransfer_v1.types.TransferMessage]):
             Output only. The stored pipeline transfer
             messages.
         next_page_token (str):
@@ -854,12 +858,12 @@ class ListTransferLogsResponse(proto.Message):
     def raw_page(self):
         return self
 
-    transfer_messages = proto.RepeatedField(
+    transfer_messages: MutableSequence[transfer.TransferMessage] = proto.RepeatedField(
         proto.MESSAGE,
         number=1,
         message=transfer.TransferMessage,
     )
-    next_page_token = proto.Field(
+    next_page_token: str = proto.Field(
         proto.STRING,
         number=2,
     )
@@ -881,7 +885,7 @@ class CheckValidCredsRequest(proto.Message):
             ``projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}``.
     """
 
-    name = proto.Field(
+    name: str = proto.Field(
         proto.STRING,
         number=1,
     )
@@ -896,7 +900,7 @@ class CheckValidCredsResponse(proto.Message):
             If set to ``true``, the credentials exist and are valid.
     """
 
-    has_valid_creds = proto.Field(
+    has_valid_creds: bool = proto.Field(
         proto.BOOL,
         number=1,
     )
@@ -918,16 +922,16 @@ class ScheduleTransferRunsRequest(proto.Message):
             example, ``"2017-05-30T00:00:00+00:00"``.
     """
 
-    parent = proto.Field(
+    parent: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    start_time = proto.Field(
+    start_time: timestamp_pb2.Timestamp = proto.Field(
         proto.MESSAGE,
         number=2,
         message=timestamp_pb2.Timestamp,
     )
-    end_time = proto.Field(
+    end_time: timestamp_pb2.Timestamp = proto.Field(
         proto.MESSAGE,
         number=3,
         message=timestamp_pb2.Timestamp,
@@ -938,11 +942,11 @@ class ScheduleTransferRunsResponse(proto.Message):
     r"""A response to schedule transfer runs for a time range.
 
     Attributes:
-        runs (Sequence[google.cloud.bigquery_datatransfer_v1.types.TransferRun]):
+        runs (MutableSequence[google.cloud.bigquery_datatransfer_v1.types.TransferRun]):
             The transfer runs that were scheduled.
     """
 
-    runs = proto.RepeatedField(
+    runs: MutableSequence[transfer.TransferRun] = proto.RepeatedField(
         proto.MESSAGE,
         number=1,
         message=transfer.TransferRun,
@@ -996,28 +1000,28 @@ class StartManualTransferRunsRequest(proto.Message):
                 (exclusive).
         """
 
-        start_time = proto.Field(
+        start_time: timestamp_pb2.Timestamp = proto.Field(
             proto.MESSAGE,
             number=1,
             message=timestamp_pb2.Timestamp,
         )
-        end_time = proto.Field(
+        end_time: timestamp_pb2.Timestamp = proto.Field(
             proto.MESSAGE,
             number=2,
             message=timestamp_pb2.Timestamp,
         )
 
-    parent = proto.Field(
+    parent: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    requested_time_range = proto.Field(
+    requested_time_range: TimeRange = proto.Field(
         proto.MESSAGE,
         number=3,
         oneof="time",
         message=TimeRange,
     )
-    requested_run_time = proto.Field(
+    requested_run_time: timestamp_pb2.Timestamp = proto.Field(
         proto.MESSAGE,
         number=4,
         oneof="time",
@@ -1029,11 +1033,11 @@ class StartManualTransferRunsResponse(proto.Message):
     r"""A response to start manual transfer runs.
 
     Attributes:
-        runs (Sequence[google.cloud.bigquery_datatransfer_v1.types.TransferRun]):
+        runs (MutableSequence[google.cloud.bigquery_datatransfer_v1.types.TransferRun]):
             The transfer runs that were created.
     """
 
-    runs = proto.RepeatedField(
+    runs: MutableSequence[transfer.TransferRun] = proto.RepeatedField(
         proto.MESSAGE,
         number=1,
         message=transfer.TransferRun,
@@ -1048,16 +1052,16 @@ class EnrollDataSourcesRequest(proto.Message):
         name (str):
             The name of the project resource in the form:
             ``projects/{project_id}``
-        data_source_ids (Sequence[str]):
+        data_source_ids (MutableSequence[str]):
             Data sources that are enrolled. It is
             required to provide at least one data source id.
     """
 
-    name = proto.Field(
+    name: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    data_source_ids = proto.RepeatedField(
+    data_source_ids: MutableSequence[str] = proto.RepeatedField(
         proto.STRING,
         number=2,
     )
