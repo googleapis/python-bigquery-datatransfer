@@ -640,7 +640,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
                 Required. The BigQuery project id for which data sources
                 should be returned. Must be in the form:
                 ``projects/{project_id}`` or
-                \`projects/{project_id}/locations/{location_id}
+                ``projects/{project_id}/locations/{location_id}``
 
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -757,10 +757,10 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
             request (Union[google.cloud.bigquery_datatransfer_v1.types.CreateTransferConfigRequest, dict]):
                 The request object. A request to create a data transfer
                 configuration. If new credentials are needed for this
-                transfer configuration, an authorization code must be
-                provided. If an authorization code is provided, the
+                transfer configuration, authorization info must be
+                provided. If authorization info is provided, the
                 transfer configuration will be associated with the user
-                id corresponding to the authorization code. Otherwise,
+                id corresponding to the authorization info. Otherwise,
                 the transfer configuration will be associated with the
                 calling user.
             parent (str):
@@ -889,8 +889,7 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
             request (Union[google.cloud.bigquery_datatransfer_v1.types.UpdateTransferConfigRequest, dict]):
                 The request object. A request to update a transfer
                 configuration. To update the user id of the transfer
-                configuration, an authorization code needs to be
-                provided.
+                configuration, authorization info needs to be provided.
             transfer_config (google.cloud.bigquery_datatransfer_v1.types.TransferConfig):
                 Required. Data transfer configuration
                 to create.
@@ -1217,8 +1216,8 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
                 The request object. A request to list data transfers
                 configured for a BigQuery project.
             parent (str):
-                Required. The BigQuery project id for which data sources
-                should be returned: ``projects/{project_id}`` or
+                Required. The BigQuery project id for which transfer
+                configs should be returned: ``projects/{project_id}`` or
                 ``projects/{project_id}/locations/{location_id}``
 
                 This corresponds to the ``parent`` field
@@ -2061,14 +2060,15 @@ class DataTransferServiceClient(metaclass=DataTransferServiceClientMeta):
         timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
-        r"""Enroll data sources in a user project. This allows
-        users to create transfer configurations for these data
-        sources. They will also appear in the ListDataSources
-        RPC and as such, will appear in the BigQuery UI
-        'https://bigquery.cloud.google.com' (and the documents
-        can be found at
-        https://cloud.google.com/bigquery/bigquery-web-ui and
-        https://cloud.google.com/bigquery/docs/working-with-transfers).
+        r"""Enroll data sources in a user project. This allows users to
+        create transfer configurations for these data sources. They will
+        also appear in the ListDataSources RPC and as such, will appear
+        in the `BigQuery
+        UI <https://console.cloud.google.com/bigquery>`__, and the
+        documents can be found in the public guide for `BigQuery Web
+        UI <https://cloud.google.com/bigquery/bigquery-web-ui>`__ and
+        `Data Transfer
+        Service <https://cloud.google.com/bigquery/docs/working-with-transfers>`__.
 
         .. code-block:: python
 

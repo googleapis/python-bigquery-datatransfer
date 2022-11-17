@@ -157,8 +157,11 @@ class TransferConfig(proto.Message):
             User specified display name for the data
             transfer.
         data_source_id (str):
-            Data source id. Cannot be changed once data
-            transfer is created.
+            Data source ID. This cannot be changed once
+            data transfer is created. The full list of
+            available data source IDs can be returned
+            through an API call:
+            https://cloud.google.com/bigquery-transfer/docs/reference/datatransfer/rest/v1/projects.locations.dataSources/list
         params (google.protobuf.struct_pb2.Struct):
             Parameters specific to each data source. For
             more information see the bq tab in the 'Setting

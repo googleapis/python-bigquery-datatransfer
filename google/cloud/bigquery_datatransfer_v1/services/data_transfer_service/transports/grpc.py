@@ -632,14 +632,15 @@ class DataTransferServiceGrpcTransport(DataTransferServiceTransport):
     ) -> Callable[[datatransfer.EnrollDataSourcesRequest], empty_pb2.Empty]:
         r"""Return a callable for the enroll data sources method over gRPC.
 
-        Enroll data sources in a user project. This allows
-        users to create transfer configurations for these data
-        sources. They will also appear in the ListDataSources
-        RPC and as such, will appear in the BigQuery UI
-        'https://bigquery.cloud.google.com' (and the documents
-        can be found at
-        https://cloud.google.com/bigquery/bigquery-web-ui and
-        https://cloud.google.com/bigquery/docs/working-with-transfers).
+        Enroll data sources in a user project. This allows users to
+        create transfer configurations for these data sources. They will
+        also appear in the ListDataSources RPC and as such, will appear
+        in the `BigQuery
+        UI <https://console.cloud.google.com/bigquery>`__, and the
+        documents can be found in the public guide for `BigQuery Web
+        UI <https://cloud.google.com/bigquery/bigquery-web-ui>`__ and
+        `Data Transfer
+        Service <https://cloud.google.com/bigquery/docs/working-with-transfers>`__.
 
         Returns:
             Callable[[~.EnrollDataSourcesRequest],
