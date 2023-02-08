@@ -14,25 +14,22 @@
 # limitations under the License.
 #
 
-from google.auth.transport.requests import AuthorizedSession  # type: ignore
-import json  # type: ignore
-import grpc  # type: ignore
-from google.auth.transport.grpc import SslCredentials  # type: ignore
-from google.auth import credentials as ga_credentials  # type: ignore
-from google.api_core import exceptions as core_exceptions
-from google.api_core import retry as retries
-from google.api_core import rest_helpers
-from google.api_core import rest_streaming
-from google.api_core import path_template
-from google.api_core import gapic_v1
-
-from google.protobuf import json_format
-from google.cloud.location import locations_pb2 # type: ignore
-from requests import __version__ as requests_version
 import dataclasses
+import json  # type: ignore
 import re
 from typing import Callable, Dict, List, Optional, Sequence, Tuple, Union
 import warnings
+
+from google.api_core import gapic_v1, path_template, rest_helpers, rest_streaming
+from google.api_core import exceptions as core_exceptions
+from google.api_core import retry as retries
+from google.auth import credentials as ga_credentials  # type: ignore
+from google.auth.transport.grpc import SslCredentials  # type: ignore
+from google.auth.transport.requests import AuthorizedSession  # type: ignore
+from google.cloud.location import locations_pb2  # type: ignore
+from google.protobuf import json_format
+import grpc  # type: ignore
+from requests import __version__ as requests_version
 
 try:
     OptionalRetry = Union[retries.Retry, gapic_v1.method._MethodDefault]
@@ -40,12 +37,12 @@ except AttributeError:  # pragma: NO COVER
     OptionalRetry = Union[retries.Retry, object]  # type: ignore
 
 
-from google.cloud.bigquery_datatransfer_v1.types import datatransfer
-from google.cloud.bigquery_datatransfer_v1.types import transfer
 from google.protobuf import empty_pb2  # type: ignore
 
-from .base import DataTransferServiceTransport, DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
+from google.cloud.bigquery_datatransfer_v1.types import datatransfer, transfer
 
+from .base import DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
+from .base import DataTransferServiceTransport
 
 DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
     gapic_version=BASE_DEFAULT_CLIENT_INFO.gapic_version,
@@ -182,7 +179,12 @@ class DataTransferServiceRestInterceptor:
 
 
     """
-    def pre_check_valid_creds(self, request: datatransfer.CheckValidCredsRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[datatransfer.CheckValidCredsRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_check_valid_creds(
+        self,
+        request: datatransfer.CheckValidCredsRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[datatransfer.CheckValidCredsRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for check_valid_creds
 
         Override in a subclass to manipulate the request or metadata
@@ -190,7 +192,9 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_check_valid_creds(self, response: datatransfer.CheckValidCredsResponse) -> datatransfer.CheckValidCredsResponse:
+    def post_check_valid_creds(
+        self, response: datatransfer.CheckValidCredsResponse
+    ) -> datatransfer.CheckValidCredsResponse:
         """Post-rpc interceptor for check_valid_creds
 
         Override in a subclass to manipulate the response
@@ -198,7 +202,12 @@ class DataTransferServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_create_transfer_config(self, request: datatransfer.CreateTransferConfigRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[datatransfer.CreateTransferConfigRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_create_transfer_config(
+        self,
+        request: datatransfer.CreateTransferConfigRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[datatransfer.CreateTransferConfigRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for create_transfer_config
 
         Override in a subclass to manipulate the request or metadata
@@ -206,7 +215,9 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_create_transfer_config(self, response: transfer.TransferConfig) -> transfer.TransferConfig:
+    def post_create_transfer_config(
+        self, response: transfer.TransferConfig
+    ) -> transfer.TransferConfig:
         """Post-rpc interceptor for create_transfer_config
 
         Override in a subclass to manipulate the response
@@ -214,7 +225,12 @@ class DataTransferServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_delete_transfer_config(self, request: datatransfer.DeleteTransferConfigRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[datatransfer.DeleteTransferConfigRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_delete_transfer_config(
+        self,
+        request: datatransfer.DeleteTransferConfigRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[datatransfer.DeleteTransferConfigRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for delete_transfer_config
 
         Override in a subclass to manipulate the request or metadata
@@ -222,7 +238,11 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def pre_delete_transfer_run(self, request: datatransfer.DeleteTransferRunRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[datatransfer.DeleteTransferRunRequest, Sequence[Tuple[str, str]]]:
+    def pre_delete_transfer_run(
+        self,
+        request: datatransfer.DeleteTransferRunRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[datatransfer.DeleteTransferRunRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for delete_transfer_run
 
         Override in a subclass to manipulate the request or metadata
@@ -230,7 +250,11 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def pre_enroll_data_sources(self, request: datatransfer.EnrollDataSourcesRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[datatransfer.EnrollDataSourcesRequest, Sequence[Tuple[str, str]]]:
+    def pre_enroll_data_sources(
+        self,
+        request: datatransfer.EnrollDataSourcesRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[datatransfer.EnrollDataSourcesRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for enroll_data_sources
 
         Override in a subclass to manipulate the request or metadata
@@ -238,7 +262,11 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def pre_get_data_source(self, request: datatransfer.GetDataSourceRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[datatransfer.GetDataSourceRequest, Sequence[Tuple[str, str]]]:
+    def pre_get_data_source(
+        self,
+        request: datatransfer.GetDataSourceRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[datatransfer.GetDataSourceRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for get_data_source
 
         Override in a subclass to manipulate the request or metadata
@@ -246,7 +274,9 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_get_data_source(self, response: datatransfer.DataSource) -> datatransfer.DataSource:
+    def post_get_data_source(
+        self, response: datatransfer.DataSource
+    ) -> datatransfer.DataSource:
         """Post-rpc interceptor for get_data_source
 
         Override in a subclass to manipulate the response
@@ -254,7 +284,12 @@ class DataTransferServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_get_transfer_config(self, request: datatransfer.GetTransferConfigRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[datatransfer.GetTransferConfigRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_get_transfer_config(
+        self,
+        request: datatransfer.GetTransferConfigRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[datatransfer.GetTransferConfigRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for get_transfer_config
 
         Override in a subclass to manipulate the request or metadata
@@ -262,7 +297,9 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_get_transfer_config(self, response: transfer.TransferConfig) -> transfer.TransferConfig:
+    def post_get_transfer_config(
+        self, response: transfer.TransferConfig
+    ) -> transfer.TransferConfig:
         """Post-rpc interceptor for get_transfer_config
 
         Override in a subclass to manipulate the response
@@ -270,7 +307,12 @@ class DataTransferServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_get_transfer_run(self, request: datatransfer.GetTransferRunRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[datatransfer.GetTransferRunRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_get_transfer_run(
+        self,
+        request: datatransfer.GetTransferRunRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[datatransfer.GetTransferRunRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for get_transfer_run
 
         Override in a subclass to manipulate the request or metadata
@@ -278,7 +320,9 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_get_transfer_run(self, response: transfer.TransferRun) -> transfer.TransferRun:
+    def post_get_transfer_run(
+        self, response: transfer.TransferRun
+    ) -> transfer.TransferRun:
         """Post-rpc interceptor for get_transfer_run
 
         Override in a subclass to manipulate the response
@@ -286,7 +330,12 @@ class DataTransferServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_data_sources(self, request: datatransfer.ListDataSourcesRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[datatransfer.ListDataSourcesRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_data_sources(
+        self,
+        request: datatransfer.ListDataSourcesRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[datatransfer.ListDataSourcesRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for list_data_sources
 
         Override in a subclass to manipulate the request or metadata
@@ -294,7 +343,9 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_data_sources(self, response: datatransfer.ListDataSourcesResponse) -> datatransfer.ListDataSourcesResponse:
+    def post_list_data_sources(
+        self, response: datatransfer.ListDataSourcesResponse
+    ) -> datatransfer.ListDataSourcesResponse:
         """Post-rpc interceptor for list_data_sources
 
         Override in a subclass to manipulate the response
@@ -302,7 +353,12 @@ class DataTransferServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_transfer_configs(self, request: datatransfer.ListTransferConfigsRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[datatransfer.ListTransferConfigsRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_transfer_configs(
+        self,
+        request: datatransfer.ListTransferConfigsRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[datatransfer.ListTransferConfigsRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for list_transfer_configs
 
         Override in a subclass to manipulate the request or metadata
@@ -310,7 +366,9 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_transfer_configs(self, response: datatransfer.ListTransferConfigsResponse) -> datatransfer.ListTransferConfigsResponse:
+    def post_list_transfer_configs(
+        self, response: datatransfer.ListTransferConfigsResponse
+    ) -> datatransfer.ListTransferConfigsResponse:
         """Post-rpc interceptor for list_transfer_configs
 
         Override in a subclass to manipulate the response
@@ -318,7 +376,12 @@ class DataTransferServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_transfer_logs(self, request: datatransfer.ListTransferLogsRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[datatransfer.ListTransferLogsRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_transfer_logs(
+        self,
+        request: datatransfer.ListTransferLogsRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[datatransfer.ListTransferLogsRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for list_transfer_logs
 
         Override in a subclass to manipulate the request or metadata
@@ -326,7 +389,9 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_transfer_logs(self, response: datatransfer.ListTransferLogsResponse) -> datatransfer.ListTransferLogsResponse:
+    def post_list_transfer_logs(
+        self, response: datatransfer.ListTransferLogsResponse
+    ) -> datatransfer.ListTransferLogsResponse:
         """Post-rpc interceptor for list_transfer_logs
 
         Override in a subclass to manipulate the response
@@ -334,7 +399,12 @@ class DataTransferServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_transfer_runs(self, request: datatransfer.ListTransferRunsRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[datatransfer.ListTransferRunsRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_transfer_runs(
+        self,
+        request: datatransfer.ListTransferRunsRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[datatransfer.ListTransferRunsRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for list_transfer_runs
 
         Override in a subclass to manipulate the request or metadata
@@ -342,7 +412,9 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_transfer_runs(self, response: datatransfer.ListTransferRunsResponse) -> datatransfer.ListTransferRunsResponse:
+    def post_list_transfer_runs(
+        self, response: datatransfer.ListTransferRunsResponse
+    ) -> datatransfer.ListTransferRunsResponse:
         """Post-rpc interceptor for list_transfer_runs
 
         Override in a subclass to manipulate the response
@@ -350,7 +422,12 @@ class DataTransferServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_schedule_transfer_runs(self, request: datatransfer.ScheduleTransferRunsRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[datatransfer.ScheduleTransferRunsRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_schedule_transfer_runs(
+        self,
+        request: datatransfer.ScheduleTransferRunsRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[datatransfer.ScheduleTransferRunsRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for schedule_transfer_runs
 
         Override in a subclass to manipulate the request or metadata
@@ -358,7 +435,9 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_schedule_transfer_runs(self, response: datatransfer.ScheduleTransferRunsResponse) -> datatransfer.ScheduleTransferRunsResponse:
+    def post_schedule_transfer_runs(
+        self, response: datatransfer.ScheduleTransferRunsResponse
+    ) -> datatransfer.ScheduleTransferRunsResponse:
         """Post-rpc interceptor for schedule_transfer_runs
 
         Override in a subclass to manipulate the response
@@ -366,7 +445,12 @@ class DataTransferServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_start_manual_transfer_runs(self, request: datatransfer.StartManualTransferRunsRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[datatransfer.StartManualTransferRunsRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_start_manual_transfer_runs(
+        self,
+        request: datatransfer.StartManualTransferRunsRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[datatransfer.StartManualTransferRunsRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for start_manual_transfer_runs
 
         Override in a subclass to manipulate the request or metadata
@@ -374,7 +458,9 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_start_manual_transfer_runs(self, response: datatransfer.StartManualTransferRunsResponse) -> datatransfer.StartManualTransferRunsResponse:
+    def post_start_manual_transfer_runs(
+        self, response: datatransfer.StartManualTransferRunsResponse
+    ) -> datatransfer.StartManualTransferRunsResponse:
         """Post-rpc interceptor for start_manual_transfer_runs
 
         Override in a subclass to manipulate the response
@@ -382,7 +468,12 @@ class DataTransferServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_update_transfer_config(self, request: datatransfer.UpdateTransferConfigRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[datatransfer.UpdateTransferConfigRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_update_transfer_config(
+        self,
+        request: datatransfer.UpdateTransferConfigRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[datatransfer.UpdateTransferConfigRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for update_transfer_config
 
         Override in a subclass to manipulate the request or metadata
@@ -390,7 +481,9 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_update_transfer_config(self, response: transfer.TransferConfig) -> transfer.TransferConfig:
+    def post_update_transfer_config(
+        self, response: transfer.TransferConfig
+    ) -> transfer.TransferConfig:
         """Post-rpc interceptor for update_transfer_config
 
         Override in a subclass to manipulate the response
@@ -399,7 +492,11 @@ class DataTransferServiceRestInterceptor:
         """
         return response
 
-    def pre_get_location(self, request: locations_pb2.GetLocationRequest, metadata: Sequence[Tuple[str, str]]) -> locations_pb2.Location:
+    def pre_get_location(
+        self,
+        request: locations_pb2.GetLocationRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> locations_pb2.Location:
         """Pre-rpc interceptor for get_location
 
         Override in a subclass to manipulate the request or metadata
@@ -407,7 +504,9 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_get_location(self, response: locations_pb2.GetLocationRequest) -> locations_pb2.Location:
+    def post_get_location(
+        self, response: locations_pb2.GetLocationRequest
+    ) -> locations_pb2.Location:
         """Post-rpc interceptor for get_location
 
         Override in a subclass to manipulate the response
@@ -415,7 +514,12 @@ class DataTransferServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_locations(self, request: locations_pb2.ListLocationsRequest, metadata: Sequence[Tuple[str, str]]) -> locations_pb2.ListLocationsResponse:
+
+    def pre_list_locations(
+        self,
+        request: locations_pb2.ListLocationsRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> locations_pb2.ListLocationsResponse:
         """Pre-rpc interceptor for list_locations
 
         Override in a subclass to manipulate the request or metadata
@@ -423,7 +527,9 @@ class DataTransferServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_locations(self, response: locations_pb2.ListLocationsRequest) -> locations_pb2.ListLocationsResponse:
+    def post_list_locations(
+        self, response: locations_pb2.ListLocationsRequest
+    ) -> locations_pb2.ListLocationsResponse:
         """Post-rpc interceptor for list_locations
 
         Override in a subclass to manipulate the response
@@ -454,20 +560,21 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
 
     """
 
-    def __init__(self, *,
-            host: str = 'bigquerydatatransfer.googleapis.com',
-            credentials: Optional[ga_credentials.Credentials] = None,
-            credentials_file: Optional[str] = None,
-            scopes: Optional[Sequence[str]] = None,
-            client_cert_source_for_mtls: Optional[Callable[[
-                ], Tuple[bytes, bytes]]] = None,
-            quota_project_id: Optional[str] = None,
-            client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
-            always_use_jwt_access: Optional[bool] = False,
-            url_scheme: str = 'https',
-            interceptor: Optional[DataTransferServiceRestInterceptor] = None,
-            api_audience: Optional[str] = None,
-            ) -> None:
+    def __init__(
+        self,
+        *,
+        host: str = "bigquerydatatransfer.googleapis.com",
+        credentials: Optional[ga_credentials.Credentials] = None,
+        credentials_file: Optional[str] = None,
+        scopes: Optional[Sequence[str]] = None,
+        client_cert_source_for_mtls: Optional[Callable[[], Tuple[bytes, bytes]]] = None,
+        quota_project_id: Optional[str] = None,
+        client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
+        always_use_jwt_access: Optional[bool] = False,
+        url_scheme: str = "https",
+        interceptor: Optional[DataTransferServiceRestInterceptor] = None,
+        api_audience: Optional[str] = None,
+    ) -> None:
         """Instantiate the transport.
 
         Args:
@@ -506,7 +613,9 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         # credentials object
         maybe_url_match = re.match("^(?P<scheme>http(?:s)?://)?(?P<host>.*)$", host)
         if maybe_url_match is None:
-            raise ValueError(f"Unexpected hostname structure: {host}")  # pragma: NO COVER
+            raise ValueError(
+                f"Unexpected hostname structure: {host}"
+            )  # pragma: NO COVER
 
         url_match_items = maybe_url_match.groupdict()
 
@@ -517,10 +626,11 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
             credentials=credentials,
             client_info=client_info,
             always_use_jwt_access=always_use_jwt_access,
-            api_audience=api_audience
+            api_audience=api_audience,
         )
         self._session = AuthorizedSession(
-            self._credentials, default_host=self.DEFAULT_HOST)
+            self._credentials, default_host=self.DEFAULT_HOST
+        )
         if client_cert_source_for_mtls:
             self._session.configure_mtls_channel(client_cert_source_for_mtls)
         self._interceptor = interceptor or DataTransferServiceRestInterceptor()
@@ -530,19 +640,24 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         def __hash__(self):
             return hash("CheckValidCreds")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: datatransfer.CheckValidCredsRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> datatransfer.CheckValidCredsResponse:
+        def __call__(
+            self,
+            request: datatransfer.CheckValidCredsRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> datatransfer.CheckValidCredsResponse:
             r"""Call the check valid creds method over HTTP.
 
             Args:
@@ -572,51 +687,56 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v1/{name=projects/*/locations/*/dataSources/*}:checkValidCreds',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v1/{name=projects/*/dataSources/*}:checkValidCreds',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v1/{name=projects/*/locations/*/dataSources/*}:checkValidCreds",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v1/{name=projects/*/dataSources/*}:checkValidCreds",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_check_valid_creds(request, metadata)
+            request, metadata = self._interceptor.pre_check_valid_creds(
+                request, metadata
+            )
             pb_request = datatransfer.CheckValidCredsRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -635,19 +755,24 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         def __hash__(self):
             return hash("CreateTransferConfig")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: datatransfer.CreateTransferConfigRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> transfer.TransferConfig:
+        def __call__(
+            self,
+            request: datatransfer.CreateTransferConfigRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> transfer.TransferConfig:
             r"""Call the create transfer config method over HTTP.
 
             Args:
@@ -682,51 +807,56 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v1/{parent=projects/*/locations/*}/transferConfigs',
-                'body': 'transfer_config',
-            },
-{
-                'method': 'post',
-                'uri': '/v1/{parent=projects/*}/transferConfigs',
-                'body': 'transfer_config',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v1/{parent=projects/*/locations/*}/transferConfigs",
+                    "body": "transfer_config",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v1/{parent=projects/*}/transferConfigs",
+                    "body": "transfer_config",
+                },
             ]
-            request, metadata = self._interceptor.pre_create_transfer_config(request, metadata)
+            request, metadata = self._interceptor.pre_create_transfer_config(
+                request, metadata
+            )
             pb_request = datatransfer.CreateTransferConfigRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -745,19 +875,24 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         def __hash__(self):
             return hash("DeleteTransferConfig")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: datatransfer.DeleteTransferConfigRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ):
+        def __call__(
+            self,
+            request: datatransfer.DeleteTransferConfigRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ):
             r"""Call the delete transfer config method over HTTP.
 
             Args:
@@ -774,41 +909,46 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
                     sent along with the request as metadata.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'delete',
-                'uri': '/v1/{name=projects/*/locations/*/transferConfigs/*}',
-            },
-{
-                'method': 'delete',
-                'uri': '/v1/{name=projects/*/transferConfigs/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "delete",
+                    "uri": "/v1/{name=projects/*/locations/*/transferConfigs/*}",
+                },
+                {
+                    "method": "delete",
+                    "uri": "/v1/{name=projects/*/transferConfigs/*}",
+                },
             ]
-            request, metadata = self._interceptor.pre_delete_transfer_config(request, metadata)
+            request, metadata = self._interceptor.pre_delete_transfer_config(
+                request, metadata
+            )
             pb_request = datatransfer.DeleteTransferConfigRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -819,19 +959,24 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         def __hash__(self):
             return hash("DeleteTransferRun")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: datatransfer.DeleteTransferRunRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ):
+        def __call__(
+            self,
+            request: datatransfer.DeleteTransferRunRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ):
             r"""Call the delete transfer run method over HTTP.
 
             Args:
@@ -846,41 +991,46 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
                     sent along with the request as metadata.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'delete',
-                'uri': '/v1/{name=projects/*/locations/*/transferConfigs/*/runs/*}',
-            },
-{
-                'method': 'delete',
-                'uri': '/v1/{name=projects/*/transferConfigs/*/runs/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "delete",
+                    "uri": "/v1/{name=projects/*/locations/*/transferConfigs/*/runs/*}",
+                },
+                {
+                    "method": "delete",
+                    "uri": "/v1/{name=projects/*/transferConfigs/*/runs/*}",
+                },
             ]
-            request, metadata = self._interceptor.pre_delete_transfer_run(request, metadata)
+            request, metadata = self._interceptor.pre_delete_transfer_run(
+                request, metadata
+            )
             pb_request = datatransfer.DeleteTransferRunRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -891,12 +1041,14 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         def __hash__(self):
             return hash("EnrollDataSources")
 
-        def __call__(self,
-                request: datatransfer.EnrollDataSourcesRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ):
+        def __call__(
+            self,
+            request: datatransfer.EnrollDataSourcesRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ):
             r"""Call the enroll data sources method over HTTP.
 
             Args:
@@ -911,50 +1063,55 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
                     sent along with the request as metadata.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v1/{name=projects/*/locations/*}:enrollDataSources',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v1/{name=projects/*}:enrollDataSources',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v1/{name=projects/*/locations/*}:enrollDataSources",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v1/{name=projects/*}:enrollDataSources",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_enroll_data_sources(request, metadata)
+            request, metadata = self._interceptor.pre_enroll_data_sources(
+                request, metadata
+            )
             pb_request = datatransfer.EnrollDataSourcesRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -965,19 +1122,24 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         def __hash__(self):
             return hash("GetDataSource")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: datatransfer.GetDataSourceRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> datatransfer.DataSource:
+        def __call__(
+            self,
+            request: datatransfer.GetDataSourceRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> datatransfer.DataSource:
             r"""Call the get data source method over HTTP.
 
             Args:
@@ -996,41 +1158,44 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1/{name=projects/*/locations/*/dataSources/*}',
-            },
-{
-                'method': 'get',
-                'uri': '/v1/{name=projects/*/dataSources/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1/{name=projects/*/locations/*/dataSources/*}",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v1/{name=projects/*/dataSources/*}",
+                },
             ]
             request, metadata = self._interceptor.pre_get_data_source(request, metadata)
             pb_request = datatransfer.GetDataSourceRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1049,19 +1214,24 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         def __hash__(self):
             return hash("GetTransferConfig")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: datatransfer.GetTransferConfigRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> transfer.TransferConfig:
+        def __call__(
+            self,
+            request: datatransfer.GetTransferConfigRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> transfer.TransferConfig:
             r"""Call the get transfer config method over HTTP.
 
             Args:
@@ -1087,41 +1257,46 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1/{name=projects/*/locations/*/transferConfigs/*}',
-            },
-{
-                'method': 'get',
-                'uri': '/v1/{name=projects/*/transferConfigs/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1/{name=projects/*/locations/*/transferConfigs/*}",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v1/{name=projects/*/transferConfigs/*}",
+                },
             ]
-            request, metadata = self._interceptor.pre_get_transfer_config(request, metadata)
+            request, metadata = self._interceptor.pre_get_transfer_config(
+                request, metadata
+            )
             pb_request = datatransfer.GetTransferConfigRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1140,19 +1315,24 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         def __hash__(self):
             return hash("GetTransferRun")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: datatransfer.GetTransferRunRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> transfer.TransferRun:
+        def __call__(
+            self,
+            request: datatransfer.GetTransferRunRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> transfer.TransferRun:
             r"""Call the get transfer run method over HTTP.
 
             Args:
@@ -1171,41 +1351,46 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
                     Represents a data transfer run.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1/{name=projects/*/locations/*/transferConfigs/*/runs/*}',
-            },
-{
-                'method': 'get',
-                'uri': '/v1/{name=projects/*/transferConfigs/*/runs/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1/{name=projects/*/locations/*/transferConfigs/*/runs/*}",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v1/{name=projects/*/transferConfigs/*/runs/*}",
+                },
             ]
-            request, metadata = self._interceptor.pre_get_transfer_run(request, metadata)
+            request, metadata = self._interceptor.pre_get_transfer_run(
+                request, metadata
+            )
             pb_request = datatransfer.GetTransferRunRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1224,19 +1409,24 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         def __hash__(self):
             return hash("ListDataSources")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: datatransfer.ListDataSourcesRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> datatransfer.ListDataSourcesResponse:
+        def __call__(
+            self,
+            request: datatransfer.ListDataSourcesRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> datatransfer.ListDataSourcesResponse:
             r"""Call the list data sources method over HTTP.
 
             Args:
@@ -1258,41 +1448,46 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1/{parent=projects/*/locations/*}/dataSources',
-            },
-{
-                'method': 'get',
-                'uri': '/v1/{parent=projects/*}/dataSources',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1/{parent=projects/*/locations/*}/dataSources",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v1/{parent=projects/*}/dataSources",
+                },
             ]
-            request, metadata = self._interceptor.pre_list_data_sources(request, metadata)
+            request, metadata = self._interceptor.pre_list_data_sources(
+                request, metadata
+            )
             pb_request = datatransfer.ListDataSourcesRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1311,19 +1506,24 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         def __hash__(self):
             return hash("ListTransferConfigs")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: datatransfer.ListTransferConfigsRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> datatransfer.ListTransferConfigsResponse:
+        def __call__(
+            self,
+            request: datatransfer.ListTransferConfigsRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> datatransfer.ListTransferConfigsResponse:
             r"""Call the list transfer configs method over HTTP.
 
             Args:
@@ -1344,41 +1544,46 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1/{parent=projects/*/locations/*}/transferConfigs',
-            },
-{
-                'method': 'get',
-                'uri': '/v1/{parent=projects/*}/transferConfigs',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1/{parent=projects/*/locations/*}/transferConfigs",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v1/{parent=projects/*}/transferConfigs",
+                },
             ]
-            request, metadata = self._interceptor.pre_list_transfer_configs(request, metadata)
+            request, metadata = self._interceptor.pre_list_transfer_configs(
+                request, metadata
+            )
             pb_request = datatransfer.ListTransferConfigsRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1397,19 +1602,24 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         def __hash__(self):
             return hash("ListTransferLogs")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: datatransfer.ListTransferLogsRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> datatransfer.ListTransferLogsResponse:
+        def __call__(
+            self,
+            request: datatransfer.ListTransferLogsRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> datatransfer.ListTransferLogsResponse:
             r"""Call the list transfer logs method over HTTP.
 
             Args:
@@ -1431,41 +1641,46 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1/{parent=projects/*/locations/*/transferConfigs/*/runs/*}/transferLogs',
-            },
-{
-                'method': 'get',
-                'uri': '/v1/{parent=projects/*/transferConfigs/*/runs/*}/transferLogs',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1/{parent=projects/*/locations/*/transferConfigs/*/runs/*}/transferLogs",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v1/{parent=projects/*/transferConfigs/*/runs/*}/transferLogs",
+                },
             ]
-            request, metadata = self._interceptor.pre_list_transfer_logs(request, metadata)
+            request, metadata = self._interceptor.pre_list_transfer_logs(
+                request, metadata
+            )
             pb_request = datatransfer.ListTransferLogsRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1484,19 +1699,24 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         def __hash__(self):
             return hash("ListTransferRuns")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: datatransfer.ListTransferRunsRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> datatransfer.ListTransferRunsResponse:
+        def __call__(
+            self,
+            request: datatransfer.ListTransferRunsRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> datatransfer.ListTransferRunsResponse:
             r"""Call the list transfer runs method over HTTP.
 
             Args:
@@ -1515,41 +1735,46 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1/{parent=projects/*/locations/*/transferConfigs/*}/runs',
-            },
-{
-                'method': 'get',
-                'uri': '/v1/{parent=projects/*/transferConfigs/*}/runs',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1/{parent=projects/*/locations/*/transferConfigs/*}/runs",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v1/{parent=projects/*/transferConfigs/*}/runs",
+                },
             ]
-            request, metadata = self._interceptor.pre_list_transfer_runs(request, metadata)
+            request, metadata = self._interceptor.pre_list_transfer_runs(
+                request, metadata
+            )
             pb_request = datatransfer.ListTransferRunsRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1568,19 +1793,24 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         def __hash__(self):
             return hash("ScheduleTransferRuns")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: datatransfer.ScheduleTransferRunsRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> datatransfer.ScheduleTransferRunsResponse:
+        def __call__(
+            self,
+            request: datatransfer.ScheduleTransferRunsRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> datatransfer.ScheduleTransferRunsResponse:
             r"""Call the schedule transfer runs method over HTTP.
 
             Args:
@@ -1601,51 +1831,56 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v1/{parent=projects/*/locations/*/transferConfigs/*}:scheduleRuns',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v1/{parent=projects/*/transferConfigs/*}:scheduleRuns',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v1/{parent=projects/*/locations/*/transferConfigs/*}:scheduleRuns",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v1/{parent=projects/*/transferConfigs/*}:scheduleRuns",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_schedule_transfer_runs(request, metadata)
+            request, metadata = self._interceptor.pre_schedule_transfer_runs(
+                request, metadata
+            )
             pb_request = datatransfer.ScheduleTransferRunsRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1664,77 +1899,84 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         def __hash__(self):
             return hash("StartManualTransferRuns")
 
-        def __call__(self,
-                request: datatransfer.StartManualTransferRunsRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> datatransfer.StartManualTransferRunsResponse:
+        def __call__(
+            self,
+            request: datatransfer.StartManualTransferRunsRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> datatransfer.StartManualTransferRunsResponse:
             r"""Call the start manual transfer
-        runs method over HTTP.
+            runs method over HTTP.
 
-            Args:
-                request (~.datatransfer.StartManualTransferRunsRequest):
-                    The request object. A request to start manual transfer
-                runs.
+                Args:
+                    request (~.datatransfer.StartManualTransferRunsRequest):
+                        The request object. A request to start manual transfer
+                    runs.
 
-                retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                    should be retried.
-                timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                    retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                        should be retried.
+                    timeout (float): The timeout for this request.
+                    metadata (Sequence[Tuple[str, str]]): Strings which should be
+                        sent along with the request as metadata.
 
-            Returns:
-                ~.datatransfer.StartManualTransferRunsResponse:
-                    A response to start manual transfer
-                runs.
+                Returns:
+                    ~.datatransfer.StartManualTransferRunsResponse:
+                        A response to start manual transfer
+                    runs.
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v1/{parent=projects/*/locations/*/transferConfigs/*}:startManualRuns',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v1/{parent=projects/*/transferConfigs/*}:startManualRuns',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v1/{parent=projects/*/locations/*/transferConfigs/*}:startManualRuns",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v1/{parent=projects/*/transferConfigs/*}:startManualRuns",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_start_manual_transfer_runs(request, metadata)
+            request, metadata = self._interceptor.pre_start_manual_transfer_runs(
+                request, metadata
+            )
             pb_request = datatransfer.StartManualTransferRunsRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1753,19 +1995,26 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         def __hash__(self):
             return hash("UpdateTransferConfig")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-            "updateMask" : {},        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {
+            "updateMask": {},
+        }
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: datatransfer.UpdateTransferConfigRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> transfer.TransferConfig:
+        def __call__(
+            self,
+            request: datatransfer.UpdateTransferConfigRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> transfer.TransferConfig:
             r"""Call the update transfer config method over HTTP.
 
             Args:
@@ -1793,51 +2042,56 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'patch',
-                'uri': '/v1/{transfer_config.name=projects/*/locations/*/transferConfigs/*}',
-                'body': 'transfer_config',
-            },
-{
-                'method': 'patch',
-                'uri': '/v1/{transfer_config.name=projects/*/transferConfigs/*}',
-                'body': 'transfer_config',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "patch",
+                    "uri": "/v1/{transfer_config.name=projects/*/locations/*/transferConfigs/*}",
+                    "body": "transfer_config",
+                },
+                {
+                    "method": "patch",
+                    "uri": "/v1/{transfer_config.name=projects/*/transferConfigs/*}",
+                    "body": "transfer_config",
+                },
             ]
-            request, metadata = self._interceptor.pre_update_transfer_config(request, metadata)
+            request, metadata = self._interceptor.pre_update_transfer_config(
+                request, metadata
+            )
             pb_request = datatransfer.UpdateTransferConfigRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1853,136 +2107,155 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
             return resp
 
     @property
-    def check_valid_creds(self) -> Callable[
-            [datatransfer.CheckValidCredsRequest],
-            datatransfer.CheckValidCredsResponse]:
+    def check_valid_creds(
+        self,
+    ) -> Callable[
+        [datatransfer.CheckValidCredsRequest], datatransfer.CheckValidCredsResponse
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._CheckValidCreds(self._session, self._host, self._interceptor) # type: ignore
+        return self._CheckValidCreds(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def create_transfer_config(self) -> Callable[
-            [datatransfer.CreateTransferConfigRequest],
-            transfer.TransferConfig]:
+    def create_transfer_config(
+        self,
+    ) -> Callable[[datatransfer.CreateTransferConfigRequest], transfer.TransferConfig]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._CreateTransferConfig(self._session, self._host, self._interceptor) # type: ignore
+        return self._CreateTransferConfig(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def delete_transfer_config(self) -> Callable[
-            [datatransfer.DeleteTransferConfigRequest],
-            empty_pb2.Empty]:
+    def delete_transfer_config(
+        self,
+    ) -> Callable[[datatransfer.DeleteTransferConfigRequest], empty_pb2.Empty]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._DeleteTransferConfig(self._session, self._host, self._interceptor) # type: ignore
+        return self._DeleteTransferConfig(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def delete_transfer_run(self) -> Callable[
-            [datatransfer.DeleteTransferRunRequest],
-            empty_pb2.Empty]:
+    def delete_transfer_run(
+        self,
+    ) -> Callable[[datatransfer.DeleteTransferRunRequest], empty_pb2.Empty]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._DeleteTransferRun(self._session, self._host, self._interceptor) # type: ignore
+        return self._DeleteTransferRun(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def enroll_data_sources(self) -> Callable[
-            [datatransfer.EnrollDataSourcesRequest],
-            empty_pb2.Empty]:
+    def enroll_data_sources(
+        self,
+    ) -> Callable[[datatransfer.EnrollDataSourcesRequest], empty_pb2.Empty]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._EnrollDataSources(self._session, self._host, self._interceptor) # type: ignore
+        return self._EnrollDataSources(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def get_data_source(self) -> Callable[
-            [datatransfer.GetDataSourceRequest],
-            datatransfer.DataSource]:
+    def get_data_source(
+        self,
+    ) -> Callable[[datatransfer.GetDataSourceRequest], datatransfer.DataSource]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._GetDataSource(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetDataSource(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def get_transfer_config(self) -> Callable[
-            [datatransfer.GetTransferConfigRequest],
-            transfer.TransferConfig]:
+    def get_transfer_config(
+        self,
+    ) -> Callable[[datatransfer.GetTransferConfigRequest], transfer.TransferConfig]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._GetTransferConfig(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetTransferConfig(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def get_transfer_run(self) -> Callable[
-            [datatransfer.GetTransferRunRequest],
-            transfer.TransferRun]:
+    def get_transfer_run(
+        self,
+    ) -> Callable[[datatransfer.GetTransferRunRequest], transfer.TransferRun]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._GetTransferRun(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetTransferRun(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_data_sources(self) -> Callable[
-            [datatransfer.ListDataSourcesRequest],
-            datatransfer.ListDataSourcesResponse]:
+    def list_data_sources(
+        self,
+    ) -> Callable[
+        [datatransfer.ListDataSourcesRequest], datatransfer.ListDataSourcesResponse
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListDataSources(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListDataSources(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_transfer_configs(self) -> Callable[
-            [datatransfer.ListTransferConfigsRequest],
-            datatransfer.ListTransferConfigsResponse]:
+    def list_transfer_configs(
+        self,
+    ) -> Callable[
+        [datatransfer.ListTransferConfigsRequest],
+        datatransfer.ListTransferConfigsResponse,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListTransferConfigs(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListTransferConfigs(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_transfer_logs(self) -> Callable[
-            [datatransfer.ListTransferLogsRequest],
-            datatransfer.ListTransferLogsResponse]:
+    def list_transfer_logs(
+        self,
+    ) -> Callable[
+        [datatransfer.ListTransferLogsRequest], datatransfer.ListTransferLogsResponse
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListTransferLogs(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListTransferLogs(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_transfer_runs(self) -> Callable[
-            [datatransfer.ListTransferRunsRequest],
-            datatransfer.ListTransferRunsResponse]:
+    def list_transfer_runs(
+        self,
+    ) -> Callable[
+        [datatransfer.ListTransferRunsRequest], datatransfer.ListTransferRunsResponse
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListTransferRuns(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListTransferRuns(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def schedule_transfer_runs(self) -> Callable[
-            [datatransfer.ScheduleTransferRunsRequest],
-            datatransfer.ScheduleTransferRunsResponse]:
+    def schedule_transfer_runs(
+        self,
+    ) -> Callable[
+        [datatransfer.ScheduleTransferRunsRequest],
+        datatransfer.ScheduleTransferRunsResponse,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ScheduleTransferRuns(self._session, self._host, self._interceptor) # type: ignore
+        return self._ScheduleTransferRuns(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def start_manual_transfer_runs(self) -> Callable[
-            [datatransfer.StartManualTransferRunsRequest],
-            datatransfer.StartManualTransferRunsResponse]:
+    def start_manual_transfer_runs(
+        self,
+    ) -> Callable[
+        [datatransfer.StartManualTransferRunsRequest],
+        datatransfer.StartManualTransferRunsResponse,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._StartManualTransferRuns(self._session, self._host, self._interceptor) # type: ignore
+        return self._StartManualTransferRuns(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def update_transfer_config(self) -> Callable[
-            [datatransfer.UpdateTransferConfigRequest],
-            transfer.TransferConfig]:
+    def update_transfer_config(
+        self,
+    ) -> Callable[[datatransfer.UpdateTransferConfigRequest], transfer.TransferConfig]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._UpdateTransferConfig(self._session, self._host, self._interceptor) # type: ignore
+        return self._UpdateTransferConfig(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
     def get_location(self):
-        return self._GetLocation(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetLocation(self._session, self._host, self._interceptor)  # type: ignore
 
     class _GetLocation(DataTransferServiceRestStub):
-        def __call__(self,
-            request: locations_pb2.GetLocationRequest, *,
-            retry: OptionalRetry=gapic_v1.method.DEFAULT,
-            timeout: Optional[float]=None,
-            metadata: Sequence[Tuple[str, str]]=(),
-            ) -> locations_pb2.Location:
+        def __call__(
+            self,
+            request: locations_pb2.GetLocationRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> locations_pb2.Location:
 
             r"""Call the get location method over HTTP.
 
@@ -1999,26 +2272,26 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
                 locations_pb2.Location: Response from GetLocation method.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1/{name=projects/*/locations/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1/{name=projects/*/locations/*}",
+                },
             ]
 
             request, metadata = self._interceptor.pre_get_location(request, metadata)
             request_kwargs = json_format.MessageToDict(request)
-            transcoded_request = path_template.transcode(
-                http_options, **request_kwargs)
+            transcoded_request = path_template.transcode(http_options, **request_kwargs)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json.dumps(transcoded_request['query_params']))
+            query_params = json.loads(json.dumps(transcoded_request["query_params"]))
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
 
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
@@ -2039,15 +2312,17 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
 
     @property
     def list_locations(self):
-        return self._ListLocations(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListLocations(self._session, self._host, self._interceptor)  # type: ignore
 
     class _ListLocations(DataTransferServiceRestStub):
-        def __call__(self,
-            request: locations_pb2.ListLocationsRequest, *,
-            retry: OptionalRetry=gapic_v1.method.DEFAULT,
-            timeout: Optional[float]=None,
-            metadata: Sequence[Tuple[str, str]]=(),
-            ) -> locations_pb2.ListLocationsResponse:
+        def __call__(
+            self,
+            request: locations_pb2.ListLocationsRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> locations_pb2.ListLocationsResponse:
 
             r"""Call the list locations method over HTTP.
 
@@ -2064,26 +2339,26 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
                 locations_pb2.ListLocationsResponse: Response from ListLocations method.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1/{name=projects/*}/locations',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1/{name=projects/*}/locations",
+                },
             ]
 
             request, metadata = self._interceptor.pre_list_locations(request, metadata)
             request_kwargs = json_format.MessageToDict(request)
-            transcoded_request = path_template.transcode(
-                http_options, **request_kwargs)
+            transcoded_request = path_template.transcode(http_options, **request_kwargs)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json.dumps(transcoded_request['query_params']))
+            query_params = json.loads(json.dumps(transcoded_request["query_params"]))
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
 
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
@@ -2110,6 +2385,4 @@ class DataTransferServiceRestTransport(DataTransferServiceTransport):
         self._session.close()
 
 
-__all__=(
-    'DataTransferServiceRestTransport',
-)
+__all__ = ("DataTransferServiceRestTransport",)
