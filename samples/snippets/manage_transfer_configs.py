@@ -162,7 +162,7 @@ def schedule_backfill_manual_transfer(override_values={}):
 
 
     # Replace with your transfer configuration name
-    transfer_config_name = "projects/<1234>/locations/<us>/transferConfigs/<abcd>"
+    transfer_config_name = "projects/1234/locations/us/transferConfigs/abcd"
     # [END bigquerydatatransfer_start_manual_transfer]
     # To facilitate testing, we replace values with alternatives
     # provided by the testing harness.
@@ -190,10 +190,7 @@ def schedule_backfill_manual_transfer(override_values={}):
 
     # Initialize request argument(s)
     request = StartManualTransferRunsRequest(
-        #parent="projects/240264904610/locations/us/transferConfigs/641f4360-0000-26d6-b940-f403045ed80c",
-        # parent="<your_transfer_config>"
         parent=transfer_config_name,
-        # parent="projects/xxxx/locations/us/transferConfigs/yyyy"
         requested_time_range=requested_time_range,
     )
 
