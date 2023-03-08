@@ -160,7 +160,6 @@ def schedule_backfill_manual_transfer(override_values={}):
     # Create a client object
     client = DataTransferServiceClient()
 
-
     # Replace with your transfer configuration name
     transfer_config_name = "projects/1234/locations/us/transferConfigs/abcd"
     # [END bigquerydatatransfer_start_manual_transfer]
