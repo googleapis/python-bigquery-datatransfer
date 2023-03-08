@@ -67,7 +67,7 @@ def test_schedule_backfill_manual_transfer(capsys, transfer_config_name):
         {"transfer_config_name": transfer_config_name}
     )
     out, _ = capsys.readouterr()
-    assert "Started transfer runs:" in out
+    assert "Started manual transfer runs:" in out
     # Run IDs should include the transfer name in their path.
     assert transfer_config_name in out
     # Check that there are runs for 5, 4, 3, and 2 days ago.
