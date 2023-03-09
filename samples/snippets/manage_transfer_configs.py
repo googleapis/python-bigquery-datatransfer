@@ -151,7 +151,6 @@ def schedule_backfill_manual_transfer(override_values={}):
     # [START bigquerydatatransfer_start_manual_transfer]
     import datetime
 
-    from google.cloud import bigquery_datatransfer_v1
     from google.cloud.bigquery_datatransfer_v1 import (
         DataTransferServiceClient,
         StartManualTransferRunsRequest,
