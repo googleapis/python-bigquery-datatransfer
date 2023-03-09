@@ -59,29 +59,7 @@ def test_schedule_backfill(capsys, transfer_config_name):
     # Run IDs should include the transfer name in their path.
     assert transfer_config_name in out
     # Check that there are runs for 5, 4, 3, and 2 days ago.
-    print("TEST SCHEDULE BACKFILL", *runs, sep="\n")
-    import datetime
-    now = datetime.datetime.now(datetime.timezone.utc)
-    start_time = now - datetime.timedelta(days=5)
-    end_time = now - datetime.timedelta(days=2)
-
-    # Some data sources, such as scheduled_query only support daily run.
-    # Truncate start_time and end_time to midnight time (00:00AM UTC).
-    start_time = datetime.datetime(
-        start_time.year, start_time.month, start_time.day, tzinfo=datetime.timezone.utc
-    )
-    end_time = datetime.datetime(
-        end_time.year, end_time.month, end_time.day, tzinfo=datetime.timezone.utc
-    )
-    from google.cloud.bigquery_datatransfer_v1 import StartManualTransferRunsRequest
-    requested_time_range = StartManualTransferRunsRequest.TimeRange(
-        start_time=start_time,
-        end_time=end_time,
-    )
-    print("TEST STIME, ETIME", start_time, end_time)
-    print("REQUESTED TIME RANGE", requested_time_range) 
-    
-    assert len(runs) == 5 # hoping to cause this to fail
+    assert len(runs) == 4
 
 
 def test_schedule_backfill_manual_transfer(capsys, transfer_config_name):
@@ -92,30 +70,8 @@ def test_schedule_backfill_manual_transfer(capsys, transfer_config_name):
     assert "Started manual transfer runs:" in out
     # Run IDs should include the transfer name in their path.
     assert transfer_config_name in out
-    # Check that there are runs for 5, 4, 3, and 2 days ago.
-    print("TEST SB MANUAL TRANSFER", *runs, sep="\n")
-    import datetime
-    now = datetime.datetime.now(datetime.timezone.utc)
-    start_time = now - datetime.timedelta(days=5)
-    end_time = now - datetime.timedelta(days=2)
-
-    # Some data sources, such as scheduled_query only support daily run.
-    # Truncate start_time and end_time to midnight time (00:00AM UTC).
-    start_time = datetime.datetime(
-        start_time.year, start_time.month, start_time.day, tzinfo=datetime.timezone.utc
-    )
-    end_time = datetime.datetime(
-        end_time.year, end_time.month, end_time.day, tzinfo=datetime.timezone.utc
-    )
-    from google.cloud.bigquery_datatransfer_v1 import StartManualTransferRunsRequest
-    requested_time_range = StartManualTransferRunsRequest.TimeRange(
-        start_time=start_time,
-        end_time=end_time,
-    )
-    print("TEST STIME, ETIME", start_time, end_time)
-    print("REQUESTED TIME RANGE", requested_time_range) 
-
-    assert len(runs) == 4
+    # Check that there are three runs for between 2 and 5 days ago.
+    assert len(runs) == 3
 
 
 def test_delete_config(capsys, transfer_config_name):
