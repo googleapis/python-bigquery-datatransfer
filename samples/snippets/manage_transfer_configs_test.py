@@ -60,6 +60,7 @@ def test_schedule_backfill(capsys, transfer_config_name):
     assert transfer_config_name in out
     # Check that there are runs for 5, 4, 3, and 2 days ago.
     print("TEST SCHEDULE BACKFILL", *runs, sep="\n")
+    import datetime
     now = datetime.datetime.now(datetime.timezone.utc)
     start_time = now - datetime.timedelta(days=5)
     end_time = now - datetime.timedelta(days=2)
@@ -72,7 +73,7 @@ def test_schedule_backfill(capsys, transfer_config_name):
     end_time = datetime.datetime(
         end_time.year, end_time.month, end_time.day, tzinfo=datetime.timezone.utc
     )
-
+    from google.cloud.bigquery_datatransfer_v1 import StartManualTransferRunsRequest
     requested_time_range = StartManualTransferRunsRequest.TimeRange(
         start_time=start_time,
         end_time=end_time,
@@ -93,7 +94,7 @@ def test_schedule_backfill_manual_transfer(capsys, transfer_config_name):
     assert transfer_config_name in out
     # Check that there are runs for 5, 4, 3, and 2 days ago.
     print("TEST SB MANUAL TRANSFER", *runs, sep="\n")
-
+    import datetime
     now = datetime.datetime.now(datetime.timezone.utc)
     start_time = now - datetime.timedelta(days=5)
     end_time = now - datetime.timedelta(days=2)
@@ -106,7 +107,7 @@ def test_schedule_backfill_manual_transfer(capsys, transfer_config_name):
     end_time = datetime.datetime(
         end_time.year, end_time.month, end_time.day, tzinfo=datetime.timezone.utc
     )
-
+    from google.cloud.bigquery_datatransfer_v1 import StartManualTransferRunsRequest
     requested_time_range = StartManualTransferRunsRequest.TimeRange(
         start_time=start_time,
         end_time=end_time,
