@@ -60,7 +60,7 @@ def test_schedule_backfill(capsys, transfer_config_name):
     assert transfer_config_name in out
     # Check that there are runs for 5, 4, 3, and 2 days ago.
     print("TEST SCHEDULE BACKFILL", *runs, sep="\n")
-    assert len(runs) == 4
+    assert len(runs) == 5 # hoping to cause this to fail
 
 
 def test_schedule_backfill_manual_transfer(capsys, transfer_config_name):
