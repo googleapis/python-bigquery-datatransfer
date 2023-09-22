@@ -4,6 +4,14 @@
 
 [1]: https://pypi.org/project/google-cloud-bigquery-datatransfer/#history
 
+## [3.12.1](https://github.com/googleapis/python-bigquery-datatransfer/compare/v3.12.0...v3.12.1) (2023-09-22)
+
+
+### Documentation
+
+* Minor formatting ([091adac](https://github.com/googleapis/python-bigquery-datatransfer/commit/091adac922eae2d5b35816f6dc07913a594bd169))
+* Update transferConfig.name description to indicate that it supports both formats ([091adac](https://github.com/googleapis/python-bigquery-datatransfer/commit/091adac922eae2d5b35816f6dc07913a594bd169))
+
 ## [3.12.0](https://github.com/googleapis/python-bigquery-datatransfer/compare/v3.11.2...v3.12.0) (2023-08-01)
 
 
